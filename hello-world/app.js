@@ -3,6 +3,7 @@ import WebXRPolyfill from 'webxr-polyfill'
 import App from 'potassium-es/src/App'
 
 import LabelComponent from 'potassium-components/src/LabelComponent.js'
+import ModeSwitcherComponent from 'potassium-components/src/ModeSwitcherComponent.js'
 
 new WebXRPolyfill()
 
@@ -14,6 +15,9 @@ const HelloWorldApp = class extends App {
 			text: 'Hello world'
 		})
 		this.appendComponent(this._labelComponent)
+
+		this._modeSwitcherComponent = new ModeSwitcherComponent()
+		this.appendComponent(this._modeSwitcherComponent)
 	}
 }
 
