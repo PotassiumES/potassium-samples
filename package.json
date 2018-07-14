@@ -7,7 +7,8 @@
     "start": "npm run build && http-server .",
     "collect-static": "./scripts/collect-static.sh",
     "build-hello-world": "cross-env NODE_ENV=production rollup -c hello-world/rollup.config.js",
-    "build": "npm run collect-static && npm run build-hello-world"
+    "build-single-page-app": "cross-env NODE_ENV=production rollup -c single-page-app/rollup.config.js",
+    "build": "npm run collect-static && npm run build-hello-world && npm run build-single-page-app"
   },
   "repository": {
     "type": "git",
