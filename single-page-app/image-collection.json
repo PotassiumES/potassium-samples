@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"image": "/single-page-app/images/one.jpg",
+		"title": "One",
+		"caption": "The one and only"
+	},
+	{
+		"id": 2,
+		"image": "/single-page-app/images/two.png",
+		"title": "Two",
+		"caption": "It takes two to tango."
+	},
+	{
+		"id": 3,
+		"image": "/single-page-app/images/three.png",
+		"title": "Three",
+		"caption": "Three's a crowd."
+	},
+	{
+		"id": 4,
+		"image": "/single-page-app/images/four.jpg",
+		"title": "Four",
+		"caption": "Earth, Wind, Fire, and Air."
+	},
+	{
+		"id": 5,
+		"image": "/single-page-app/images/five.jpg",
+		"title": "Five",
+		"caption": "Top Five Desert Island Picks"
+	},
+	{
+		"id": 6,
+		"image": "/single-page-app/images/six.png",
+		"title": "Six",
+		"caption": "Why is six scared of seven?"
+	},
+	{
+		"id": 7,
+		"image": "/single-page-app/images/seven.jpg",
+		"title": "Seven",
+		"caption": "Because seven ate nine."
+	}
+]

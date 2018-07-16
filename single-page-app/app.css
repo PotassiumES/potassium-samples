@@ -5,14 +5,10 @@
 App specific styles
 */
 
-.views-component .heading-component {
+.views-component > .heading-component {
 	font-size: var(--font-size-4);
 }
 
 .views-component > .component {
 	padding: 0 var(--app-content-padding);
-}
-
-@media (min-width: 576px) {
-
 }
