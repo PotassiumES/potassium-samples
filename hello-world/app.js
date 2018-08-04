@@ -2,7 +2,7 @@ import WebXRPolyfill from 'webxr-polyfill'
 
 import App from 'potassium-es/src/App'
 
-import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
+import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 import ModeSwitcherComponent from 'potassium-components/src/molecules/ModeSwitcherComponent.js'
 
 new WebXRPolyfill()
@@ -11,10 +11,10 @@ const HelloWorldApp = class extends App {
 	constructor(){
 		super()
 
-		this._labelComponent = new LabelComponent(null, {
+		this._headingComponent = new HeadingComponent(null, {
 			text: 'Hello world'
 		})
-		this.appendComponent(this._labelComponent)
+		this.appendComponent(this._headingComponent)
 
 		this._modeSwitcherComponent = new ModeSwitcherComponent()
 		this.appendComponent(this._modeSwitcherComponent)
@@ -24,6 +24,9 @@ const HelloWorldApp = class extends App {
 		this._modeSwitcherComponent.addListener((eventName, mode) => {
 			this.setDisplayMode(mode)
 		}, ModeSwitcherComponent.ModeChangedEvent)
+		this.addListener((eventName, mode) => {
+			this._modeSwitcherComponent.handleSwitchFailed(mode)
+		}, App.DisplayModeFailedEvent)
 	}
 }
 
