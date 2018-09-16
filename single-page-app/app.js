@@ -1,5 +1,3 @@
-import WebXRPolyfill from 'webxr-polyfill'
-
 import App from 'potassium-es/src/App'
 import Component from 'potassium-es/src/Component'
 import DataModel from 'potassium-es/src/DataModel'
@@ -11,9 +9,6 @@ import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComp
 
 import MastheadComponent from 'potassium-components/src/organisms/MastheadComponent.js'
 import MediaGridComponent from 'potassium-components/src/organisms/MediaGridComponent.js'
-
-// Polyfill WebXR so that we can detect and use portal and immersive display modes
-new WebXRPolyfill()
 
 const SinglePageApp = class extends App {
 	constructor(){

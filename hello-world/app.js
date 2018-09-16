@@ -1,11 +1,7 @@
-import WebXRPolyfill from 'webxr-polyfill'
-
 import App from 'potassium-es/src/App'
 
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 import ModeSwitcherComponent from 'potassium-components/src/molecules/ModeSwitcherComponent.js'
-
-new WebXRPolyfill()
 
 const HelloWorldApp = class extends App {
 	constructor(){
@@ -27,8 +23,16 @@ const HelloWorldApp = class extends App {
 		this.addListener((eventName, mode) => {
 			this._modeSwitcherComponent.handleSwitchFailed(mode)
 		}, App.DisplayModeFailedEvent)
+
+		let light = new THREE.DirectionalLight(0xffffff, 0.7)
+		light.position.set(0, 10, 20)
+		this._immersiveScene.add(light)
+		this._immersiveScene.add(light.target)
+		this._immersiveScene.add(new THREE.AmbientLight(0xffffff, 0.2))
 	}
 }
+
+
 
 document.addEventListener('DOMContentLoaded', ev => {
 	window.app = new HelloWorldApp()
