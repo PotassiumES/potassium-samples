@@ -27,9 +27,14 @@ const SinglePageApp = class extends App {
 			]
 		})
 		this.appendComponent(this._masthead)
+		this._masthead.immersiveGraph.position.set(0, 0, -2)
+		this._masthead.addListener((eventName, mode) => {
+			this.setDisplayMode(mode)
+		}, MastheadComponent.MODE_REQUEST_EVENT)
 
 		// These are the views that we'll switch among when responding to Router events
 		this._viewsComponent = new Component().appendTo(this)
+		this._viewsComponent.immersiveGraph.position.set(0, -1, -2)
 		this._viewsComponent.addClass('views-component')
 		this._frontComponent = new FrontComponent(this._imageCollection).appendTo(this._viewsComponent)
 		this._aboutComponent = new AboutComponent().appendTo(this._viewsComponent)
@@ -41,6 +46,12 @@ const SinglePageApp = class extends App {
 		this.router.addRoute(/^account$/, 'account')
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()
+
+		let light = new THREE.DirectionalLight(0xffffff, 0.7)
+		light.position.set(0, 10, 20)
+		this._immersiveScene.add(light)
+		this._immersiveScene.add(light.target)
+		this._immersiveScene.add(new THREE.AmbientLight(0xffffff, 0.2))
 
 		this._imageCollection.fetch()
 	}

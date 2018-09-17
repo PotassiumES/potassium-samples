@@ -11,6 +11,7 @@ const HelloWorldApp = class extends App {
 			text: 'Hello world'
 		})
 		this.appendComponent(this._headingComponent)
+		this._headingComponent.immersiveGraph.position.set(0, 0, -2)
 
 		this._modeSwitcherComponent = new ModeSwitcherComponent()
 		this.appendComponent(this._modeSwitcherComponent)
