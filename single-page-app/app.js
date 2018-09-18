@@ -18,6 +18,8 @@ const SinglePageApp = class extends App {
 
 		this._imageCollection = new ImageCollection()
 
+		const uiZOffset = -2
+
 		this._masthead = new MastheadComponent(null, {
 			brand: this._brand,
 			menuItems: [
@@ -27,14 +29,14 @@ const SinglePageApp = class extends App {
 			]
 		})
 		this.appendComponent(this._masthead)
-		this._masthead.immersiveGraph.position.set(0, 0, -2)
+		this._masthead.immersiveGraph.position.set(0, 0, uiZOffset)
 		this._masthead.addListener((eventName, mode) => {
 			this.setDisplayMode(mode)
 		}, MastheadComponent.MODE_REQUEST_EVENT)
 
 		// These are the views that we'll switch among when responding to Router events
 		this._viewsComponent = new Component().appendTo(this)
-		this._viewsComponent.immersiveGraph.position.set(0, -1, -2)
+		this._viewsComponent.immersiveGraph.position.set(0, -0.5, uiZOffset)
 		this._viewsComponent.addClass('views-component')
 		this._frontComponent = new FrontComponent(this._imageCollection).appendTo(this._viewsComponent)
 		this._aboutComponent = new AboutComponent().appendTo(this._viewsComponent)
@@ -57,27 +59,27 @@ const SinglePageApp = class extends App {
 	}
 
 	showFront(){
-		this._frontComponent.removeClass('hidden')
-		this._aboutComponent.addClass('hidden')
-		this._accountComponent.addClass('hidden')
+		this._frontComponent.show()
+		this._aboutComponent.hide()
+		this._accountComponent.hide()
 		document.title = this._titlePrefix + 'Front'
-		this._masthead.navigationMenu.setSelected(0)
+		this._masthead.navigationMenu.selectedIndex = 0
 	}
 
 	showAbout(){
-		this._frontComponent.addClass('hidden')
-		this._aboutComponent.removeClass('hidden')
-		this._accountComponent.addClass('hidden')
+		this._frontComponent.hide()
+		this._aboutComponent.show()
+		this._accountComponent.hide()
 		document.title = this._titlePrefix + 'About'
-		this._masthead.navigationMenu.setSelected(1)
+		this._masthead.navigationMenu.selectedIndex = 1
 	}
 
 	showAccount(){
-		this._frontComponent.addClass('hidden')
-		this._aboutComponent.addClass('hidden')
-		this._accountComponent.removeClass('hidden')
+		this._frontComponent.hide()
+		this._aboutComponent.hide()
+		this._accountComponent.show()
 		document.title = this._titlePrefix + 'Account'
-		this._masthead.navigationMenu.setSelected(2)
+		this._masthead.navigationMenu.selectedIndex = 2
 	}
 
 	_handleRoutes(routeName, hash, ...regexMatches){

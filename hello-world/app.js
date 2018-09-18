@@ -16,7 +16,6 @@ const HelloWorldApp = class extends App {
 		this._modeSwitcherComponent = new ModeSwitcherComponent()
 		this.appendComponent(this._modeSwitcherComponent)
 		this._modeSwitcherComponent.immersiveGraph.position.set(-1, 0, -2)
-		this._modeSwitcherComponent.immersiveGraph.scale.set(0.5, 0.5, 0.5)
 		this.appendComponent(this._modeSwitcherComponent)
 		this._modeSwitcherComponent.addListener((eventName, mode) => {
 			this.setDisplayMode(mode)
