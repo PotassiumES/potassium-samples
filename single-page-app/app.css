@@ -12,3 +12,10 @@ App specific styles
 .views-component > .component {
 	padding: 0 var(--app-content-padding);
 }
+
+
+/*** AccountComponent ***/
+
+.account-component .profile-form-component {
+	margin-top: var(--app-content-padding);
+}

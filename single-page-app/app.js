@@ -1,6 +1,7 @@
 import App from 'potassium-es/src/App'
 import Component from 'potassium-es/src/Component'
 import DataModel from 'potassium-es/src/DataModel'
+import {lt, ld, ldt} from 'potassium-es/src/Localizer'
 import DataCollection from 'potassium-es/src/DataCollection'
 
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
@@ -10,11 +11,21 @@ import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComp
 import MastheadComponent from 'potassium-components/src/organisms/MastheadComponent.js'
 import MediaGridComponent from 'potassium-components/src/organisms/MediaGridComponent.js'
 
+import AccountComponent from './AccountComponent.js'
+
 const SinglePageApp = class extends App {
 	constructor(){
 		super()
 		this._brand = 'PotassiumES'
 		this._titlePrefix = this._brand + ' • '
+
+		// Usually we'd fetch this from a server, but for the demo just initialize the user DataModel with dummy data
+		this._user = new DataModel({
+			name: lt('Petula Wong'),
+			email: lt('petula.w@example.com'),
+			phone: lt('206.555.1212'),
+			birthday: new Date('04 Dec 1995 00:12:00 GMT')
+		})
 
 		this._imageCollection = new ImageCollection()
 
@@ -23,9 +34,9 @@ const SinglePageApp = class extends App {
 		this._masthead = new MastheadComponent(null, {
 			brand: this._brand,
 			menuItems: [
-				{ name: 'Front', anchor: './#' },
-				{ name: 'About', anchor: './#about' },
-				{ name: 'Account', anchor: './#account' }
+				{ name: lt('Front'), anchor: './#' },
+				{ name: lt('About'), anchor: './#about' },
+				{ name: lt('Account'), anchor: './#account' }
 			]
 		})
 		this.appendComponent(this._masthead)
@@ -40,7 +51,7 @@ const SinglePageApp = class extends App {
 		this._viewsComponent.addClass('views-component')
 		this._frontComponent = new FrontComponent(this._imageCollection).appendTo(this._viewsComponent)
 		this._aboutComponent = new AboutComponent().appendTo(this._viewsComponent)
-		this._accountComponent = new AccountComponent().appendTo(this._viewsComponent)
+		this._accountComponent = new AccountComponent(this._user).appendTo(this._viewsComponent)
 
 		// Set up our URL router to handle view switching
 		this.router.addRoute(/^$/, 'front')
@@ -62,7 +73,7 @@ const SinglePageApp = class extends App {
 		this._frontComponent.show()
 		this._aboutComponent.hide()
 		this._accountComponent.hide()
-		document.title = this._titlePrefix + 'Front'
+		document.title = this._titlePrefix + lt('Front')
 		this._masthead.navigationMenu.selectedIndex = 0
 	}
 
@@ -70,7 +81,7 @@ const SinglePageApp = class extends App {
 		this._frontComponent.hide()
 		this._aboutComponent.show()
 		this._accountComponent.hide()
-		document.title = this._titlePrefix + 'About'
+		document.title = this._titlePrefix + lt('About')
 		this._masthead.navigationMenu.selectedIndex = 1
 	}
 
@@ -78,7 +89,7 @@ const SinglePageApp = class extends App {
 		this._frontComponent.hide()
 		this._aboutComponent.hide()
 		this._accountComponent.show()
-		document.title = this._titlePrefix + 'Account'
+		document.title = this._titlePrefix + lt('Account')
 		this._masthead.navigationMenu.selectedIndex = 2
 	}
 
@@ -129,14 +140,6 @@ const AboutComponent = class extends Component {
 	constructor(dataObject=null, options=null){
 		super(dataObject, options)
 		this.addClass('about-component')
-		this._headingComponent = new HeadingComponent(null, { text: 'About' }).appendTo(this)
-	}
-}
-
-const AccountComponent = class extends Component {
-	constructor(dataObject=null, options=null){
-		super(dataObject, options)
-		this.addClass('account-component')
-		this._headingComponent = new HeadingComponent(null, { text: 'Account' }).appendTo(this)
+		this._headingComponent = new HeadingComponent(null, { text: lt('About') }).appendTo(this)
 	}
 }

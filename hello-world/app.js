@@ -1,4 +1,5 @@
 import App from 'potassium-es/src/App'
+import {lt, ld, ldt} from 'potassium-es/src/Localizer'
 
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 import ModeSwitcherComponent from 'potassium-components/src/molecules/ModeSwitcherComponent.js'
@@ -8,7 +9,7 @@ const HelloWorldApp = class extends App {
 		super()
 
 		this._headingComponent = new HeadingComponent(null, {
-			text: 'Hello world'
+			text: lt('Hello world')
 		})
 		this.appendComponent(this._headingComponent)
 		this._headingComponent.immersiveGraph.position.set(0, 0, -2)
