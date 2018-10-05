@@ -1,5 +1,5 @@
-@import url("/static/potassium-es/css/potassium-es.css");
-@import url("/static/potassium-components/css/potassium-components.css");
+@import url("potassium-es/styles/potassium-es.kss");
+@import url("potassium-components/styles/potassium-components.kss");
 
 /*
 App specific styles
