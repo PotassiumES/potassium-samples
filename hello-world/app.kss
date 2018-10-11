@@ -1,9 +1,7 @@
 @import url("potassium-es/styles/potassium-es.kss");
 @import url("potassium-components/styles/potassium-components.kss");
 
-/*
-App specific styles
-*/
+/* App specific styles */
 
 .flat-root {
 	padding: 10px;
