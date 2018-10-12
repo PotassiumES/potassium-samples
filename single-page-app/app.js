@@ -1,7 +1,7 @@
 import App from 'potassium-es/src/App'
 import Component from 'potassium-es/src/Component'
 import DataModel from 'potassium-es/src/DataModel'
-import {lt, ld, ldt} from 'potassium-es/src/Localizer'
+import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 import DataCollection from 'potassium-es/src/DataCollection'
 
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
@@ -14,7 +14,7 @@ import MediaGridComponent from 'potassium-components/src/organisms/MediaGridComp
 import AccountComponent from './AccountComponent.js'
 
 const SinglePageApp = class extends App {
-	constructor(){
+	constructor() {
 		super()
 		this._brand = 'PotassiumES'
 		this._titlePrefix = this._brand + ' • '
@@ -60,7 +60,7 @@ const SinglePageApp = class extends App {
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()
 
-		let light = new THREE.DirectionalLight(0xffffff, 0.7)
+		const light = new THREE.DirectionalLight(0xffffff, 0.7)
 		light.position.set(0, 10, 20)
 		this._immersiveScene.add(light)
 		this._immersiveScene.add(light.target)
@@ -69,7 +69,7 @@ const SinglePageApp = class extends App {
 		this._imageCollection.fetch()
 	}
 
-	showFront(){
+	showFront() {
 		this._frontComponent.show()
 		this._aboutComponent.hide()
 		this._accountComponent.hide()
@@ -77,7 +77,7 @@ const SinglePageApp = class extends App {
 		this._masthead.navigationMenu.selectedIndex = 0
 	}
 
-	showAbout(){
+	showAbout() {
 		this._frontComponent.hide()
 		this._aboutComponent.show()
 		this._accountComponent.hide()
@@ -85,7 +85,7 @@ const SinglePageApp = class extends App {
 		this._masthead.navigationMenu.selectedIndex = 1
 	}
 
-	showAccount(){
+	showAccount() {
 		this._frontComponent.hide()
 		this._aboutComponent.hide()
 		this._accountComponent.show()
@@ -93,8 +93,8 @@ const SinglePageApp = class extends App {
 		this._masthead.navigationMenu.selectedIndex = 2
 	}
 
-	_handleRoutes(routeName, hash, ...regexMatches){
-		switch(routeName){
+	_handleRoutes(routeName, hash, ...regexMatches) {
+		switch (routeName) {
 			case 'about':
 				this.showAbout()
 				break
@@ -117,16 +117,24 @@ A couple of helper DataObjects for the media grid
 */
 const ImageModel = class extends DataModel {}
 const ImageCollection = class extends DataCollection {
-	constructor(data=[], options={}){
-		super(data, Object.assign({
-			dataObject: ImageModel
-		}, options))
+	constructor(data = [], options = {}) {
+		super(
+			data,
+			Object.assign(
+				{
+					dataObject: ImageModel
+				},
+				options
+			)
+		)
 	}
-	get url(){ return '/single-page-app/image-collection.json' }
+	get url() {
+		return '/single-page-app/image-collection.json'
+	}
 }
 
 const FrontComponent = class extends Component {
-	constructor(dataObject=null, options=null){
+	constructor(dataObject = null, options = null) {
 		super(dataObject, options)
 		this.addClass('front-component')
 
@@ -137,7 +145,7 @@ const FrontComponent = class extends Component {
 }
 
 const AboutComponent = class extends Component {
-	constructor(dataObject=null, options=null){
+	constructor(dataObject = null, options = null) {
 		super(dataObject, options)
 		this.addClass('about-component')
 		this._headingComponent = new HeadingComponent(null, { text: lt('About') }).appendTo(this)

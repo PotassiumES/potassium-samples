@@ -1,5 +1,5 @@
 import Component from 'potassium-es/src/Component'
-import {lt, ld, ldt} from 'potassium-es/src/Localizer'
+import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 
 import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
 import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent.js'
@@ -16,7 +16,7 @@ import ButtonGroupComponent from 'potassium-components/src/molecules/ButtonGroup
 import DateTimePickerComponent from 'potassium-components/src/molecules/DateTimePickerComponent.js'
 
 const AccountComponent = class extends Component {
-	constructor(dataObject=null, options=null){
+	constructor(dataObject = null, options = null) {
 		super(dataObject, options)
 		this.addClass('account-component')
 
@@ -43,10 +43,16 @@ const AccountComponent = class extends Component {
 export default AccountComponent
 
 const ProfileFormComponent = class extends forms.FormComponent {
-	constructor(dataObject=null, options={}){
-		super(dataObject, Object.assign({
-			heading: lt('Profile info')
-		}, options))
+	constructor(dataObject = null, options = {}) {
+		super(
+			dataObject,
+			Object.assign(
+				{
+					heading: lt('Profile info')
+				},
+				options
+			)
+		)
 		this.addClass('profile-form-component')
 
 		this._nameInputComponent = new forms.TextInputFieldComponent(dataObject, {
