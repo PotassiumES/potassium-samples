@@ -6,16 +6,16 @@ App specific styles
 */
 
 .views-component > .heading-component {
-	font-size: var(--font-size-4);
+	font-size: var(--page-font-size-4);
 }
 
 .views-component > .component {
-	padding: 0 var(--app-content-padding);
+	padding: 0 var(--page-app-content-padding);
 }
 
 
 /*** AccountComponent ***/
 
 .account-component .profile-form-component {
-	margin-top: var(--app-content-padding);
+	margin-top: var(--page-app-content-padding);
 }
