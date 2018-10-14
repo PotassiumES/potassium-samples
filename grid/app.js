@@ -6,6 +6,8 @@ import Stylist from 'potassium-es/src/style/Stylist'
 import { FlatDisplay } from 'potassium-es/src/Engine'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 
+import VideoPlayerComponent from 'potassium-components/src/molecules/VideoPlayerComponent'
+
 const GridApp = class extends App {
 	constructor() {
 		super()
@@ -23,33 +25,13 @@ const GridApp = class extends App {
 
 		const light = new THREE.DirectionalLight(0xffffff, 0.7)
 		light.name = 'DirectionalLight'
-		light.position.set(0, 10, 20)
 		this._immersiveScene.add(light)
 		this._immersiveScene.add(light.target)
 		const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
 		ambientLight.name = 'AmbientLight'
 		this._immersiveScene.add(ambientLight)
 
-		this._gridContainer = new Component().appendTo(this)
-		this._gridContainer.immersiveGraph.name = 'GridContainer'
-		this._gridContainer.addClass('grid-container')
-		for (let i = 0; i < 10; i++) {
-			const childComponent = new Component().appendTo(this._gridContainer)
-			childComponent.addClass('grid-child')
-			childComponent.portalGraph.name = childComponent.immersiveGraph.name = 'GridChild'
-			childComponent.portalGraph.add(
-				new THREE.Mesh(new THREE.BoxBufferGeometry(0.1, 0.1, 0.01), new THREE.MeshBasicMaterial({ color: 0x224466 }))
-			)
-			childComponent.immersiveGraph.add(
-				new THREE.Mesh(
-					new THREE.BoxBufferGeometry(0.1, 0.1, 0.01),
-					i === 4 ? new THREE.MeshBasicMaterial({ color: 0x994499 }) : new THREE.MeshBasicMaterial({ color: 0x224466 })
-				)
-			)
-			childComponent.portalGraph.children[
-				childComponent.portalGraph.children.length - 1
-			].name = childComponent.immersiveGraph.children[childComponent.immersiveGraph.children.length - 1].name = 'Box'
-		}
+		this._videoPlayerComponent = new VideoPlayerComponent().appendTo(this)
 
 		this._sceneWrapper = el.div({ class: 'scene-wrapper' }).appendTo(this.flatEl)
 		this._flatCamera = graph.perspectiveCamera([45, 1, 0.5, 10000])

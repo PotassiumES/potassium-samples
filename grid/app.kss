@@ -33,15 +33,10 @@
 	left: 30px;
 }
 
-.immersive-graph.grid-container {
-	centroid: 0 24cm -1m;
-	display: grid;
-	grid-auto-flow: row;
-	grid-template: 10cm / 10cm 10cm 10cm;
-	gap: 2cm;
-	grid-auto-rows: 10cm;
-	grid-auto-columns: 12cm;
+node[name=DirectionalLight] {
+	centroid: 0 10m 20m
 }
 
-node.grid-child {
+.immersive-graph.video-player-component {
+	centroid: 0 0.2m -0.9m;
 }
