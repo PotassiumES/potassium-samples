@@ -31,7 +31,12 @@ const GridApp = class extends App {
 		ambientLight.name = 'AmbientLight'
 		this._immersiveScene.add(ambientLight)
 
-		this._videoPlayerComponent = new VideoPlayerComponent().appendTo(this)
+		const test16x9video = '/test16x9video.mov'
+		const test4x3video = '/test4x3video.m4v'
+		this._videoPlayerComponent = new VideoPlayerComponent(null, {
+			url: test16x9video,
+			mimeType: 'video/mp4'
+		}).appendTo(this)
 
 		this._sceneWrapper = el.div({ class: 'scene-wrapper' }).appendTo(this.flatEl)
 		this._flatCamera = graph.perspectiveCamera([45, 1, 0.5, 10000])

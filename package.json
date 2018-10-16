@@ -20,7 +20,8 @@
     "prettier-grid": "prettier --write grid/**/*.js grid/**/*.js",
     "prettier-hello-world": "prettier --write hello-world/**/*.js hello-world/**/*.js",
     "prettier-single-page-app": "prettier --write single-page-app/**/*.js single-page-app/**/*.js",
-    "prettier": "npm run prettier-grid && npm run prettier-hello-world && npm run prettier-single-page-app"
+    "prettier": "npm run prettier-grid && npm run prettier-hello-world && npm run prettier-single-page-app",
+    "hack": "./scripts/hack-pull.sh && ./scripts/collect-static.sh && npm run start"
   },
   "repository": {
     "type": "git",

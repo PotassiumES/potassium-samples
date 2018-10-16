@@ -38,5 +38,5 @@ node[name=DirectionalLight] {
 }
 
 .immersive-graph.video-player-component {
-	centroid: 0 0.2m -0.9m;
+	centroid: 0 0.3m -1.4m;
 }
