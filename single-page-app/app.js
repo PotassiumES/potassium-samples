@@ -4,6 +4,8 @@ import DataModel from 'potassium-es/src/DataModel'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 import DataCollection from 'potassium-es/src/DataCollection'
 
+import ImageComponent from 'potassium-components/src/atoms/ImageComponent.js'
+import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 
 import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComponent.js'
@@ -150,6 +152,23 @@ const AboutComponent = class extends Component {
 		super(dataObject, options)
 		this.addClass('about-component')
 		this.setName('AboutComponent')
-		this._headingComponent = new HeadingComponent(null, { text: lt('About') }).appendTo(this)
+
+		this._headingComponent = new HeadingComponent(null, {
+			text: lt('About')
+		}).appendTo(this)
+
+		this._message1Component = new LabelComponent(null, {
+			text: lt('This is an example of a wider web app with multiple components working together.')
+		}).appendTo(this)
+		this._message1Component.addClass('message1-component')
+
+		this._message2Component = new LabelComponent(null, {
+			text: lt('The neat thing about PotassiumES is that you write your code and styles once in a cohesive way and it works across flat, portal, and immersive displays.')
+		}).appendTo(this)
+		this._message2Component.addClass('message2-component')
+
+		this._widerWebImageComponent = new ImageComponent(null, {
+			image: '/single-page-app/images/Wider-Web-Labels-No-Title.png'
+		}).appendTo(this)
 	}
 }

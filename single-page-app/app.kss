@@ -5,14 +5,39 @@
 App specific styles
 */
 
-.dom.views-component > .heading-component {
+.dom.views-component > .dom.heading-component {
 	font-size: var(--page-font-size-4);
 }
 
-.dom.views-component > .component {
+.dom.views-component > .dom.component {
 	padding: 0 var(--page-app-content-padding);
+}
+
+.dom.views-component {
+	max-width: 100%;
 }
 
 /*** FrontComponent ***/
 
 /*** AccountComponent ***/
+
+.dom.about-component > .dom.heading-component {
+	margin-bottom: var(--inner-section-margin);
+}
+
+.dom.about-component > .dom.label-component {
+	display: block;
+	margin-bottom: 20px;
+	line-height: 20px;
+}
+
+.dom.about-component > .dom.image-component > img {
+	margin: var(--inner-section-margin) 0;
+	max-width: 100%;
+}
+
+@media (min-width: 576px){
+	.dom.about-component {
+		max-width: 576px;
+	}
+}

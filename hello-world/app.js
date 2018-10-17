@@ -3,7 +3,7 @@ import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 import DisplayModeTracker from 'potassium-es/src/DisplayModeTracker.js'
 
 import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
-import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent.js'
+import ImageComponent from 'potassium-components/src/atoms/ImageComponent.js'
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 import ModeSwitcherComponent from 'potassium-components/src/molecules/ModeSwitcherComponent.js'
 
@@ -13,8 +13,8 @@ const HelloWorldApp = class extends App {
 		this._handleDisplayUpdate = this._handleDisplayUpdate.bind(this)
 		DisplayModeTracker.Singleton.addListener(this._handleDisplayUpdate, DisplayModeTracker.DisplayUpdatedEvent)
 
-		this._backButton = new ButtonComponent(null, {
-			text: '🔙',
+		this._backButton = new ImageComponent(null, {
+			image: '/hello-world/left-arrow.png',
 			activationAnchor: '/'
 		}).appendTo(this)
 		this._backButton.addClass('back-button', 'flat-only')
@@ -24,12 +24,12 @@ const HelloWorldApp = class extends App {
 		}).appendTo(this)
 
 		this._message1Component = new LabelComponent(null, {
-			text: lt('This is the simplest wider web app. It just shows text.')
+			text: lt('This is a terribly simple wider web app.')
 		}).appendTo(this)
 		this._message1Component.addClass('message-1')
 
 		this._message2Component = new LabelComponent(null, {
-			text: lt('It works in all three modes, though: flat, portal, and immersive.')
+			text: lt('It works in all display modes: flat, portal, and immersive.')
 		}).appendTo(this)
 		this._message1Component.addClass('message-2')
 
@@ -46,10 +46,7 @@ const HelloWorldApp = class extends App {
 			this._modeSwitcherComponent.handleSwitchFailed(mode)
 		}, App.DisplayModeFailedEvent)
 
-		const light = new THREE.DirectionalLight(
-			0xffffff,
-			0.7
-		).appendTo(this._immersiveScene)
+		const light = new THREE.DirectionalLight(0xffffff, 0.7).appendTo(this._immersiveScene)
 		light.name = 'DirectionalLight1'
 		light.position.set()
 		this._immersiveScene.add(light)
@@ -57,8 +54,8 @@ const HelloWorldApp = class extends App {
 		this._immersiveScene.add(new THREE.AmbientLight(0xffffff, 0.2))
 	}
 
-	_handleDisplayUpdate(eventName, flatCapable, portalCapable, immersiveCapable){
-		if(portalCapable === false && immersiveCapable === false){
+	_handleDisplayUpdate(eventName, flatCapable, portalCapable, immersiveCapable) {
+		if (portalCapable === false && immersiveCapable === false) {
 			this._noOtherModesComponent.show()
 		}
 	}

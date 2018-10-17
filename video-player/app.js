@@ -22,7 +22,7 @@ const VideoPlayerApp = class extends App {
 		super()
 
 		const menuItems = []
-		for(let i=0; i < videos.length; i++){
+		for (let i = 0; i < videos.length; i++) {
 			menuItems.push({
 				name: videos[i].name,
 				anchor: `#${i}`
@@ -45,7 +45,7 @@ const VideoPlayerApp = class extends App {
 
 		// Set up our URL router to handle view switching
 		this.router.addRoute(new RegExp('^$'), 0) // special case no hash
-		for(let i=0; i < videos.length; i++){
+		for (let i = 0; i < videos.length; i++) {
 			// Each video gets a number hash
 			this.router.addRoute(new RegExp(`^${i}$`), i)
 		}
@@ -55,8 +55,8 @@ const VideoPlayerApp = class extends App {
 		this._setupLights()
 	}
 
-	_setVideo(index){
-		if(index < 0 || index >= videos.length){
+	_setVideo(index) {
+		if (index < 0 || index >= videos.length) {
 			console.error('unknown video index', index)
 			return
 		}
@@ -64,20 +64,26 @@ const VideoPlayerApp = class extends App {
 	}
 
 	_handleRoutes(route, hash, ...regexMatches) {
-		if(Number.isNaN(Number.parseInt(route))){
+		if (Number.isNaN(Number.parseInt(route))) {
 			console.error('Unknown route', route, hash, ...regexMatches)
 			return
 		}
 		this._setVideo(route)
 	}
 
-	_setupLights(){
-		this._immersiveScene.add(graph.directionalLight([0xffffff, 0.7], {
-			name: 'DirectionalLight'
-		}).appendTo(this._immersiveScene).target)
-		graph.ambientLight([0xffffff, 0.2], {
-			name: 'AmbientLight'
-		}).appendTo(this._immersiveScene)
+	_setupLights() {
+		this._immersiveScene.add(
+			graph
+				.directionalLight([0xffffff, 0.7], {
+					name: 'DirectionalLight'
+				})
+				.appendTo(this._immersiveScene).target
+		)
+		graph
+			.ambientLight([0xffffff, 0.2], {
+				name: 'AmbientLight'
+			})
+			.appendTo(this._immersiveScene)
 	}
 }
 

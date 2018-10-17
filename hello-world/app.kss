@@ -10,7 +10,7 @@
 
 .flat-root .heading-component {
 	display: block;
-	margin-top: 40px;
+	margin-top: 60px;
 	margin-bottom: 40px;
 }
 
@@ -30,7 +30,10 @@
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	font-size: 30px;
+}
+
+.flat-root .back-button > img {
+	width: 50px;
 }
 
 .portal-root .mode-switcher-component {
