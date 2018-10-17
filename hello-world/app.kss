@@ -21,8 +21,40 @@
 	transform: translate(-50%, 0);
 }
 
+.flat-root .label-component {
+	display: block;
+	margin-bottom: 25px;
+}
+
+.flat-root .back-button {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 30px;
+}
+
 .portal-root .mode-switcher-component {
 	position: absolute;
 	bottom: 30px;
 	left: 30px;
+}
+
+.immersive-scene light[name='DirectionalLight1'] {
+	centroid: 0 10 20;
+}
+
+.immersive-graph.mode-switcher-component {
+	centroid: -1 0 -2;
+}
+
+.immersive-graph.heading-component {
+	centroid: 0, 0, -2;
+}
+
+.immersive-graph.message-1 {
+	centroid: 0. -0.2, -2;
+}
+
+.immersive-graph.message-2 {
+	centroid: 0. -0.2, -2;
 }

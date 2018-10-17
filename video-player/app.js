@@ -8,7 +8,7 @@ import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 
 import VideoPlayerComponent from 'potassium-components/src/molecules/VideoPlayerComponent'
 
-const GridApp = class extends App {
+const VideoPlayerApp = class extends App {
 	constructor() {
 		super()
 
@@ -31,8 +31,8 @@ const GridApp = class extends App {
 		ambientLight.name = 'AmbientLight'
 		this._immersiveScene.add(ambientLight)
 
-		const test16x9video = '/test16x9video.mov'
-		const test4x3video = '/test4x3video.m4v'
+		const test16x9video = '/video-player/test16x9video.mov'
+		const test4x3video = '/video-player/test4x3video.m4v'
 		this._videoPlayerComponent = new VideoPlayerComponent(null, {
 			url: test16x9video,
 			mimeType: 'video/mp4'
@@ -42,16 +42,13 @@ const GridApp = class extends App {
 		this._flatCamera = graph.perspectiveCamera([45, 1, 0.5, 10000])
 		this._flatCamera.name = 'flat-camera'
 		this._flatCamera.matrixAutoUpdate = true
-		this._flatDisplay = new FlatDisplay(this._flatCamera, this._immersiveScene, () => {
-			this._orbitControls.update()
-		})
-		this._orbitControls = new THREE.OrbitControls(this._flatCamera)
+		this._flatDisplay = new FlatDisplay(this._flatCamera, this._immersiveScene)
 		this._sceneWrapper.appendChild(this._flatDisplay.el)
 		this._flatDisplay.start()
 	}
 }
 
 document.addEventListener('DOMContentLoaded', ev => {
-	window.app = new GridApp()
+	window.app = new VideoPlayerApp()
 	document.body.appendChild(window.app.el)
 })

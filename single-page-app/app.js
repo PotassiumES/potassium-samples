@@ -137,6 +137,7 @@ const FrontComponent = class extends Component {
 	constructor(dataObject = null, options = null) {
 		super(dataObject, options)
 		this.addClass('front-component')
+		this.setName('FrontComponent')
 
 		this._mediaGridComponent = new MediaGridComponent(this.dataObject, {
 			itemComponent: ImageCardComponent
@@ -148,6 +149,7 @@ const AboutComponent = class extends Component {
 	constructor(dataObject = null, options = null) {
 		super(dataObject, options)
 		this.addClass('about-component')
+		this.setName('AboutComponent')
 		this._headingComponent = new HeadingComponent(null, { text: lt('About') }).appendTo(this)
 	}
 }

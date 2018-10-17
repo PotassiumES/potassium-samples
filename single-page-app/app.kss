@@ -5,17 +5,14 @@
 App specific styles
 */
 
-.views-component > .heading-component {
+.dom.views-component > .heading-component {
 	font-size: var(--page-font-size-4);
 }
 
-.views-component > .component {
+.dom.views-component > .component {
 	padding: 0 var(--page-app-content-padding);
 }
 
+/*** FrontComponent ***/
 
 /*** AccountComponent ***/
-
-.account-component .profile-form-component {
-	margin-top: var(--page-app-content-padding);
-}

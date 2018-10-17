@@ -3,7 +3,7 @@
 rm -rf ./dist/
 mkdir -p ./dist/
 cp -r ./static ./dist/
-cp index.html favicon.ico site.js test16x9video.m4v ./dist/
+cp index.html favicon.ico site.js ./dist/
 cp -r ./lib ./dist/
 cp -r ./grid ./dist/
 cp -r ./hello-world ./dist/
