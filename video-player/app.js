@@ -6,45 +6,78 @@ import Stylist from 'potassium-es/src/style/Stylist'
 import { FlatDisplay } from 'potassium-es/src/Engine'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 
+import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent'
+
 import VideoPlayerComponent from 'potassium-components/src/molecules/VideoPlayerComponent'
+
+import MastheadComponent from 'potassium-components/src/organisms/MastheadComponent'
+
+const videos = [
+	{ name: 'Milky Way', url: '/video-player/test16x9video.mov', mimeType: 'video/mp4' },
+	{ name: 'Social Life', url: '/video-player/test4x3video.m4v', mimeType: 'video/mp4' }
+]
 
 const VideoPlayerApp = class extends App {
 	constructor() {
 		super()
 
-		this._stylist.addListener((eventName, stylist) => {
-			setInterval(() => {
-				switch (this.displayMode) {
-					case App.FLAT:
-						this._stylist.calculateStyles(this._immersiveScene)
-						this._stylist.applyStyles(this._immersiveScene)
-						break
-				}
-			}, 500)
-		}, Stylist.LINKS_LOADED_EVENT)
+		const menuItems = []
+		for(let i=0; i < videos.length; i++){
+			menuItems.push({
+				name: videos[i].name,
+				anchor: `#${i}`
+			})
+		}
 
-		const light = new THREE.DirectionalLight(0xffffff, 0.7)
-		light.name = 'DirectionalLight'
-		this._immersiveScene.add(light)
-		this._immersiveScene.add(light.target)
-		const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
-		ambientLight.name = 'AmbientLight'
-		this._immersiveScene.add(ambientLight)
+		this._masthead = new MastheadComponent(null, {
+			brand: 'PotassiumES',
+			brandAnchor: '/',
+			menuItems: menuItems
+		}).appendTo(this)
+		this._masthead.addListener((eventName, mode) => {
+			this.setDisplayMode(mode)
+		}, MastheadComponent.MODE_REQUEST_EVENT)
 
-		const test16x9video = '/video-player/test16x9video.mov'
-		const test4x3video = '/video-player/test4x3video.m4v'
 		this._videoPlayerComponent = new VideoPlayerComponent(null, {
-			url: test16x9video,
-			mimeType: 'video/mp4'
+			url: videos[0].url,
+			mimeType: videos[0].mimeType
 		}).appendTo(this)
 
-		this._sceneWrapper = el.div({ class: 'scene-wrapper' }).appendTo(this.flatEl)
-		this._flatCamera = graph.perspectiveCamera([45, 1, 0.5, 10000])
-		this._flatCamera.name = 'flat-camera'
-		this._flatCamera.matrixAutoUpdate = true
-		this._flatDisplay = new FlatDisplay(this._flatCamera, this._immersiveScene)
-		this._sceneWrapper.appendChild(this._flatDisplay.el)
-		this._flatDisplay.start()
+		// Set up our URL router to handle view switching
+		this.router.addRoute(new RegExp('^$'), 0) // special case no hash
+		for(let i=0; i < videos.length; i++){
+			// Each video gets a number hash
+			this.router.addRoute(new RegExp(`^${i}$`), i)
+		}
+		this.router.addListener(this._handleRoutes.bind(this))
+		this.router.start()
+
+		this._setupLights()
+	}
+
+	_setVideo(index){
+		if(index < 0 || index >= videos.length){
+			console.error('unknown video index', index)
+			return
+		}
+		this._videoPlayerComponent.setVideoSource(videos[index].url, videos[index].mimeType)
+	}
+
+	_handleRoutes(route, hash, ...regexMatches) {
+		if(Number.isNaN(Number.parseInt(route))){
+			console.error('Unknown route', route, hash, ...regexMatches)
+			return
+		}
+		this._setVideo(route)
+	}
+
+	_setupLights(){
+		this._immersiveScene.add(graph.directionalLight([0xffffff, 0.7], {
+			name: 'DirectionalLight'
+		}).appendTo(this._immersiveScene).target)
+		graph.ambientLight([0xffffff, 0.2], {
+			name: 'AmbientLight'
+		}).appendTo(this._immersiveScene)
 	}
 }
 

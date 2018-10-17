@@ -39,7 +39,6 @@ const HelloWorldApp = class extends App {
 		this._noOtherModesComponent.hide()
 
 		this._modeSwitcherComponent = new ModeSwitcherComponent().appendTo(this)
-		this.appendComponent(this._modeSwitcherComponent)
 		this._modeSwitcherComponent.addListener((eventName, mode) => {
 			this.setDisplayMode(mode)
 		}, ModeSwitcherComponent.ModeChangedEvŽnt)

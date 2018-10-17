@@ -33,13 +33,13 @@ const SinglePageApp = class extends App {
 
 		this._masthead = new MastheadComponent(null, {
 			brand: this._brand,
+			brandAnchor: '/',
 			menuItems: [
 				{ name: lt('Front'), anchor: './#' },
 				{ name: lt('About'), anchor: './#about' },
 				{ name: lt('Account'), anchor: './#account' }
 			]
-		})
-		this.appendComponent(this._masthead)
+		}).appendTo(this)
 		this._masthead.immersiveGraph.position.set(0, 0, uiZOffset)
 		this._masthead.addListener((eventName, mode) => {
 			this.setDisplayMode(mode)

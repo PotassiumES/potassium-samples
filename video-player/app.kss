@@ -3,40 +3,39 @@
 
 /* App specific styles */
 
-.flat-root {
-	padding: 10px;
-	text-align: center;
-}
-
-.flat-el.heading-component {
+.dom.heading-component {
 	display: block;
 	margin-top: 40px;
 	margin-bottom: 40px;
 }
 
-.flat-el.mode-switcher-component {
+.dom.mode-switcher-component {
 	position: absolute;
 	bottom: 30px;
 	left: 50%;
 	transform: translate(-50%, 0);
 }
 
-.flat-root .scene-wrapper,
-.flat-root .scene-wrapper canvas {
-	width: 100%;
-	height: 600px;
-}
-
-.portal-el.mode-switcher-component {
+.dom.mode-switcher-component {
 	position: absolute;
 	bottom: 30px;
 	left: 30px;
+}
+
+.dom.video-player-component {
+	display: block;
+	margin: 0 20px;
+	max-height: 90vh;
 }
 
 node[name=DirectionalLight] {
 	centroid: 0 10m 20m
 }
 
-.immersive-graph.video-player-component {
+.som.video-player-component {
 	centroid: 0 0.3m -1.4m;
+}
+
+.som.masthead-component {
+	centroid:  0 0 -2;
 }
