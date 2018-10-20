@@ -1,4 +1,5 @@
 import App from 'potassium-es/src/App'
+import graph from 'potassium-es/src/Graph'
 import Component from 'potassium-es/src/Component'
 import DataModel from 'potassium-es/src/DataModel'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
@@ -42,15 +43,15 @@ const SinglePageApp = class extends App {
 				{ name: lt('Account'), anchor: './#account' }
 			]
 		}).appendTo(this)
-		this._masthead.immersiveGraph.position.set(0, 0, uiZOffset)
 		this._masthead.addListener((eventName, mode) => {
 			this.setDisplayMode(mode)
 		}, MastheadComponent.MODE_REQUEST_EVENT)
 
 		// These are the views that we'll switch among when responding to Router events
 		this._viewsComponent = new Component().appendTo(this)
-		this._viewsComponent.immersiveGraph.position.set(0, -0.5, uiZOffset)
 		this._viewsComponent.addClass('views-component')
+		this._viewsComponent.setName('ViewsComponent')
+
 		this._frontComponent = new FrontComponent(this._imageCollection).appendTo(this._viewsComponent)
 		this._aboutComponent = new AboutComponent().appendTo(this._viewsComponent)
 		this._accountComponent = new AccountComponent(this._user).appendTo(this._viewsComponent)
@@ -62,11 +63,15 @@ const SinglePageApp = class extends App {
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()
 
-		const light = new THREE.DirectionalLight(0xffffff, 0.7)
-		light.position.set(0, 10, 20)
-		this._immersiveScene.add(light)
-		this._immersiveScene.add(light.target)
-		this._immersiveScene.add(new THREE.AmbientLight(0xffffff, 0.2))
+		const portalLight = graph.directionalLight([0xffffff, 0.7])
+		this._portalScene.add(portalLight)
+		this._portalScene.add(portalLight.target)
+		this._portalScene.add(new graph.ambientLight([0xffffff, 0.9]))
+
+		const immersiveLight = graph.directionalLight([0xffffff, 0.7])
+		this._immersiveScene.add(immersiveLight)
+		this._immersiveScene.add(immersiveLight.target)
+		this._immersiveScene.add(new graph.ambientLight([0xffffff, 0.9]))
 
 		this._imageCollection.fetch()
 	}
@@ -163,7 +168,9 @@ const AboutComponent = class extends Component {
 		this._message1Component.addClass('message1-component')
 
 		this._message2Component = new LabelComponent(null, {
-			text: lt('The neat thing about PotassiumES is that you write your code and styles once in a cohesive way and it works across flat, portal, and immersive displays.')
+			text: lt(
+				'The neat thing about PotassiumES is that you write your code and styles once in a cohesive way and it works across flat, portal, and immersive displays.'
+			)
 		}).appendTo(this)
 		this._message2Component.addClass('message2-component')
 

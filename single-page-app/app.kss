@@ -41,3 +41,15 @@ App specific styles
 		max-width: 576px;
 	}
 }
+
+node[name=DirectionalLight] {
+	centroid: 0 10m 20m
+}
+
+.som.masthead-component {
+	centroid: 0 0.2m -2m;
+}
+
+.som.views-component {
+	centroid: 0 -0.3m -2m;
+}

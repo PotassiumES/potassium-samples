@@ -72,18 +72,15 @@ const VideoPlayerApp = class extends App {
 	}
 
 	_setupLights() {
-		this._immersiveScene.add(
-			graph
-				.directionalLight([0xffffff, 0.7], {
-					name: 'DirectionalLight'
-				})
-				.appendTo(this._immersiveScene).target
-		)
-		graph
-			.ambientLight([0xffffff, 0.2], {
-				name: 'AmbientLight'
-			})
-			.appendTo(this._immersiveScene)
+		const portalLight = graph.directionalLight([0xffffff, 0.7])
+		this._portalScene.add(portalLight)
+		this._portalScene.add(portalLight.target)
+		this._portalScene.add(new graph.ambientLight([0xffffff, 0.9]))
+
+		const immersiveLight = graph.directionalLight([0xffffff, 0.7])
+		this._immersiveScene.add(immersiveLight)
+		this._immersiveScene.add(immersiveLight.target)
+		this._immersiveScene.add(new graph.ambientLight([0xffffff, 0.9]))
 	}
 }
 

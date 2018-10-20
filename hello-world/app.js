@@ -1,4 +1,5 @@
 import App from 'potassium-es/src/App'
+import graph from 'potassium-es/src/Graph'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 import DisplayModeTracker from 'potassium-es/src/DisplayModeTracker.js'
 
@@ -31,10 +32,13 @@ const HelloWorldApp = class extends App {
 		this._message2Component = new LabelComponent(null, {
 			text: lt('It works in all display modes: flat, portal, and immersive.')
 		}).appendTo(this)
-		this._message1Component.addClass('message-2')
+		this._message2Component.addClass('message-2')
 
 		this._noOtherModesComponent = new LabelComponent(null, {
-			text: lt('Try this on a WebVR or WebXR compatible device to see it in action.')
+			text: lt('Try this on a WebVR or WebXR compatible device to see it in action.'),
+			usesPortalOverlay: false,
+			usesPortalSpatial: false,
+			usesImmersive: false
 		}).appendTo(this)
 		this._noOtherModesComponent.hide()
 
@@ -46,12 +50,15 @@ const HelloWorldApp = class extends App {
 			this._modeSwitcherComponent.handleSwitchFailed(mode)
 		}, App.DisplayModeFailedEvent)
 
-		const light = new THREE.DirectionalLight(0xffffff, 0.7).appendTo(this._immersiveScene)
-		light.name = 'DirectionalLight1'
-		light.position.set()
-		this._immersiveScene.add(light)
-		this._immersiveScene.add(light.target)
-		this._immersiveScene.add(new THREE.AmbientLight(0xffffff, 0.2))
+		const portalLight = graph.directionalLight([0xffffff, 0.7])
+		this._portalScene.add(portalLight)
+		this._portalScene.add(portalLight.target)
+		this._portalScene.add(new graph.ambientLight([0xffffff, 0.9]))
+
+		const immersiveLight = graph.directionalLight([0xffffff, 0.7])
+		this._immersiveScene.add(immersiveLight)
+		this._immersiveScene.add(immersiveLight.target)
+		this._immersiveScene.add(new graph.ambientLight([0xffffff, 0.9]))
 	}
 
 	_handleDisplayUpdate(eventName, flatCapable, portalCapable, immersiveCapable) {

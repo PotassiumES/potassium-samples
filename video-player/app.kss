@@ -3,23 +3,8 @@
 
 /* App specific styles */
 
-.dom.heading-component {
-	display: block;
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-
-.dom.mode-switcher-component {
-	position: absolute;
-	bottom: 30px;
-	left: 50%;
-	transform: translate(-50%, 0);
-}
-
-.dom.mode-switcher-component {
-	position: absolute;
-	bottom: 30px;
-	left: 30px;
+.dom.masthead-component {
+	margin-bottom: 30px;
 }
 
 .dom.video-player-component {
@@ -32,10 +17,10 @@ node[name=DirectionalLight] {
 	centroid: 0 10m 20m
 }
 
-.som.video-player-component {
-	centroid: 0 0.3m -1.4m;
+.som.masthead-component {
+	centroid:  -0.2m 0.5m -2.2m;
 }
 
-.som.masthead-component {
-	centroid:  0 0 -2;
+.som.video-player-component {
+	centroid: -0.05m 0.2m -2.2m;
 }
