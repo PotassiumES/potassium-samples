@@ -15,8 +15,10 @@ const HelloWorldApp = class extends App {
 		DisplayModeTracker.Singleton.addListener(this._handleDisplayUpdate, DisplayModeTracker.DisplayUpdatedEvent)
 
 		this._backButton = new ImageComponent(null, {
-			image: '/hello-world/left-arrow.png',
-			activationAnchor: '/'
+			activationAnchor: '/',
+			usesImmersive: false,
+			usesPortalSpatial: false,
+			image: '/hello-world/left-arrow.png'
 		}).appendTo(this)
 		this._backButton.addClass('back-button', 'flat-only')
 
