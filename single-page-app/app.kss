@@ -5,6 +5,10 @@
 App specific styles
 */
 
+.dom.masthead-component {
+	margin-bottom: 40px;
+}
+
 .dom.views-component > .dom.heading-component {
 	font-size: var(--page-font-size-4);
 }

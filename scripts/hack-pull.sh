@@ -6,6 +6,8 @@
 cp -r ../postcss-potassium/*.js node_modules/postcss-potassium/
 cp -r ../postcss-potassium/src/*.js node_modules/postcss-potassium/src/
 
+cp -r ../potassium-action-input/src/* node_modules/action-input/src/
+
 cp -r ../potassium-es/src/* node_modules/potassium-es/src/
 cp -r ../potassium-es/styles/* node_modules/potassium-es/styles/
 cp -r ../potassium-es/static/* node_modules/potassium-es/static/
