@@ -52,6 +52,15 @@ const VideoPlayerApp = class extends App {
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()
 
+		// Add a spherical environment for immersive mode
+		this._immersiveEnvironmentMesh = graph.mesh(
+			graph.sphereBufferGeometry(500, 60, 40),
+			graph.meshBasicMaterial({
+				map: graph.textureLoader().load('./environment.jpg')
+			})
+		).appendTo(this._immersiveScene)
+		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
+
 		this._setupLights()
 	}
 

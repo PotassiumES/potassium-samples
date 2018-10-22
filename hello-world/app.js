@@ -67,6 +67,15 @@ const HelloWorldApp = class extends App {
 		this._immersiveScene.add(immersiveLight)
 		this._immersiveScene.add(immersiveLight.target)
 		this._immersiveScene.add(new graph.ambientLight([0xffffff, 0.9]))
+
+		// Add a spherical environment for immersive mode
+		this._immersiveEnvironmentMesh = graph.mesh(
+			graph.sphereBufferGeometry(500, 60, 40),
+			graph.meshBasicMaterial({
+				map: graph.textureLoader().load('./environment.jpg')
+			})
+		).appendTo(this._immersiveScene)
+		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
 	}
 
 	_handleDisplayUpdate(eventName, flatCapable, portalCapable, immersiveCapable) {
