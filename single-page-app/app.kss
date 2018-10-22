@@ -57,3 +57,13 @@ node[name=DirectionalLight] {
 .som.views-component {
 	centroid: 0 -0.3m -2m;
 }
+
+.som.about-component {
+	centroid: -1.1m 0.3m 0;
+	display: grid;
+	grid-template: 0.2m 1.2m / 1;
+}
+
+.som.about-component > .som.image-component > .cube {
+	centroid: 1.25m 0 0;
+}

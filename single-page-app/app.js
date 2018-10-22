@@ -14,7 +14,7 @@ import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComp
 import MastheadComponent from 'potassium-components/src/organisms/MastheadComponent.js'
 import MediaGridComponent from 'potassium-components/src/organisms/MediaGridComponent.js'
 
-import AccountComponent from './AccountComponent.js'
+/* import AccountComponent from './AccountComponent.js' */
 
 const SinglePageApp = class extends App {
 	constructor() {
@@ -39,8 +39,8 @@ const SinglePageApp = class extends App {
 			brandAnchor: '/',
 			menuItems: [
 				{ name: lt('Front'), anchor: './#' },
-				{ name: lt('About'), anchor: './#about' },
-				{ name: lt('Account'), anchor: './#account' }
+				{ name: lt('About'), anchor: './#about' }
+				/* { name: lt('Account'), anchor: './#account' } */
 			]
 		}).appendTo(this)
 		this._masthead.addListener((eventName, mode) => {
@@ -54,12 +54,12 @@ const SinglePageApp = class extends App {
 
 		this._frontComponent = new FrontComponent(this._imageCollection).appendTo(this._viewsComponent)
 		this._aboutComponent = new AboutComponent().appendTo(this._viewsComponent)
-		this._accountComponent = new AccountComponent(this._user).appendTo(this._viewsComponent)
+		//this._accountComponent = new AccountComponent(this._user).appendTo(this._viewsComponent)
 
 		// Set up our URL router to handle view switching
 		this.router.addRoute(/^$/, 'front')
 		this.router.addRoute(/^about$/, 'about')
-		this.router.addRoute(/^account$/, 'account')
+		//this.router.addRoute(/^account$/, 'account')
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()
 
@@ -79,7 +79,7 @@ const SinglePageApp = class extends App {
 	showFront() {
 		this._frontComponent.show()
 		this._aboutComponent.hide()
-		this._accountComponent.hide()
+		//this._accountComponent.hide()
 		document.title = this._titlePrefix + lt('Front')
 		this._masthead.navigationMenu.selectedIndex = 0
 	}
@@ -87,11 +87,12 @@ const SinglePageApp = class extends App {
 	showAbout() {
 		this._frontComponent.hide()
 		this._aboutComponent.show()
-		this._accountComponent.hide()
+		//this._accountComponent.hide()
 		document.title = this._titlePrefix + lt('About')
 		this._masthead.navigationMenu.selectedIndex = 1
 	}
 
+	/*
 	showAccount() {
 		this._frontComponent.hide()
 		this._aboutComponent.hide()
@@ -99,15 +100,18 @@ const SinglePageApp = class extends App {
 		document.title = this._titlePrefix + lt('Account')
 		this._masthead.navigationMenu.selectedIndex = 2
 	}
+	*/
 
 	_handleRoutes(routeName, hash, ...regexMatches) {
 		switch (routeName) {
 			case 'about':
 				this.showAbout()
 				break
+			/*
 			case 'account':
 				this.showAccount()
 				break
+			*/
 			default:
 				this.showFront()
 		}
@@ -158,21 +162,10 @@ const AboutComponent = class extends Component {
 		this.addClass('about-component')
 		this.setName('AboutComponent')
 
-		this._headingComponent = new HeadingComponent(null, {
-			text: lt('About')
-		}).appendTo(this)
-
 		this._message1Component = new LabelComponent(null, {
-			text: lt('This is an example of a wider web app with multiple components working together.')
+			text: lt('This is a sample of a PotassiumES wider web app.')
 		}).appendTo(this)
 		this._message1Component.addClass('message1-component')
-
-		this._message2Component = new LabelComponent(null, {
-			text: lt(
-				'The neat thing about PotassiumES is that you write your code and styles once in a cohesive way and it works across flat, portal, and immersive displays.'
-			)
-		}).appendTo(this)
-		this._message2Component.addClass('message2-component')
 
 		this._widerWebImageComponent = new ImageComponent(null, {
 			image: '/single-page-app/images/Wider-Web-Labels-No-Title.png'

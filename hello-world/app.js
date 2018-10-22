@@ -23,16 +23,22 @@ const HelloWorldApp = class extends App {
 		this._backButton.addClass('back-button', 'flat-only')
 
 		this._headingComponent = new HeadingComponent(null, {
-			text: lt('Hello world')
+			text: lt('Hello world'),
+			usesPortalOverlay: false,
+			usesPortalSpatial: true
 		}).appendTo(this)
 
 		this._message1Component = new LabelComponent(null, {
-			text: lt('This is a terribly simple wider web app.')
+			text: lt('This is a terribly simple wider web app.'),
+			usesPortalOverlay: false,
+			usesPortalSpatial: true
 		}).appendTo(this)
 		this._message1Component.addClass('message-1')
 
 		this._message2Component = new LabelComponent(null, {
-			text: lt('It works in all display modes: flat, portal, and immersive.')
+			text: lt('It works in all display modes: flat, portal, and immersive.'),
+			usesPortalOverlay: false,
+			usesPortalSpatial: true
 		}).appendTo(this)
 		this._message2Component.addClass('message-2')
 
