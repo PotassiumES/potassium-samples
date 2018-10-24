@@ -1,6 +1,6 @@
 # PotassiumES Samples
 
-**Note** This project is just getting started, and many things are incomplete. Check out the [projects section](https://github.com/orgs/PotassiumES/projects) to see what's happening and how you can help.
+**Note** This project is just getting started, and many things are incomplete. Check out the [Issues](https://github.com/PotassiumES/potassium-es/issues) to see what's happening and how you can help.
 
 ## Installation
 
