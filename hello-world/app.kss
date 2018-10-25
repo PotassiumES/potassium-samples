@@ -42,22 +42,22 @@
 	left: 30px;
 }
 
-.immersive-scene light[name='DirectionalLight'] {
+.som light[name='DirectionalLight'] {
 	centroid: 0m 10m 20m;
 }
 
-.immersive-som.mode-switcher-component {
+.som.mode-switcher-component {
 	centroid: -1m 0.2m -2.2m;
 }
 
-.immersive-som.heading-component {
+.som.heading-component {
 	centroid: -1m 0m -2m;
 }
 
-.immersive-som.message-1 {
+.som.message-1 {
 	centroid: -1m -0.2m -1.8m;
 }
 
-.immersive-som.message-2 {
+.som.message-2 {
 	centroid: -1m -0.4m -1.6m;
 }
