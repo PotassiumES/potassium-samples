@@ -48,7 +48,9 @@ const SinglePageApp = class extends App {
 		}, MastheadComponent.MODE_REQUEST_EVENT)
 
 		// These are the views that we'll switch among when responding to Router events
-		this._viewsComponent = new Component().appendTo(this)
+		this._viewsComponent = new Component(null, {
+			usesPortalOverlay: false
+		}).appendTo(this)
 		this._viewsComponent.addClass('views-component')
 		this._viewsComponent.setName('ViewsComponent')
 
