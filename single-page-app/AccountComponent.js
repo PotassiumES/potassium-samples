@@ -19,6 +19,7 @@ const AccountComponent = class extends Component {
 	constructor(dataObject = null, options = null) {
 		super(dataObject, options)
 		this.addClass('account-component')
+		this.setName('AccountComponent')
 
 		this._profileFormComponent = new ProfileFormComponent(dataObject).appendTo(this)
 
@@ -48,35 +49,46 @@ const ProfileFormComponent = class extends forms.FormComponent {
 			dataObject,
 			Object.assign(
 				{
+					usesPortalSpatial: false,
 					heading: lt('Profile info')
 				},
 				options
 			)
 		)
 		this.addClass('profile-form-component')
+		this.setName('ProfileFormComponent')
 
 		this._nameInputComponent = new forms.TextInputFieldComponent(dataObject, {
+			usesPortalSpatial: false,
 			label: lt('Name'),
 			dataField: 'name',
 			placeholder: lt('Josie P. Example')
 		}).appendTo(this.fieldsComponent)
+		this._nameInputComponent.addClass('name-input-component')
+
 
 		this._emailInputComponent = new forms.TextInputFieldComponent(dataObject, {
+			usesPortalSpatial: false,
 			label: lt('Email'),
 			dataField: 'email',
 			placeholder: lt('josie.p@example.com')
 		}).appendTo(this.fieldsComponent)
+		this._emailInputComponent.addClass('email-input-component')
 
 		this._phoneInputComponent = new forms.TextInputFieldComponent(dataObject, {
+			usesPortalSpatial: false,
 			label: lt('Phone'),
 			dataField: 'phone',
 			placeholder: lt('1-206-555-1212')
 		}).appendTo(this.fieldsComponent)
+		this._phoneInputComponent.addClass('phone-input-component')
 
 		this._birthdayComponent = new forms.DateFieldComponent(dataObject, {
+			usesPortalSpatial: false,
 			label: lt('Birthday'),
 			dataField: 'birthday'
 		}).appendTo(this.fieldsComponent)
+		this._birthdayComponent.addClass('birthday-component')
 
 		// profile pic
 	}

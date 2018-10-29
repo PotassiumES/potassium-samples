@@ -14,7 +14,7 @@ import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComp
 import MastheadComponent from 'potassium-components/src/organisms/MastheadComponent.js'
 import MediaGridComponent from 'potassium-components/src/organisms/MediaGridComponent.js'
 
-/* import AccountComponent from './AccountComponent.js' */
+import AccountComponent from './AccountComponent.js'
 
 const SinglePageApp = class extends App {
 	constructor() {
@@ -39,8 +39,8 @@ const SinglePageApp = class extends App {
 			brandAnchor: '/',
 			menuItems: [
 				{ name: lt('Front'), anchor: './#' },
-				{ name: lt('About'), anchor: './#about' }
-				/* { name: lt('Account'), anchor: './#account' } */
+				{ name: lt('About'), anchor: './#about' },
+				{ name: lt('Account'), anchor: './#account' }
 			]
 		}).appendTo(this)
 		this._masthead.addListener((eventName, mode) => {
@@ -56,12 +56,12 @@ const SinglePageApp = class extends App {
 
 		this._frontComponent = new FrontComponent(this._imageCollection).appendTo(this._viewsComponent)
 		this._aboutComponent = new AboutComponent().appendTo(this._viewsComponent)
-		//this._accountComponent = new AccountComponent(this._user).appendTo(this._viewsComponent)
+		this._accountComponent = new AccountComponent(this._user).appendTo(this._viewsComponent)
 
 		// Set up our URL router to handle view switching
 		this.router.addRoute(/^$/, 'front')
 		this.router.addRoute(/^about$/, 'about')
-		//this.router.addRoute(/^account$/, 'account')
+		this.router.addRoute(/^account$/, 'account')
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()
 
@@ -92,7 +92,7 @@ const SinglePageApp = class extends App {
 	showFront() {
 		this._frontComponent.show()
 		this._aboutComponent.hide()
-		//this._accountComponent.hide()
+		this._accountComponent.hide()
 		document.title = this._titlePrefix + lt('Front')
 		this._masthead.navigationMenu.selectedIndex = 0
 	}
@@ -100,12 +100,11 @@ const SinglePageApp = class extends App {
 	showAbout() {
 		this._frontComponent.hide()
 		this._aboutComponent.show()
-		//this._accountComponent.hide()
+		this._accountComponent.hide()
 		document.title = this._titlePrefix + lt('About')
 		this._masthead.navigationMenu.selectedIndex = 1
 	}
 
-	/*
 	showAccount() {
 		this._frontComponent.hide()
 		this._aboutComponent.hide()
@@ -113,18 +112,15 @@ const SinglePageApp = class extends App {
 		document.title = this._titlePrefix + lt('Account')
 		this._masthead.navigationMenu.selectedIndex = 2
 	}
-	*/
 
 	_handleRoutes(routeName, hash, ...regexMatches) {
 		switch (routeName) {
 			case 'about':
 				this.showAbout()
 				break
-			/*
 			case 'account':
 				this.showAccount()
 				break
-			*/
 			default:
 				this.showFront()
 		}

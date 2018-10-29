@@ -77,4 +77,3 @@ node[name=DirectionalLight] {
 	grid-template: 0.5m / 2.2m 2.2m 2.2m;
 	grid-auto-rows: 0.8m;
 }
-
