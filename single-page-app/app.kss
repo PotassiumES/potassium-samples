@@ -5,25 +5,62 @@
 App specific styles
 */
 
-.dom.masthead-component {
+.app > .flat-root > .dom.masthead-component,
+.app > .portal-root > .dom.masthead-component {
 	margin-bottom: 40px;
 }
 
-.dom.views-component > .dom.heading-component {
-	font-size: var(--page-font-size-4);
+.som.masthead-component {
+	centroid: 0 0.2m -2m;
 }
 
-.dom.views-component > .dom.component {
+node[name=DirectionalLight] {
+	centroid: 0 10m 20m
+}
+
+/** All view components */
+
+.dom.views-component {
+	width: calc(100% - (2 * var(--page-app-content-padding)));
+	max-width: 100%;
+	margin-bottom: var(--page-app-content-padding);
+}
+
+.som.views-component {
+	centroid: 0 -0.3m -2m;
+}
+
+.dom.views-component > .dom.view-component {
 	padding: 0 var(--page-app-content-padding);
 }
 
-.dom.views-component {
+.dom.views-component > .dom.view-component > .dom.heading-component {
+	font-size: var(--page-font-size-3);
+}
+
+.dom.views-component > .dom.view-component {
+	width: 100%;
 	max-width: 100%;
 }
 
-/*** FrontComponent ***/
+.dom.view-component > .heading-component:first-child {
+	margin-bottom: var(--inner-element-padding);
+}
 
-/*** AccountComponent ***/
+.dom.view-component > .media-grid-component > .collection-component > .card-component > .card-title-component {
+	font-size: var(--page-font-size-1);
+}
+
+.dom.view-component > .media-grid-component > .collection-component > .card-component > .main-component {
+	display: block;
+	min-height: 200px;
+}
+
+.dom.view-component > .media-grid-component img {
+	max-height: 200px;
+}
+
+/*** AboutComponent ***/
 
 .dom.about-component > .dom.heading-component {
 	margin-bottom: var(--inner-section-margin);
@@ -46,34 +83,91 @@ App specific styles
 	}
 }
 
-node[name=DirectionalLight] {
-	centroid: 0 10m 20m
-}
-
-.som.masthead-component {
-	centroid: 0 0.2m -2m;
-}
-
-.som.views-component {
-	centroid: 0 -0.3m -2m;
-}
-
 .som.about-component {
-	centroid: -1.1m 0.3m 0;
 	display: grid;
 	grid-template: 0.2m 1.2m / 1;
 }
 
-.som.about-component > .som.image-component > .cube {
-	centroid: 1.25m 0 0;
+/* Components */
+
+.dom.main-component > .dom.cube-component {
+	background-color: var(--light-primary-color);
+	min-width: 90px;
+	min-height: 90px;
 }
 
-.som.front-component > .som.media-grid-component {
-	centroid: 0.5m 0 0;
-}
+/* FoundationComponent */
 
-.som.front-component > .som.media-grid-component > .som.collection-component {
+.dom.colors-component {
 	display: grid;
-	grid-template: 0.5m / 2.2m 2.2m 2.2m;
-	grid-auto-rows: 0.8m;
+	grid-template: auto / 1fr 1fr 1fr;
+	grid-auto-rows: auto;
+	gap: 20px;
+}
+
+.dom.color-swatch-component {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.dom.color-swatch-component > .cube-component {
+	position: relative;
+	display: block;
+	border: solid 3px #EFEFEF;
+	border-radius: var(--container-border-radius);
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
+}
+
+.dom.color-swatch-component > .cube-component > .heading-component {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+.dom.multi-component > .dom.foundation-component > .heading-component.h2 {
+	font-size: var(--page-font-size-2);
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.dom.foundation-component > .dom.layout-component {
+	border: solid var(--container-border-width) var(--light-secondary-color);
+	border-radius: var(--container-border-radius);
+	padding: var(--page-app-content-padding);
+	width: calc(100% - (2 * var(--page-app-content-padding)));
+}
+
+.dom.foundation-component > .dom.layout-component > .dom.app-component {
+	border: solid var(--container-border-width) var(--light-primary-color);
+	border-radius: var(--container-border-radius);
+	padding: var(--inner-element-padding);
+	width:  calc(100% - (2 * var(--inner-element-padding)));
+	display: grid;
+	grid-template: auto / 1fr 1fr;
+	gap: calc(var(--inner-section-margin) / 2);
+}
+
+.dom.foundation-component > .dom.layout-component > .dom.app-component > .dom.section-component {
+	border: solid var(--container-border-width) var(--light-secondary-color);
+	border-radius: var(--container-border-radius);
+	padding: var(--inner-element-padding);
+	display: inline-block;
+	height: 100px;
+}
+
+.dom.font-component, .dom.font-component table {
+	width: 100%;
+}
+
+.dom.font-component > table > tr:first-child > td {
+	border-bottom: solid 1px #EFEFEF;
+}
+
+.dom.font-component > table > tr > td {
+	text-align: center;
+	padding: 10px;
 }

@@ -1,0 +1,129 @@
+import dom from 'potassium-es/src/DOM.js'
+import Component from 'potassium-es/src/Component.js'
+import DataModel from 'potassium-es/src/DataModel.js'
+import { lt, ld, ldt } from 'potassium-es/src/Localizer.js'
+import DataCollection from 'potassium-es/src/DataCollection.js'
+
+import AudioComponent from 'potassium-components/src/atoms/AudioComponent.js'
+import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent.js'
+import CheckboxComponent from 'potassium-components/src/atoms/CheckboxComponent.js'
+import CubeComponent from 'potassium-components/src/atoms/CubeComponent.js'
+import FileInputComponent from 'potassium-components/src/atoms/FileInputComponent.js'
+import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
+import ImageComponent from 'potassium-components/src/atoms/ImageComponent.js'
+import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
+import MultiComponent from 'potassium-components/src/atoms/MultiComponent.js'
+import ProgressComponent from 'potassium-components/src/atoms/ProgressComponent.js'
+import SelectionComponent from 'potassium-components/src/atoms/SelectionComponent.js'
+import SliderComponent from 'potassium-components/src/atoms/SliderComponent.js'
+import SwitchComponent from 'potassium-components/src/atoms/SwitchComponent.js'
+import TableComponent from 'potassium-components/src/atoms/TableComponent.js'
+import TextComponent from 'potassium-components/src/atoms/TextComponent.js'
+import TextInputComponent from 'potassium-components/src/atoms/TextInputComponent.js'
+import VideoComponent from 'potassium-components/src/atoms/VideoComponent.js'
+
+import MediaGridComponent from 'potassium-components/src/organisms/MediaGridComponent.js'
+
+import ComponentCardComponent from './ComponentCardComponent.js'
+
+const AtomData = []
+AtomData.push({
+	componentClass: AudioComponent,
+	componentOptions: { src: '/static/single-page-app/test-audio.wav' }
+})
+AtomData.push({
+	componentClass: ButtonComponent,
+	componentOptions: { text: 'Click Me' }
+})
+AtomData.push({
+	componentClass: CheckboxComponent
+})
+AtomData.push({
+	componentClass: CubeComponent
+})
+AtomData.push({
+	componentClass: FileInputComponent
+})
+AtomData.push({
+	componentClass: HeadingComponent,
+	componentOptions: { text: 'Happy New Year!' }
+})
+AtomData.push({
+	componentClass: ImageComponent,
+	componentOptions: {
+		image: '/single-page-app/images/two.png'
+	}
+})
+AtomData.push({
+	componentClass: LabelComponent,
+	componentOptions: { text: 'Happy New Year!' }
+})
+AtomData.push({
+	componentClass: MultiComponent
+})
+AtomData.push({
+	componentClass: ProgressComponent
+})
+AtomData.push({
+	componentClass: SelectionComponent,
+	componentOptions: {
+		items: [[lt('One'), 1], [lt('Two'), 2], [lt('Three'), 3]]
+	}
+})
+AtomData.push({
+	componentClass: SliderComponent
+})
+AtomData.push({
+	componentClass: SwitchComponent,
+	componentData: new DataModel({ state: false }),
+	componentOptions: {
+		fieldName: 'state'
+	}
+})
+AtomData.push({
+	componentClass: TableComponent,
+	componentData: new DataCollection([
+		{ key: 'Foo', value: 'Oof' },
+		{ key: 'Boo', value: 'Oob' },
+		{ key: 'Goo', value: 'Oog' }
+	])
+})
+AtomData.push({
+	componentClass: TextComponent,
+	componentOptions: { text: 'Happy New Year!' }
+})
+AtomData.push({
+	componentClass: TextInputComponent,
+	componentOptions: {
+		placeholder: 'Enter text here'
+	}
+})
+AtomData.push({
+	componentClass: VideoComponent,
+	componentOptions: {
+		videoDOM: dom.video(
+			dom.source({
+				src: '/video-player/test16x9video.mov'
+			})
+		)
+	}
+})
+
+const AtomsComponent = class extends Component {
+	constructor(dataObject = new DataCollection(AtomData), options = {}) {
+		super(dataObject, options)
+		this.addClass('atoms-component')
+		this.setName('AtomsComponent')
+
+		new HeadingComponent(null, {
+			text: lt('Atoms')
+		}).appendTo(this)
+
+		this._mediaGridComponent = new MediaGridComponent(this.dataObject, {
+			itemComponent: ComponentCardComponent,
+			usesPortalOverlay: false
+		}).appendTo(this)
+	}
+}
+
+export default AtomsComponent
