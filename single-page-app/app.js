@@ -67,7 +67,9 @@ const SinglePageApp = class extends App {
 		// MultiComponent holds Components that we'll switch among when responding to Router events
 		this._multiComponent = new MultiComponent(null, {
 			components: ViewInfo.map(info => {
-				return new info.component()
+				return new info.component(undefined, {
+					usesPortalOverlay: false
+				})
 			})
 		}).appendTo(this)
 		for (let child of this._multiComponent.options.components) {

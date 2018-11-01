@@ -11,8 +11,8 @@ import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js
 import CollectionComponent from 'potassium-components/src/organisms/CollectionComponent.js'
 
 const FoundationComponent = class extends Component {
-	constructor(dataObject = null, options = {}) {
-		super(dataObject, options)
+	constructor(dataObject = null, options = {}, inheritedOptions = {}) {
+		super(dataObject, options, inheritedOptions)
 		this.addClass('foundation-component')
 		this.setName('FoundationComponent')
 
@@ -78,8 +78,8 @@ const FontSizes = new DataCollection([
 const FontWeights = new DataCollection([{ id: '--base-page-font-weight' }, { id: '--font-weight-2' }])
 
 const FontComponent = class extends Component {
-	constructor(dataObject, options) {
-		super(dataObject, options)
+	constructor(dataObject, options, inheritedOptions = {}) {
+		super(dataObject, options, inheritedOptions)
 		this.addClass('font-component')
 		this.setName('FontComponent')
 
@@ -107,8 +107,8 @@ const FontComponent = class extends Component {
 }
 
 const LayoutComponent = class extends Component {
-	constructor(dataObject, options) {
-		super(dataObject, options)
+	constructor(dataObject, options, inheritedOptions = {}) {
+		super(dataObject, options, inheritedOptions)
 		this.addClass('layout-component')
 		this.setName('LayoutComponent')
 
@@ -143,8 +143,8 @@ const ColorVariables = new DataCollection([
 ])
 
 const ColorSwatchComponent = class extends Component {
-	constructor(dataObject, options) {
-		super(dataObject, options)
+	constructor(dataObject, options, inheritedOptions = {}) {
+		super(dataObject, options, inheritedOptions)
 		this.addClass('color-swatch-component')
 		this.setName('ColorSwatchComponent')
 

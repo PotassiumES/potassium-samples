@@ -110,19 +110,19 @@ AtomData.push({
 })
 
 const AtomsComponent = class extends Component {
-	constructor(dataObject = new DataCollection(AtomData), options = {}) {
-		super(dataObject, options)
+	constructor(dataObject = new DataCollection(AtomData), options = {}, inheritedOptions = {}) {
+		super(dataObject, options, inheritedOptions)
 		this.addClass('atoms-component')
 		this.setName('AtomsComponent')
 
 		new HeadingComponent(null, {
 			text: lt('Atoms')
-		}).appendTo(this)
+		}, this.inheritedOptions).appendTo(this)
 
 		this._mediaGridComponent = new MediaGridComponent(this.dataObject, {
 			itemComponent: ComponentCardComponent,
 			usesPortalOverlay: false
-		}).appendTo(this)
+		}, this.inheritedOptions).appendTo(this)
 	}
 }
 
