@@ -47,13 +47,39 @@ node[name=DirectionalLight] {
 	margin-bottom: var(--inner-element-padding);
 }
 
-.dom.view-component > .media-grid-component > .collection-component > .card-component > .card-title-component {
-	font-size: var(--page-font-size-1);
+.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component {
+	position: relative;
+	overflow: hidden;
 }
 
-.dom.view-component > .media-grid-component > .collection-component > .card-component > .main-component {
+.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .card-title-component {
+	font-size: var(--base-page-font-size);
+}
+
+.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > :first-child {
+	max-width: 100%;
+}
+
+.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component {
 	display: block;
 	min-height: 200px;
+}
+
+.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > .collection-component:first-child > .collection-item {
+	display: block;
+	margin-bottom: 10px;
+}
+
+
+.dom.view-component > .media-grid-component > .collection-component > .component-card-component > .tbd {
+	position: absolute;
+	top: -14px;
+	right: -47px;
+	font-size: var(--page-font-size-2);
+	transform: rotate(45deg);
+	color: var(--background-color);
+	background-color: var(--primary-color);
+	padding: 38px 30px 2px 30px;
 }
 
 .dom.view-component > .media-grid-component img {

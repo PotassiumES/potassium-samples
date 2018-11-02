@@ -11,6 +11,7 @@ import FoundationComponent from './FoundationComponent.js'
 import AtomsComponent from './AtomsComponent.js'
 import MoleculesComponent from './MoleculesComponent.js'
 import OrganismsComponent from './OrganismsComponent.js'
+import FormsComponent from './FormsComponent.js'
 
 const ViewInfo = []
 ViewInfo.push({
@@ -42,6 +43,12 @@ ViewInfo.push({
 	anchor: './#organisms',
 	route: /^organisms$/,
 	component: OrganismsComponent
+})
+ViewInfo.push({
+	name: 'Forms',
+	anchor: './#forms',
+	route: /^forms$/,
+	component: FormsComponent
 })
 
 const SinglePageApp = class extends App {

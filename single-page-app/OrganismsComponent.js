@@ -16,6 +16,12 @@ import ComponentCardComponent from './ComponentCardComponent.js'
 const OrganismData = []
 OrganismData.push({
 	componentClass: CollectionComponent,
+	componentOptions: {
+		itemComponent: LabelComponent,
+		itemOptions: {
+			textField: 'text'
+		}
+	},
 	componentData: new DataCollection([{ text: lt('One') }, { text: lt('Two') }, { text: lt('Three') }])
 })
 OrganismData.push({

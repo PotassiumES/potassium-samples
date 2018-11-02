@@ -1,5 +1,5 @@
 module.exports = ctx => ({
-	map: ctx.options.map,
+	map: { inline: false },
 	parser: false,
 	plugins: {
 		'postcss-import': {},

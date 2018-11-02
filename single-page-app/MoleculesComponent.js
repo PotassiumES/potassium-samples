@@ -4,6 +4,7 @@ import Component from 'potassium-es/src/Component'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 
 import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
+import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent.js'
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 
 import AudioPlayerComponent from 'potassium-components/src/molecules/AudioPlayerComponent.js'
@@ -14,7 +15,6 @@ import DateTimePickerComponent from 'potassium-components/src/molecules/DateTime
 import FormComponent from 'potassium-components/src/molecules/FormComponent.js'
 import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComponent.js'
 import MenuComponent from 'potassium-components/src/molecules/MenuComponent.js'
-import ModeSwitcherComponent from 'potassium-components/src/molecules/ModeSwitcherComponent.js'
 import PaginationComponent from 'potassium-components/src/molecules/PaginationComponent.js'
 import SearchComponent from 'potassium-components/src/molecules/SearchComponent.js'
 import ToolTipComponent from 'potassium-components/src/molecules/ToolTipComponent.js'
@@ -27,13 +27,17 @@ import ComponentCardComponent from './ComponentCardComponent.js'
 
 const MoleculeData = []
 MoleculeData.push({
-	componentClass: AudioPlayerComponent
+	componentClass: AudioPlayerComponent,
+	componentOptions: {
+		audio: '/single-page-app/audio/beep.wav'
+	}
 })
 MoleculeData.push({
 	componentClass: ButtonGroupComponent
 })
 MoleculeData.push({
-	componentClass: CalendarComponent
+	componentClass: CalendarComponent,
+	tbd: true
 })
 MoleculeData.push({
 	componentClass: CardComponent,
@@ -44,9 +48,6 @@ MoleculeData.push({
 })
 MoleculeData.push({
 	componentClass: DateTimePickerComponent
-})
-MoleculeData.push({
-	componentClass: FormComponent
 })
 MoleculeData.push({
 	componentClass: ImageCardComponent,
@@ -60,13 +61,12 @@ MoleculeData.push({
 	componentClass: MenuComponent
 })
 MoleculeData.push({
-	componentClass: ModeSwitcherComponent
+	componentClass: PaginationComponent,
+	tbd: true
 })
 MoleculeData.push({
-	componentClass: PaginationComponent
-})
-MoleculeData.push({
-	componentClass: SearchComponent
+	componentClass: SearchComponent,
+	tbd: true
 })
 MoleculeData.push({
 	componentClass: ToolTipComponent,
@@ -75,15 +75,20 @@ MoleculeData.push({
 	}
 })
 MoleculeData.push({
-	componentClass: VideoPlayerComponent
+	componentClass: VideoPlayerComponent,
+	componentOptions: {
+		mimeType: 'video/mp4',
+		url: '/video-player/test16x9video.mov'
+	}
 })
 MoleculeData.push({
-	componentClass: WaitComponent
+	componentClass: WaitComponent,
+	tbd: true
 })
 
 const MoleculesComponent = class extends Component {
-	constructor(dataObject = new DataCollection(MoleculeData), options = {}) {
-		super(dataObject, options)
+	constructor(dataObject = new DataCollection(MoleculeData), options = {}, inheritedOptions) {
+		super(dataObject, options, inheritedOptions)
 		this.addClass('molecules-component')
 		this.setName('MoleculesComponent')
 
@@ -95,6 +100,19 @@ const MoleculesComponent = class extends Component {
 			itemComponent: ComponentCardComponent,
 			usesPortalOverlay: false
 		}).appendTo(this)
+
+		// Add buttons to the button group component
+		const buttonGroupComponent = this._mediaGridComponent._immersiveSOM.querySelector('.button-group-component').component
+		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('One')}, this.inheritedOptions))
+		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('Two')}, this.inheritedOptions))
+		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('Three')}, this.inheritedOptions))
+
+		// Add menu items to the menu component
+		const menuComponent = this._mediaGridComponent._immersiveSOM.querySelector('.menu-component').component
+		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 1' }, this.inheritedOptions))
+		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 2' }, this.inheritedOptions))
+		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 3' }, this.inheritedOptions))
+		menuComponent.layout()
 	}
 }
 

@@ -12,7 +12,6 @@ import FileInputComponent from 'potassium-components/src/atoms/FileInputComponen
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 import ImageComponent from 'potassium-components/src/atoms/ImageComponent.js'
 import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
-import MultiComponent from 'potassium-components/src/atoms/MultiComponent.js'
 import ProgressComponent from 'potassium-components/src/atoms/ProgressComponent.js'
 import SelectionComponent from 'potassium-components/src/atoms/SelectionComponent.js'
 import SliderComponent from 'potassium-components/src/atoms/SliderComponent.js'
@@ -59,10 +58,13 @@ AtomData.push({
 	componentOptions: { text: 'Happy New Year!' }
 })
 AtomData.push({
-	componentClass: MultiComponent
-})
-AtomData.push({
-	componentClass: ProgressComponent
+	componentClass: ProgressComponent,
+	componentData: new DataModel({
+		value: 0.25
+	}),
+	componentOptions: {
+		fieldName: 'value'
+	}
 })
 AtomData.push({
 	componentClass: SelectionComponent,
@@ -123,6 +125,12 @@ const AtomsComponent = class extends Component {
 			itemComponent: ComponentCardComponent,
 			usesPortalOverlay: false
 		}, this.inheritedOptions).appendTo(this)
+
+		// Slowly change the value of the progress bar
+		const progressComponent = this._mediaGridComponent._immersiveSOM.querySelector('.progress-component').component
+		setInterval(() => {
+			progressComponent.dataObject.set('value', (progressComponent.dataObject.get('value', 0) + 0.0005) % 1)
+		}, 200)
 	}
 }
 
