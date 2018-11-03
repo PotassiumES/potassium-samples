@@ -63,7 +63,7 @@ AtomData.push({
 		value: 0.25
 	}),
 	componentOptions: {
-		fieldName: 'value'
+		dataField: 'value'
 	}
 })
 AtomData.push({
@@ -79,7 +79,7 @@ AtomData.push({
 	componentClass: SwitchComponent,
 	componentData: new DataModel({ state: false }),
 	componentOptions: {
-		fieldName: 'state'
+		dataField: 'state'
 	}
 })
 AtomData.push({
@@ -117,14 +117,22 @@ const AtomsComponent = class extends Component {
 		this.addClass('atoms-component')
 		this.setName('AtomsComponent')
 
-		new HeadingComponent(null, {
-			text: lt('Atoms')
-		}, this.inheritedOptions).appendTo(this)
+		new HeadingComponent(
+			null,
+			{
+				text: lt('Atoms')
+			},
+			this.inheritedOptions
+		).appendTo(this)
 
-		this._mediaGridComponent = new MediaGridComponent(this.dataObject, {
-			itemComponent: ComponentCardComponent,
-			usesPortalOverlay: false
-		}, this.inheritedOptions).appendTo(this)
+		this._mediaGridComponent = new MediaGridComponent(
+			this.dataObject,
+			{
+				itemComponent: ComponentCardComponent,
+				usesPortalOverlay: false
+			},
+			this.inheritedOptions
+		).appendTo(this)
 
 		// Slowly change the value of the progress bar
 		const progressComponent = this._mediaGridComponent._immersiveSOM.querySelector('.progress-component').component

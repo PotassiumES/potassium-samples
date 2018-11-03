@@ -10,12 +10,12 @@ const ComponentCardComponent = class extends CardComponent {
 	@param {string} [options.titleField]
 	@param {string} [options.captionField]
 	*/
-	constructor(dataObject = null, options = {}, inheritedOptions={}) {
+	constructor(dataObject = null, options = {}, inheritedOptions = {}) {
 		super(dataObject, options, inheritedOptions)
 		this.addClass('component-card-component')
 		this.setName('ComponentCardComponent')
 
-		if(this.dataObject.get('tbd', false)){
+		if (this.dataObject.get('tbd', false)) {
 			new LabelComponent(null, { text: 'to-do' }, this.inheritedOptions)
 				.appendTo(this)
 				.addClass('tbd')

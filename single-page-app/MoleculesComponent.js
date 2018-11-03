@@ -10,7 +10,6 @@ import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js
 import AudioPlayerComponent from 'potassium-components/src/molecules/AudioPlayerComponent.js'
 import ButtonGroupComponent from 'potassium-components/src/molecules/ButtonGroupComponent.js'
 import CalendarComponent from 'potassium-components/src/molecules/CalendarComponent.js'
-import CardComponent from 'potassium-components/src/molecules/CardComponent.js'
 import DateTimePickerComponent from 'potassium-components/src/molecules/DateTimePickerComponent.js'
 import FormComponent from 'potassium-components/src/molecules/FormComponent.js'
 import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComponent.js'
@@ -40,14 +39,13 @@ MoleculeData.push({
 	tbd: true
 })
 MoleculeData.push({
-	componentClass: CardComponent,
+	componentClass: DateTimePickerComponent,
 	componentData: new DataModel({
-		title: 'Potassium',
-		caption: 'A bit of it'
-	})
-})
-MoleculeData.push({
-	componentClass: DateTimePickerComponent
+		birthday: new Date()
+	}),
+	componentOptions: {
+		dataField: 'birthday'
+	}
 })
 MoleculeData.push({
 	componentClass: ImageCardComponent,
@@ -102,10 +100,11 @@ const MoleculesComponent = class extends Component {
 		}).appendTo(this)
 
 		// Add buttons to the button group component
-		const buttonGroupComponent = this._mediaGridComponent._immersiveSOM.querySelector('.button-group-component').component
-		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('One')}, this.inheritedOptions))
-		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('Two')}, this.inheritedOptions))
-		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('Three')}, this.inheritedOptions))
+		const buttonGroupComponent = this._mediaGridComponent._immersiveSOM.querySelector('.button-group-component')
+			.component
+		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('One') }, this.inheritedOptions))
+		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('Two') }, this.inheritedOptions))
+		buttonGroupComponent.appendComponent(new ButtonComponent(null, { text: lt('Three') }, this.inheritedOptions))
 
 		// Add menu items to the menu component
 		const menuComponent = this._mediaGridComponent._immersiveSOM.querySelector('.menu-component').component

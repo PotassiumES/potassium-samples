@@ -6,7 +6,6 @@ import MultiComponent from 'potassium-components/src/atoms/MultiComponent.js'
 
 import MastheadComponent from 'potassium-components/src/organisms/MastheadComponent.js'
 
-import AboutComponent from './AboutComponent.js'
 import FoundationComponent from './FoundationComponent.js'
 import AtomsComponent from './AtomsComponent.js'
 import MoleculesComponent from './MoleculesComponent.js'
@@ -15,15 +14,9 @@ import FormsComponent from './FormsComponent.js'
 
 const ViewInfo = []
 ViewInfo.push({
-	name: 'About',
+	name: 'Foundation',
 	anchor: './#',
 	route: /^$/,
-	component: AboutComponent
-})
-ViewInfo.push({
-	name: 'Foundation',
-	anchor: './#foundation',
-	route: /^foundation$/,
 	component: FoundationComponent
 })
 ViewInfo.push({
@@ -68,7 +61,10 @@ const SinglePageApp = class extends App {
 			})
 		}).appendTo(this)
 		this._masthead.addListener((eventName, mode) => {
-			this.setDisplayMode(mode)
+			console.log('setting display mode', mode)
+			this.setDisplayMode(mode).catch(err => {
+				console.error('Could not set display mode', err)
+			})
 		}, MastheadComponent.MODE_REQUEST_EVENT)
 
 		// MultiComponent holds Components that we'll switch among when responding to Router events
@@ -94,12 +90,12 @@ const SinglePageApp = class extends App {
 		const portalLight = som.directionalLight([0xffffff, 0.7])
 		this._portalScene.add(portalLight)
 		this._portalScene.add(portalLight.target)
-		this._portalScene.add(som.ambientLight([0xffffff, 0.9]))
+		this._portalScene.add(som.ambientLight([0xffffff, 0.4]))
 
 		const immersiveLight = som.directionalLight([0xffffff, 0.7])
 		this._immersiveScene.add(immersiveLight)
 		this._immersiveScene.add(immersiveLight.target)
-		this._immersiveScene.add(som.ambientLight([0xffffff, 0.9]))
+		this._immersiveScene.add(som.ambientLight([0xffffff, 0.4]))
 
 		// Add a spherical environment for immersive mode
 		this._immersiveEnvironmentMesh = som
@@ -116,6 +112,8 @@ const SinglePageApp = class extends App {
 	_handleRoutes(routeInfo, hash, ...regexMatches) {
 		if (typeof routeInfo === 'number') {
 			this._multiComponent.showAt(routeInfo)
+			console.log('ms', this._masthead, this._masthead.navigationMenu)
+			this._masthead.navigationMenu.selectedIndex = routeInfo
 		} else {
 			console.error('Unknown route', routeInfo, hash, ...regexMatches)
 			this._multiComponent.showAt(0)

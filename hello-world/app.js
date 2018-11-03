@@ -61,12 +61,12 @@ const HelloWorldApp = class extends App {
 		const portalLight = som.directionalLight([0xffffff, 0.7])
 		this._portalScene.add(portalLight)
 		this._portalScene.add(portalLight.target)
-		this._portalScene.add(som.ambientLight([0xffffff, 0.9]))
+		this._portalScene.add(som.ambientLight([0xffffff, 0.4]))
 
 		const immersiveLight = som.directionalLight([0xffffff, 0.7])
 		this._immersiveScene.add(immersiveLight)
 		this._immersiveScene.add(immersiveLight.target)
-		this._immersiveScene.add(som.ambientLight([0xffffff, 0.9]))
+		this._immersiveScene.add(som.ambientLight([0xffffff, 0.4]))
 
 		// Add a spherical environment for immersive mode
 		this._immersiveEnvironmentMesh = som

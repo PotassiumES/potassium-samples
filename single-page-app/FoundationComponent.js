@@ -22,7 +22,9 @@ const FoundationComponent = class extends Component {
 				text: lt('Foundation')
 			},
 			this.inheritedOptions
-		).appendTo(this)
+		)
+			.appendTo(this)
+			.addClass('component-title')
 
 		new HeadingComponent(
 			null,
@@ -32,7 +34,8 @@ const FoundationComponent = class extends Component {
 			this.inheritedOptions
 		)
 			.appendTo(this)
-			.addClass('h2')
+			.addClass('h2', 'color-title')
+
 		this._colorsComponent = new CollectionComponent(
 			ColorVariables,
 			{
@@ -50,19 +53,30 @@ const FoundationComponent = class extends Component {
 			this.inheritedOptions
 		)
 			.appendTo(this)
-			.addClass('h2')
-		this._fontComponent = new FontComponent().appendTo(this)
+			.addClass('h2', 'font-title')
+
+		this._fontComponent = new FontComponent(null, {}, this.inheritedOptions).appendTo(this)
 
 		new HeadingComponent(
 			null,
 			{
-				text: lt('Layout')
+				text: lt('Layout'),
+				usesPortalSpatial: false,
+				usesImmersive: false
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
-			.addClass('h2')
-		this._layoutComponent = new LayoutComponent().appendTo(this)
+			.addClass('h2', 'layout-title')
+
+		this._layoutComponent = new LayoutComponent(
+			null,
+			{
+				usesPortalSpatial: false,
+				usesImmersive: false
+			},
+			this.inheritedOptions
+		).appendTo(this)
 	}
 }
 
@@ -112,16 +126,16 @@ const LayoutComponent = class extends Component {
 		this.addClass('layout-component')
 		this.setName('LayoutComponent')
 
-		this._appComponent = new Component().appendTo(this)
+		this._appComponent = new Component(null, {}, this.inheritedOptions).appendTo(this)
 		this._appComponent.addClass('app-component')
 
-		this._section1Component = new Component()
+		this._section1Component = new Component(null, {}, this.inheritedOptions)
 			.appendTo(this._appComponent)
 			.appendComponent(new LabelComponent(null, { text: lt('Inner content') }))
 		this._section1Component.addClass('section-component')
-		this._section2Component = new Component()
+		this._section2Component = new Component(null, {}, this.inheritedOptions)
 			.appendTo(this._appComponent)
-			.appendComponent(new LabelComponent(null, { text: lt('Inner content') }))
+			.appendComponent(new LabelComponent(null, { text: lt('Inner content') }, this.inheritedOptions))
 		this._section2Component.addClass('section-component')
 	}
 }
@@ -152,7 +166,9 @@ const ColorSwatchComponent = class extends Component {
 
 		this._colorComponent.appendComponent(
 			new HeadingComponent(null, {
-				text: 'wider'
+				text: 'wider',
+				usesPortalSpatial: false,
+				usesImmersive: false
 			})
 		)
 
@@ -164,8 +180,8 @@ const ColorSwatchComponent = class extends Component {
 
 		this._colorComponent.flatDOM.style['background-color'] = cssVar
 		this._colorComponent.portalDOM.style['background-color'] = cssVar
-		this._colorComponent.portalSOM.assignedStyles.set('material-emissive', cssVar)
-		this._colorComponent.immersiveSOM.assignedStyles.set('material-emissive', cssVar)
+		this._colorComponent.portalSOM.children[0].assignedStyles.set('material-emissive', cssVar)
+		this._colorComponent.immersiveSOM.children[0].assignedStyles.set('material-emissive', cssVar)
 	}
 }
 

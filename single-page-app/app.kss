@@ -11,7 +11,7 @@ App specific styles
 }
 
 .som.masthead-component {
-	centroid: 0 0.2m -2m;
+	centroid: 0 0.7m -2m;
 }
 
 node[name=DirectionalLight] {
@@ -27,7 +27,7 @@ node[name=DirectionalLight] {
 }
 
 .som.views-component {
-	centroid: 0 -0.3m -2m;
+	centroid: 0 -0.6m -2m;
 }
 
 .dom.views-component > .dom.view-component {
@@ -86,34 +86,6 @@ node[name=DirectionalLight] {
 	max-height: 200px;
 }
 
-/*** AboutComponent ***/
-
-.dom.about-component > .dom.heading-component {
-	margin-bottom: var(--inner-section-margin);
-}
-
-.dom.about-component > .dom.label-component {
-	display: block;
-	margin-bottom: 20px;
-	line-height: 20px;
-}
-
-.dom.about-component > .dom.image-component > img {
-	margin: var(--inner-section-margin) 0;
-	max-width: 100%;
-}
-
-@media (min-width: 576px){
-	.dom.about-component {
-		max-width: 576px;
-	}
-}
-
-.som.about-component {
-	display: grid;
-	grid-template: 0.2m 1.2m / 1;
-}
-
 /* Components */
 
 .dom.main-component > .dom.cube-component {
@@ -122,13 +94,45 @@ node[name=DirectionalLight] {
 	min-height: 90px;
 }
 
+.som.main-component > .cube-component {
+	scale: 0.3 0.3 0.3;
+}
+
+.som.main-component > .cube-component > mesh {
+	material-emissive: var(--pink);
+}
+
 /* FoundationComponent */
+
+.som.foundation-component {
+	centroid: -0.5m 0.1m 0;
+}
+
+.som.foundation-component .component-title {
+	centroid: -1m 0.65m 0;
+	font-size: 0.12m;
+}
+
+.som.foundation-component .font-title {
+	centroid: -3m 0.45m 0;
+}
+
+.som.foundation-component .color-title {
+	centroid: -1m 0.45m 0;
+}
 
 .dom.colors-component {
 	display: grid;
 	grid-template: auto / 1fr 1fr 1fr;
 	grid-auto-rows: auto;
 	gap: 20px;
+}
+
+.som.colors-component {
+	display: grid;
+	grid-template: 0.5m / 1.2m 1.2m 1.2m;
+	grid-auto-rows: 0.5m;
+	gap: 0.2m;
 }
 
 .dom.color-swatch-component {
@@ -144,6 +148,14 @@ node[name=DirectionalLight] {
 	width: 100%;
 	height: 100px;
 	overflow: hidden;
+}
+
+.som.color-swatch-component > .cube-component {
+	centroid: 0.5 0.25 0;
+}
+
+.som.color-swatch-component > .cube-component > mesh {
+	scale: 0.25 0.25 0.01;
 }
 
 .dom.color-swatch-component > .cube-component > .heading-component {
