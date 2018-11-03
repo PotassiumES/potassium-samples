@@ -9,13 +9,11 @@ import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js
 
 import AudioPlayerComponent from 'potassium-components/src/molecules/AudioPlayerComponent.js'
 import ButtonGroupComponent from 'potassium-components/src/molecules/ButtonGroupComponent.js'
-import CalendarComponent from 'potassium-components/src/molecules/CalendarComponent.js'
 import DateTimePickerComponent from 'potassium-components/src/molecules/DateTimePickerComponent.js'
 import FormComponent from 'potassium-components/src/molecules/FormComponent.js'
 import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComponent.js'
 import MenuComponent from 'potassium-components/src/molecules/MenuComponent.js'
 import PaginationComponent from 'potassium-components/src/molecules/PaginationComponent.js'
-import SearchComponent from 'potassium-components/src/molecules/SearchComponent.js'
 import ToolTipComponent from 'potassium-components/src/molecules/ToolTipComponent.js'
 import VideoPlayerComponent from 'potassium-components/src/molecules/VideoPlayerComponent.js'
 import WaitComponent from 'potassium-components/src/molecules/WaitComponent.js'
@@ -29,14 +27,13 @@ MoleculeData.push({
 	componentClass: AudioPlayerComponent,
 	componentOptions: {
 		audio: '/single-page-app/audio/beep.wav'
-	}
+	},
+	tbdOverlay: true,
+	tbdSpatial: true
 })
 MoleculeData.push({
-	componentClass: ButtonGroupComponent
-})
-MoleculeData.push({
-	componentClass: CalendarComponent,
-	tbd: true
+	componentClass: ButtonGroupComponent,
+	tbdSpatial: true
 })
 MoleculeData.push({
 	componentClass: DateTimePickerComponent,
@@ -45,7 +42,9 @@ MoleculeData.push({
 	}),
 	componentOptions: {
 		dataField: 'birthday'
-	}
+	},
+	tbdOverlay: true,
+	tbdSpatial: true
 })
 MoleculeData.push({
 	componentClass: ImageCardComponent,
@@ -53,24 +52,30 @@ MoleculeData.push({
 		image: '/single-page-app/images/three.png',
 		title: 'Potassium',
 		caption: 'A bit of it'
-	})
+	}),
+	tbdSpatial: true
 })
 MoleculeData.push({
-	componentClass: MenuComponent
+	componentClass: MenuComponent,
+	tbdOverlay: true,
+	tbdSpatial: true
 })
 MoleculeData.push({
 	componentClass: PaginationComponent,
-	tbd: true
-})
-MoleculeData.push({
-	componentClass: SearchComponent,
-	tbd: true
+	componentOptions: {
+		totalCount: 12,
+		currentIndex: 2
+	},
+	tbdOverlay: true,
+	tbdSpatial: true
 })
 MoleculeData.push({
 	componentClass: ToolTipComponent,
 	componentOptions: {
 		component: new LabelComponent(null, { text: 'A tip for you' })
-	}
+	},
+	tbdOverlay: true,
+	tbdSpatial: true
 })
 MoleculeData.push({
 	componentClass: VideoPlayerComponent,
@@ -81,7 +86,8 @@ MoleculeData.push({
 })
 MoleculeData.push({
 	componentClass: WaitComponent,
-	tbd: true
+	tbdOverlay: true,
+	tbdSpatial: true
 })
 
 const MoleculesComponent = class extends Component {
@@ -112,6 +118,9 @@ const MoleculesComponent = class extends Component {
 		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 2' }, this.inheritedOptions))
 		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 3' }, this.inheritedOptions))
 		menuComponent.layout()
+
+		const waitComponent = this._mediaGridComponent._immersiveSOM.querySelector('.wait-component').component
+		waitComponent.state = WaitComponent.PROCESSING
 	}
 }
 

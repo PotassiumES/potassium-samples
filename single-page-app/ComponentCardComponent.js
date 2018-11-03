@@ -15,11 +15,18 @@ const ComponentCardComponent = class extends CardComponent {
 		this.addClass('component-card-component')
 		this.setName('ComponentCardComponent')
 
-		if (this.dataObject.get('tbd', false)) {
-			new LabelComponent(null, { text: 'to-do' }, this.inheritedOptions)
+		if (this.dataObject.get('tbdOverlay', false)) {
+			new LabelComponent(null, { text: 'needs overlay' }, this.inheritedOptions)
 				.appendTo(this)
-				.addClass('tbd')
-				.setName('TBD')
+				.addClass('tbdOverlay')
+				.setName('TBDOverlay')
+		}
+
+		if (this.dataObject.get('tbdSpatial', false)) {
+			new LabelComponent(null, { text: 'needs spatial' }, this.inheritedOptions)
+				.appendTo(this)
+				.addClass('tbdSpatial')
+				.setName('TBDSpatial')
 		}
 
 		const targetClass = this.dataObject.get('componentClass', Component)

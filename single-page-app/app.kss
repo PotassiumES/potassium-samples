@@ -71,15 +71,14 @@ node[name=DirectionalLight] {
 }
 
 
-.dom.view-component > .media-grid-component > .collection-component > .component-card-component > .tbd {
-	position: absolute;
-	top: -14px;
-	right: -47px;
-	font-size: var(--page-font-size-2);
-	transform: rotate(45deg);
+.dom.view-component > .media-grid-component > .collection-component > .component-card-component > .tbdSpatial, 
+.dom.view-component > .media-grid-component > .collection-component > .component-card-component > .tbdOverlay {
+	display: inline-block;
+	padding: var(--inner-element-padding);
+	margin: 0 0 var(--inner-section-margin) var(--inner-element-padding);
 	color: var(--background-color);
 	background-color: var(--primary-color);
-	padding: 38px 30px 2px 30px;
+	border-radius: var(--container-border-radius);
 }
 
 .dom.view-component > .media-grid-component img {

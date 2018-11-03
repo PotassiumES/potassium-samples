@@ -22,7 +22,8 @@ OrganismData.push({
 			textField: 'text'
 		}
 	},
-	componentData: new DataCollection([{ text: lt('One') }, { text: lt('Two') }, { text: lt('Three') }])
+	componentData: new DataCollection([{ text: lt('One') }, { text: lt('Two') }, { text: lt('Three') }]),
+	tbdSpatial: true
 })
 OrganismData.push({
 	componentClass: MastheadComponent,
@@ -32,7 +33,8 @@ OrganismData.push({
 			{ name: 'Foo', anchor: 'javascript:alert("Foo!")' },
 			{ name: 'Boo', anchor: 'javascript:alert("Boo!")' }
 		]
-	}
+	},
+	tbdSpatial: true
 })
 OrganismData.push({
 	componentClass: MediaGridComponent,
@@ -43,7 +45,8 @@ OrganismData.push({
 		{ title: lt('One'), caption: lt('Info 1'), image: '/single-page-app/images/one.jpg' },
 		{ title: lt('Two'), caption: lt('Info 2'), image: '/single-page-app/images/two.png' },
 		{ title: lt('Three'), caption: lt('Info 3'), image: '/single-page-app/images/three.png' }
-	])
+	]),
+	tbdSpatial: true
 })
 
 const OrganismsComponent = class extends Component {
