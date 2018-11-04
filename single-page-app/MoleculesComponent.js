@@ -9,7 +9,6 @@ import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js
 
 import AudioPlayerComponent from 'potassium-components/src/molecules/AudioPlayerComponent.js'
 import ButtonGroupComponent from 'potassium-components/src/molecules/ButtonGroupComponent.js'
-import DateTimePickerComponent from 'potassium-components/src/molecules/DateTimePickerComponent.js'
 import FormComponent from 'potassium-components/src/molecules/FormComponent.js'
 import ImageCardComponent from 'potassium-components/src/molecules/ImageCardComponent.js'
 import MenuComponent from 'potassium-components/src/molecules/MenuComponent.js'
@@ -33,17 +32,6 @@ MoleculeData.push({
 })
 MoleculeData.push({
 	componentClass: ButtonGroupComponent,
-	tbdSpatial: true
-})
-MoleculeData.push({
-	componentClass: DateTimePickerComponent,
-	componentData: new DataModel({
-		birthday: new Date()
-	}),
-	componentOptions: {
-		dataField: 'birthday'
-	},
-	tbdOverlay: true,
 	tbdSpatial: true
 })
 MoleculeData.push({
