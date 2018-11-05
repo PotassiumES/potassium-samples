@@ -105,7 +105,6 @@ const MoleculesComponent = class extends Component {
 		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 1' }, this.inheritedOptions))
 		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 2' }, this.inheritedOptions))
 		menuComponent.appendMenuItem(new LabelComponent(null, { text: 'Item 3' }, this.inheritedOptions))
-		menuComponent.layout()
 
 		const waitComponent = this._mediaGridComponent._immersiveSOM.querySelector('.wait-component').component
 		waitComponent.state = WaitComponent.PROCESSING

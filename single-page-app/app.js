@@ -112,6 +112,7 @@ const SinglePageApp = class extends App {
 	_handleRoutes(routeInfo, hash, ...regexMatches) {
 		if (typeof routeInfo === 'number') {
 			this._multiComponent.showAt(routeInfo)
+			this._masthead.navigationMenu.close()
 			this._masthead.navigationMenu.selectedIndex = routeInfo
 		} else {
 			console.error('Unknown route', routeInfo, hash, ...regexMatches)

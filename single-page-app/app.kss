@@ -56,13 +56,21 @@ node[name=DirectionalLight] {
 	font-size: var(--base-page-font-size);
 }
 
-.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > :first-child {
-	max-width: 100%;
-}
-
 .dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component {
 	display: block;
 	min-height: 200px;
+	position: relative;
+}
+
+.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > .menu-component {
+	position: absolute;
+	top: var(--inner-element-padding);
+	right: calc(var(--inner-element-padding) * 2);
+}
+
+
+.dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > :first-child {
+	max-width: 100%;
 }
 
 .dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > .collection-component:first-child > .collection-item {
