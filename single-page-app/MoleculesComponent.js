@@ -35,17 +35,17 @@ MoleculeData.push({
 	tbdSpatial: true
 })
 MoleculeData.push({
+	componentClass: MenuComponent,
+	tbdOverlay: true,
+	tbdSpatial: true
+})
+MoleculeData.push({
 	componentClass: ImageCardComponent,
 	componentData: new DataModel({
 		image: '/single-page-app/images/three.png',
 		title: 'Potassium',
 		caption: 'A bit of it'
 	}),
-	tbdSpatial: true
-})
-MoleculeData.push({
-	componentClass: MenuComponent,
-	tbdOverlay: true,
 	tbdSpatial: true
 })
 MoleculeData.push({

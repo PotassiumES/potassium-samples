@@ -80,7 +80,8 @@ const FoundationComponent = class extends Component {
 	}
 }
 
-const FontSizes = new DataCollection([
+// DOM font info
+const PageFontSizes = new DataCollection([
 	{ id: '--page-font-size-5' },
 	{ id: '--page-font-size-4' },
 	{ id: '--page-font-size-3' },
@@ -88,8 +89,30 @@ const FontSizes = new DataCollection([
 	{ id: '--base-page-font-size' },
 	{ id: '--page-font-size-0' }
 ])
+const PageFontWeights = new DataCollection([{ id: '--base-page-font-weight' }, { id: '--font-weight-2' }])
 
-const FontWeights = new DataCollection([{ id: '--base-page-font-weight' }, { id: '--font-weight-2' }])
+// SOM font info
+const SpatialFontSizes = new DataCollection([
+	{ id: '--spatial-font-size-5' },
+	{ id: '--spatial-font-size-4' },
+	{ id: '--spatial-font-size-3' },
+	{ id: '--spatial-font-size-2' },
+	{ id: '--base-spatial-font-size' },
+	{ id: '--spatial-font-size-0' },
+])
+
+/* A helper class for displaying font examples in FontComponent */
+const SpatialFontLabel = class extends LabelComponent {
+	constructor(dataObject, options, inheritedOptions=null){
+		super(dataObject, options, inheritedOptions)
+		this.addClass('spatial-font-label')
+		this.setName('SpatialFontLabel')
+
+		this.text = this.dataObject.get('id', '')
+		this.portalSOM.assignedStyles.set('font-size', `var(${this.dataObject.get('id', '')})`)
+		this.immersiveSOM.assignedStyles.set('font-size', `var(${this.dataObject.get('id', '')})`)
+	}
+}
 
 const FontComponent = class extends Component {
 	constructor(dataObject, options, inheritedOptions = {}) {
@@ -99,18 +122,28 @@ const FontComponent = class extends Component {
 
 		this.flatDOM.appendChild(this._createTableDOM())
 		this.portalDOM.appendChild(this._createTableDOM())
+
+		this.appendComponent(this._createSpatialFonts())
+	}
+
+	_createSpatialFonts(){
+		return new CollectionComponent(SpatialFontSizes, {
+			itemComponent: SpatialFontLabel,
+			usesFlat: false,
+			usesPortalOverlay: false
+		}).addClass('spatial-fonts').setName('SpatialFonts')
 	}
 
 	_createTableDOM() {
 		const table = dom.table()
 		const headings = dom.tr().appendTo(table)
-		for (const weight of FontWeights) {
+		for (const weight of PageFontWeights) {
 			const td = dom.td(weight.get('id')).appendTo(headings)
 		}
 
-		for (const size of FontSizes) {
+		for (const size of PageFontSizes) {
 			const tr = dom.tr().appendTo(table)
-			for (const weight of FontWeights) {
+			for (const weight of PageFontWeights) {
 				const td = dom.td(size.get('id')).appendTo(tr)
 				td.style['font-size'] = `var(${size.get('id')})`
 				td.style['font-weight'] = `var(${weight.get('id')})`

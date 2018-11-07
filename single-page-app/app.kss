@@ -124,12 +124,16 @@ node[name=DirectionalLight] {
 }
 
 .som.foundation-component .component-title {
-	centroid: -1m 0.65m 0;
+	centroid: 0.28m 0.8m 0;
 	font-size: 0.12m;
 }
 
-.som.foundation-component .font-title {
-	centroid: -3m 0.45m 0;
+.som.foundation-component > .font-title {
+	centroid: -3.6m 0.45m 0;
+}
+
+.som.foundation-component > .font-component > .spatial-fonts {
+	centroid: -3.8m 0.2m 0;
 }
 
 .som.foundation-component .color-title {

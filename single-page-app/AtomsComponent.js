@@ -150,8 +150,8 @@ const AtomsComponent = class extends Component {
 		// Slowly change the value of the progress bar
 		const progressComponent = this._mediaGridComponent._immersiveSOM.querySelector('.progress-component').component
 		setInterval(() => {
-			progressComponent.dataObject.set('value', (progressComponent.dataObject.get('value', 0) + 0.0005) % 1)
-		}, 200)
+			progressComponent.dataObject.set('value', (progressComponent.dataObject.get('value', 0) + 0.0025) % 1)
+		}, 1000)
 	}
 }
 

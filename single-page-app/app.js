@@ -61,7 +61,6 @@ const SinglePageApp = class extends App {
 			})
 		}).appendTo(this)
 		this._masthead.addListener((eventName, mode) => {
-			console.log('setting display mode', mode)
 			this.setDisplayMode(mode).catch(err => {
 				console.error('Could not set display mode', err)
 			})
