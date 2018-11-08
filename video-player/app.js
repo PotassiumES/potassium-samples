@@ -18,7 +18,7 @@ const videos = [
 ]
 
 const VideoPlayerApp = class extends App {
-	constructor(dataObject=null, options={}, inheritedOptions={}) {
+	constructor(dataObject = null, options = {}, inheritedOptions = {}) {
 		super(dataObject, options, inheritedOptions)
 
 		const menuItems = []
@@ -29,18 +29,26 @@ const VideoPlayerApp = class extends App {
 			})
 		}
 
-		this._masthead = new MastheadComponent(undefined, {
-			brand: 'PotassiumES',
-			brandAnchor: '/',
-			menuItems: menuItems
-		}, this.inheritedOptions).appendTo(this)
+		this._masthead = new MastheadComponent(
+			undefined,
+			{
+				brand: 'PotassiumES',
+				brandAnchor: '/',
+				menuItems: menuItems
+			},
+			this.inheritedOptions
+		).appendTo(this)
 		this._masthead.addListener((eventName, mode) => {
 			this.setDisplayMode(mode)
 		}, MastheadComponent.MODE_REQUEST_EVENT)
 
-		this._videoPlayerComponent = new VideoPlayerComponent(undefined, {
-			usesPortalOverlay: false
-		}, this.inheritedOptions).appendTo(this)
+		this._videoPlayerComponent = new VideoPlayerComponent(
+			undefined,
+			{
+				usesPortalOverlay: false
+			},
+			this.inheritedOptions
+		).appendTo(this)
 
 		// Set up our URL router to handle view switching
 		this.router.addRoute(new RegExp('^$'), 0) // special case no hash

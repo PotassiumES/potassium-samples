@@ -27,44 +27,74 @@ const FormsComponent = class extends Component {
 			this.inheritedOptions
 		).appendTo(this)
 
-		this._accountFormComponent = new FormComponent(new DataModel({
-			'sabbatical-month': 3,
-			birthday: '1970-01-31T00:00:00.000Z'
-		}), {}, this.inheritedOptions)
+		this._accountFormComponent = new FormComponent(
+			new DataModel({
+				'sabbatical-month': 3,
+				birthday: '1970-01-31T00:00:00.000Z'
+			}),
+			{},
+			this.inheritedOptions
+		)
 			.appendTo(this)
 			.addClass('account-form-component')
 			.setName('AccountFormComponent')
 
-		new Component(null, {}, this.inheritedOptions).appendTo(this._accountFormComponent)
+		new Component(null, {}, this.inheritedOptions)
+			.appendTo(this._accountFormComponent)
 			.addClass('form-group')
 			.setName('UserFormGroup')
-			.appendComponent(new TextInputFieldComponent(this._accountFormComponent.dataObject, {
-				dataField: 'username',
-				label: lt('Username'),
-				placeholder: lt('sparks12')
-			}, this.inheritedOptions))
-			.appendComponent(new SwitchFieldComponent(this._accountFormComponent.dataObject, {
-				dataField: 'notifications',
-				label: lt('Send notifications')
-			}, this.inheritedOptions))
+			.appendComponent(
+				new TextInputFieldComponent(
+					this._accountFormComponent.dataObject,
+					{
+						dataField: 'username',
+						label: lt('Username'),
+						placeholder: lt('sparks12')
+					},
+					this.inheritedOptions
+				)
+			)
+			.appendComponent(
+				new SwitchFieldComponent(
+					this._accountFormComponent.dataObject,
+					{
+						dataField: 'notifications',
+						label: lt('Send notifications')
+					},
+					this.inheritedOptions
+				)
+			)
 
-		new Component(null, {}, this.inheritedOptions).appendTo(this._accountFormComponent)
+		new Component(null, {}, this.inheritedOptions)
+			.appendTo(this._accountFormComponent)
 			.addClass('form-group')
 			.setName('BirthdayFormGroup')
-			.appendComponent(new DateFieldComponent(this._accountFormComponent.dataObject, {
-				dataField: 'birthday',
-				label: lt('Birthday')
-			}, this.inheritedOptions))
+			.appendComponent(
+				new DateFieldComponent(
+					this._accountFormComponent.dataObject,
+					{
+						dataField: 'birthday',
+						label: lt('Birthday')
+					},
+					this.inheritedOptions
+				)
+			)
 
-		new Component(null, {}, this.inheritedOptions).appendTo(this._accountFormComponent)
+		new Component(null, {}, this.inheritedOptions)
+			.appendTo(this._accountFormComponent)
 			.addClass('form-group')
 			.setName('SabbaticalFormGroup')
-			.appendComponent(new SelectionFieldComponent(this._accountFormComponent.dataObject, {
-				dataField: 'sabbatical-month',
-				label: lt('Sabbatical month'),
-				items: Localizer.Singleton.monthNames.map((name, index) => [name, index])
-			}, this.inheritedOptions))
-
+			.appendComponent(
+				new SelectionFieldComponent(
+					this._accountFormComponent.dataObject,
+					{
+						dataField: 'sabbatical-month',
+						label: lt('Sabbatical month'),
+						items: Localizer.Singleton.monthNames.map((name, index) => [name, index])
+					},
+					this.inheritedOptions
+				)
+			)
 
 		new LabelComponent(null, { text: 'needs spatial' }, this.inheritedOptions)
 			.appendTo(this)

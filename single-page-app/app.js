@@ -74,7 +74,7 @@ const SinglePageApp = class extends App {
 				})
 			})
 		}).appendTo(this)
-		for (let child of this._multiComponent.options.components) {
+		for (const child of this._multiComponent.options.components) {
 			child.addClass('view-component')
 		}
 		this._multiComponent.addClass('views-component')

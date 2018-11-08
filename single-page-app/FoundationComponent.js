@@ -98,12 +98,12 @@ const SpatialFontSizes = new DataCollection([
 	{ id: '--spatial-font-size-3' },
 	{ id: '--spatial-font-size-2' },
 	{ id: '--base-spatial-font-size' },
-	{ id: '--spatial-font-size-0' },
+	{ id: '--spatial-font-size-0' }
 ])
 
 /* A helper class for displaying font examples in FontComponent */
 const SpatialFontLabel = class extends LabelComponent {
-	constructor(dataObject, options, inheritedOptions=null){
+	constructor(dataObject, options, inheritedOptions = null) {
 		super(dataObject, options, inheritedOptions)
 		this.addClass('spatial-font-label')
 		this.setName('SpatialFontLabel')
@@ -126,12 +126,14 @@ const FontComponent = class extends Component {
 		this.appendComponent(this._createSpatialFonts())
 	}
 
-	_createSpatialFonts(){
+	_createSpatialFonts() {
 		return new CollectionComponent(SpatialFontSizes, {
 			itemComponent: SpatialFontLabel,
 			usesFlat: false,
 			usesPortalOverlay: false
-		}).addClass('spatial-fonts').setName('SpatialFonts')
+		})
+			.addClass('spatial-fonts')
+			.setName('SpatialFonts')
 	}
 
 	_createTableDOM() {
