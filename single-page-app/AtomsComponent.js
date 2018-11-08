@@ -116,11 +116,8 @@ AtomData.push({
 AtomData.push({
 	componentClass: VideoComponent,
 	componentOptions: {
-		videoDOM: dom.video(
-			dom.source({
-				src: '/video-player/test16x9video.mov'
-			})
-		)
+		video: '/video-player/test16x9video.mov',
+		mimeType: 'video/mp4'
 	}
 })
 

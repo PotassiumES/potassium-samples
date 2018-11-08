@@ -228,3 +228,7 @@ node[name=DirectionalLight] {
 	text-align: center;
 	padding: 10px;
 }
+
+.dom.main-component > .video-component {
+	width: 100%;
+}

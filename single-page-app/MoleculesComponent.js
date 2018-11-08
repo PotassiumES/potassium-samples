@@ -68,8 +68,8 @@ MoleculeData.push({
 MoleculeData.push({
 	componentClass: VideoPlayerComponent,
 	componentOptions: {
-		mimeType: 'video/mp4',
-		url: '/video-player/test16x9video.mov'
+		video: '/video-player/test16x9video.mov',
+		mimeType: 'video/mp4'
 	}
 })
 MoleculeData.push({
