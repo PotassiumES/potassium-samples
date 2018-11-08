@@ -10,11 +10,11 @@ App specific styles
 	margin-bottom: 40px;
 }
 
-.som.masthead-component {
+.spatial-app > .immersive-root > .masthead-component {
 	centroid: 0 0.7m -2m;
 }
 
-node[name=DirectionalLight] {
+.spatial-app > node[name=DirectionalLight] {
 	centroid: 0 10m 20m
 }
 
@@ -78,6 +78,31 @@ node[name=DirectionalLight] {
 	margin-bottom: 10px;
 }
 
+.som.organisms-component .main-component > .collection-component {
+	centroid: -0.1m 0.3m 0;
+}
+
+.som.organisms-component .main-component > .media-grid-component {
+	scale: 0.5 0.5 0.5;
+	centroid: 25cm -15cmm 0;
+}
+
+.som.organisms-component .main-component > .masthead-component {
+	scale: 0.5 0.5 0.5;
+}
+
+.som.molecules-component .main-component > .video-player-component {
+	centroid: 10cm 20cm 0;
+	scale: 0.5 0.5 0.5;
+}
+
+.som.molecules-component .main-component > .button-group-component {
+	centroid-y: 20cm;
+}
+
+.som.molecules-component .main-component > .wait-component {
+	centroid-x: -41cm;
+}
 
 .dom.tbdSpatial, 
 .dom.tbdOverlay {
@@ -101,6 +126,14 @@ node[name=DirectionalLight] {
 	max-height: 200px;
 }
 
+.som.atoms-component > .heading-component,
+.som.molecules-component > .heading-component,
+.som.organisms-component > .heading-component {
+	centroid: -0.2m 0.9m 0;
+	font-size: 0.12m;
+	color: var(--secondary-color);
+}
+
 /* Components */
 
 .dom.main-component > .dom.cube-component {
@@ -116,6 +149,40 @@ node[name=DirectionalLight] {
 .som.main-component > .cube-component > mesh {
 	material-emissive: var(--pink);
 }
+
+/* OrganismsComponent */
+
+.som.organisms-component > .media-grid-component >  .collection-component {
+	display: grid;
+	grid-template: 1.2m / 2m 2m 2m 2m;
+	grid-auto-rows: 1.2m;
+	gap: 0.1m;
+}
+
+/* MoleculesComponent */
+
+.som.molecules-component > .media-grid-component >  .collection-component {
+	display: grid;
+	grid-template: 1.2m / 2m 2m 2m 2m;
+	grid-auto-rows: 1.2m;
+	gap: 0.1m;
+}
+
+/* AtomsComponent */
+
+.som.atoms-component > .media-grid-component >  .collection-component {
+	display: grid;
+	grid-template: 1.2m / 2m 2m 2m 2m 2m 2m;
+	grid-auto-rows: 1.2m;
+	gap: 0.1m;
+}
+
+.som.atoms-component > .media-grid-component >  .collection-component > .card-component > .main-component > .text-component,
+.som.atoms-component > .media-grid-component >  .collection-component > .card-component > .main-component > .button-component,
+.som.atoms-component > .media-grid-component >  .collection-component > .card-component > .main-component > .text-input-component {
+	centroid-x: -50cm;	
+}
+
 
 /* FoundationComponent */
 
@@ -183,7 +250,6 @@ node[name=DirectionalLight] {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-
 
 .dom.multi-component > .dom.foundation-component > .heading-component.h2 {
 	font-size: var(--page-font-size-2);

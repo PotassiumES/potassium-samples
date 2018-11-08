@@ -127,7 +127,7 @@ const AtomsComponent = class extends Component {
 		this.addClass('atoms-component')
 		this.setName('AtomsComponent')
 
-		new HeadingComponent(
+		this._headingComponent = new HeadingComponent(
 			null,
 			{
 				text: lt('Atoms')

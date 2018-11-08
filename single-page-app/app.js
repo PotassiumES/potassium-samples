@@ -87,14 +87,14 @@ const SinglePageApp = class extends App {
 		this.router.start()
 
 		const portalLight = som.directionalLight([0xffffff, 0.7])
-		this._portalScene.add(portalLight)
-		this._portalScene.add(portalLight.target)
-		this._portalScene.add(som.ambientLight([0xffffff, 0.4]))
+		this.portalScene.add(portalLight)
+		this.portalScene.add(portalLight.target)
+		this.portalScene.add(som.ambientLight([0xffffff, 0.4]))
 
 		const immersiveLight = som.directionalLight([0xffffff, 0.7])
-		this._immersiveScene.add(immersiveLight)
-		this._immersiveScene.add(immersiveLight.target)
-		this._immersiveScene.add(som.ambientLight([0xffffff, 0.4]))
+		this.immersiveScene.add(immersiveLight)
+		this.immersiveScene.add(immersiveLight.target)
+		this.immersiveScene.add(som.ambientLight([0xffffff, 0.4]))
 
 		// Add a spherical environment for immersive mode
 		this._immersiveEnvironmentMesh = som
@@ -104,7 +104,7 @@ const SinglePageApp = class extends App {
 					map: som.textureLoader().load('./environment.jpg')
 				})
 			)
-			.appendTo(this._immersiveScene)
+			.appendTo(this.immersiveScene)
 		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
 	}
 
