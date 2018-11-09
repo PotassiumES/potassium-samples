@@ -1,0 +1,30 @@
+/* OrganismsComponent */
+
+.som.organisms-component > .component-title {
+	centroid-x: -30cm;
+}
+
+.som.organisms-component > .media-grid-component {
+	centroid-y: -90cm;
+}
+
+.som.organisms-component > .media-grid-component > .collection-component {
+	display: grid;
+	grid-template: 1.2m / 2m 2m 2m 2m;
+	grid-auto-rows: 1.2m;
+	gap: 0.1m;
+}
+
+.som.organisms-component .main-component > .collection-component {
+	centroid: -10cm 25cm 0;
+}
+
+.som.organisms-component .main-component > .masthead-component {
+	scale: 0.5 0.5 0.5;
+	centroid-x: 5cm;
+}
+
+.som.organisms-component .main-component > .media-grid-component {
+	scale: 0.5 0.5 0.5;
+	centroid: 30cm -15cmm 0;
+}

@@ -1,0 +1,41 @@
+/* AtomsComponent */
+
+.som.atoms-component > .component-title {
+	centroid-x: -18cm;
+}
+
+.som.atoms-component > .media-grid-component {
+	centroid-y: -80cm;
+}
+
+.som.atoms-component > .media-grid-component > .collection-component {
+	display: grid;
+	grid-template: 1.2m / 2m 2m 2m 2m 2m 2m;
+	grid-auto-rows: 1.2m;
+	gap: 0.1m;
+}
+
+.som.atoms-component .main-component > .text-component,
+.som.atoms-component .main-component > .button-component,
+.som.atoms-component .main-component > .text-input-component {
+	centroid-x: -50cm;
+}
+
+.som.atoms-component .som.main-component > .cube-component {
+	scale: 0.3 0.3 0.3;
+}
+
+.som.atoms-component .som.main-component > .cube-component > mesh {
+	material-color: var(--pink);
+}
+
+.som.atoms-component .som.main-component > .cube-component {
+	background-color: var(--light-primary-color);
+	min-width: 90px;
+	min-height: 90px;
+}
+
+.som.atoms-component .som.main-component > .video-component {
+	width: 100%;
+}
+

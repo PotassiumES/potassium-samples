@@ -1,0 +1,115 @@
+/* FoundationComponent */
+
+/* We don't yet have text centering */
+.som.foundation-component > .component-title {
+	centroid-x: -35cm;
+}
+
+.som.foundation-component > .heading-component.h2 {
+	centroid-y: -12cm;
+	color: var(--primary-color);
+	font-size: var(--base-spatial-font-size);
+}
+
+.som.foundation-component > .color-title {
+	centroid-x: -190cm;
+}
+
+.som.foundation-component > .colors-component {
+	centroid: -50cm -60cm 0;
+}
+
+.som.foundation-component > .font-title {
+	centroid-x: -450cm;
+}
+.som.foundation-component > .font-component {
+	centroid: -450cm -38cm 0;
+}
+
+.som.colors-component {
+	display: grid;
+	grid-template: 0.5m / 1.2m 1.2m 1.2m;
+	grid-auto-rows: 0.5m;
+	gap: 0.2m;
+}
+
+.som.color-swatch-component > .cube-component {
+	centroid: 0.5m 0.25m 0m;
+}
+
+.som.color-swatch-component > .cube-component > mesh {
+	scale: 0.25 0.25 0.01;
+}
+
+.dom.colors-component {
+	display: grid;
+	grid-template: auto / 1fr 1fr 1fr;
+	grid-auto-rows: auto;
+	gap: 20px;
+}
+
+.dom.color-swatch-component {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.dom.color-swatch-component > .cube-component {
+	position: relative;
+	display: block;
+	border: solid 3px #EFEFEF;
+	border-radius: var(--container-border-radius);
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
+}
+
+.dom.color-swatch-component > .cube-component > .heading-component {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.dom.multi-component > .dom.foundation-component > .heading-component.h2 {
+	font-size: var(--page-font-size-2);
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.dom.foundation-component > .dom.layout-component {
+	border: solid var(--container-border-width) var(--light-secondary-color);
+	border-radius: var(--container-border-radius);
+	padding: var(--page-app-content-padding);
+	width: calc(100% - (2 * var(--page-app-content-padding)));
+}
+
+.dom.foundation-component > .dom.layout-component > .dom.app-component {
+	border: solid var(--container-border-width) var(--light-primary-color);
+	border-radius: var(--container-border-radius);
+	padding: var(--inner-element-padding);
+	width:  calc(100% - (2 * var(--inner-element-padding)));
+	display: grid;
+	grid-template: auto / 1fr 1fr;
+	gap: calc(var(--inner-section-margin) / 2);
+}
+
+.dom.foundation-component > .dom.layout-component > .dom.app-component > .dom.section-component {
+	border: solid var(--container-border-width) var(--light-secondary-color);
+	border-radius: var(--container-border-radius);
+	padding: var(--inner-element-padding);
+	display: inline-block;
+	height: 100px;
+}
+
+.dom.font-component, .dom.font-component table {
+	width: 100%;
+}
+
+.dom.font-component > table > tr:first-child > td {
+	border-bottom: solid 1px #EFEFEF;
+}
+
+.dom.font-component > table > tr > td {
+	text-align: center;
+	padding: 10px;
+}

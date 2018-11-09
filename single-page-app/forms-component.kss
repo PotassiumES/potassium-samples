@@ -1,0 +1,18 @@
+/* FormsComponent */
+
+.som.forms-component > .component-title {
+	centroid-x: -20cm;
+}
+
+.som.forms-component > .account-form-component {
+	centroid: -122cm -25cm 0;
+}
+
+.dom.forms-component .tbdSpatial,
+.dom.forms-component .tbdOverlay {
+	display: block;
+	max-width: 7em;
+	text-align: center;
+	margin: 10px 0 0 0;
+}
+

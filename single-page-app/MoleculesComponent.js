@@ -86,7 +86,9 @@ const MoleculesComponent = class extends Component {
 
 		new HeadingComponent(null, {
 			text: lt('Molecules')
-		}).appendTo(this)
+		})
+			.appendTo(this)
+			.addClass('component-title')
 
 		this._mediaGridComponent = new MediaGridComponent(this.dataObject, {
 			itemComponent: ComponentCardComponent,

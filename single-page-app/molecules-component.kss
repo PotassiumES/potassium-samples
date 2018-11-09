@@ -1,0 +1,30 @@
+/* MoleculesComponent */
+
+
+.som.molecules-component > .component-title {
+	centroid-x: -30cm;
+}
+
+.som.molecules-component > .media-grid-component {
+	centroid-y: -100cm;
+}
+
+.som.molecules-component > .media-grid-component >  .collection-component {
+	display: grid;
+	grid-template: 1.2m / 2m 2m 2m 2m;
+	grid-auto-rows: 1.2m;
+	gap: 0.1m;
+}
+
+.som.molecules-component .main-component > .video-player-component {
+	centroid: 10cm 5cm 0;
+	scale: 0.5 0.5 0.5;
+}
+
+.som.molecules-component .main-component > .button-group-component {
+	centroid-y: 20cm;
+}
+
+.som.molecules-component .main-component > .wait-component {
+	centroid-x: -41cm;
+}

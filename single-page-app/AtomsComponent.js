@@ -133,7 +133,9 @@ const AtomsComponent = class extends Component {
 				text: lt('Atoms')
 			},
 			this.inheritedOptions
-		).appendTo(this)
+		)
+			.appendTo(this)
+			.addClass('component-title')
 
 		this._mediaGridComponent = new MediaGridComponent(
 			this.dataObject,

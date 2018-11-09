@@ -1,33 +1,42 @@
 @import url("potassium-es/styles/potassium-es.kss");
 @import url("potassium-components/styles/potassium-components.kss");
+@import url("foundation-component.kss");
+@import url("atoms-component.kss");
+@import url("molecules-component.kss");
+@import url("organisms-component.kss");
+@import url("forms-component.kss");
 
 /*
 App specific styles
 */
+
+.immersive-root > .masthead-component {
+	centroid: 0 70cm -200cm;
+}
+
+node[name=DirectionalLight] {
+	centroid: 0 10m 20m
+}
+
+.som.views-component {
+	centroid: 0 30cm -200cm;
+}
+
+.som.view-component > .component-title {
+	font-size: var(--spatial-font-size-2);
+	font-size: 12cm;
+	color: var(--secondary-color);
+}
 
 .app > .flat-root > .dom.masthead-component,
 .app > .portal-root > .dom.masthead-component {
 	margin-bottom: 40px;
 }
 
-.spatial-app > .immersive-root > .masthead-component {
-	centroid: 0 0.7m -2m;
-}
-
-.spatial-app > node[name=DirectionalLight] {
-	centroid: 0 10m 20m
-}
-
-/** All view components */
-
 .dom.views-component {
 	width: calc(100% - (2 * var(--page-app-content-padding)));
 	max-width: 100%;
 	margin-bottom: var(--page-app-content-padding);
-}
-
-.som.views-component {
-	centroid: 0 -0.6m -2m;
 }
 
 .dom.views-component > .dom.view-component {
@@ -78,32 +87,6 @@ App specific styles
 	margin-bottom: 10px;
 }
 
-.som.organisms-component .main-component > .collection-component {
-	centroid: -0.1m 0.3m 0;
-}
-
-.som.organisms-component .main-component > .media-grid-component {
-	scale: 0.5 0.5 0.5;
-	centroid: 25cm -15cmm 0;
-}
-
-.som.organisms-component .main-component > .masthead-component {
-	scale: 0.5 0.5 0.5;
-}
-
-.som.molecules-component .main-component > .video-player-component {
-	centroid: 10cm 20cm 0;
-	scale: 0.5 0.5 0.5;
-}
-
-.som.molecules-component .main-component > .button-group-component {
-	centroid-y: 20cm;
-}
-
-.som.molecules-component .main-component > .wait-component {
-	centroid-x: -41cm;
-}
-
 .dom.tbdSpatial, 
 .dom.tbdOverlay {
 	display: inline-block;
@@ -114,187 +97,6 @@ App specific styles
 	border-radius: var(--container-border-radius);
 }
 
-.dom.forms-component .tbdSpatial,
-.dom.forms-component .tbdOverlay {
-	display: block;
-	max-width: 7em;
-	text-align: center;
-	margin: 10px 0 0 0;
-}
-
 .dom.view-component > .media-grid-component img {
 	max-height: 200px;
-}
-
-.som.atoms-component > .heading-component,
-.som.molecules-component > .heading-component,
-.som.organisms-component > .heading-component {
-	centroid: -0.2m 0.9m 0;
-	font-size: 0.12m;
-	color: var(--secondary-color);
-}
-
-/* Components */
-
-.dom.main-component > .dom.cube-component {
-	background-color: var(--light-primary-color);
-	min-width: 90px;
-	min-height: 90px;
-}
-
-.som.main-component > .cube-component {
-	scale: 0.3 0.3 0.3;
-}
-
-.som.main-component > .cube-component > mesh {
-	material-emissive: var(--pink);
-}
-
-/* OrganismsComponent */
-
-.som.organisms-component > .media-grid-component >  .collection-component {
-	display: grid;
-	grid-template: 1.2m / 2m 2m 2m 2m;
-	grid-auto-rows: 1.2m;
-	gap: 0.1m;
-}
-
-/* MoleculesComponent */
-
-.som.molecules-component > .media-grid-component >  .collection-component {
-	display: grid;
-	grid-template: 1.2m / 2m 2m 2m 2m;
-	grid-auto-rows: 1.2m;
-	gap: 0.1m;
-}
-
-/* AtomsComponent */
-
-.som.atoms-component > .media-grid-component >  .collection-component {
-	display: grid;
-	grid-template: 1.2m / 2m 2m 2m 2m 2m 2m;
-	grid-auto-rows: 1.2m;
-	gap: 0.1m;
-}
-
-.som.atoms-component > .media-grid-component >  .collection-component > .card-component > .main-component > .text-component,
-.som.atoms-component > .media-grid-component >  .collection-component > .card-component > .main-component > .button-component,
-.som.atoms-component > .media-grid-component >  .collection-component > .card-component > .main-component > .text-input-component {
-	centroid-x: -50cm;	
-}
-
-
-/* FoundationComponent */
-
-.som.foundation-component {
-	centroid: -0.5m 0.1m 0;
-}
-
-.som.foundation-component .component-title {
-	centroid: 0.28m 0.8m 0;
-	font-size: 0.12m;
-}
-
-.som.foundation-component > .font-title {
-	centroid: -3.6m 0.45m 0;
-}
-
-.som.foundation-component > .font-component > .spatial-fonts {
-	centroid: -3.8m 0.2m 0;
-}
-
-.som.foundation-component .color-title {
-	centroid: -1m 0.45m 0;
-}
-
-.dom.colors-component {
-	display: grid;
-	grid-template: auto / 1fr 1fr 1fr;
-	grid-auto-rows: auto;
-	gap: 20px;
-}
-
-.som.colors-component {
-	display: grid;
-	grid-template: 0.5m / 1.2m 1.2m 1.2m;
-	grid-auto-rows: 0.5m;
-	gap: 0.2m;
-}
-
-.dom.color-swatch-component {
-	display: inline-block;
-	vertical-align: top;
-}
-
-.dom.color-swatch-component > .cube-component {
-	position: relative;
-	display: block;
-	border: solid 3px #EFEFEF;
-	border-radius: var(--container-border-radius);
-	width: 100%;
-	height: 100px;
-	overflow: hidden;
-}
-
-.som.color-swatch-component > .cube-component {
-	centroid: 0.5 0.25 0;
-}
-
-.som.color-swatch-component > .cube-component > mesh {
-	scale: 0.25 0.25 0.01;
-}
-
-.dom.color-swatch-component > .cube-component > .heading-component {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.dom.multi-component > .dom.foundation-component > .heading-component.h2 {
-	font-size: var(--page-font-size-2);
-	margin-top: 30px;
-	margin-bottom: 10px;
-}
-
-.dom.foundation-component > .dom.layout-component {
-	border: solid var(--container-border-width) var(--light-secondary-color);
-	border-radius: var(--container-border-radius);
-	padding: var(--page-app-content-padding);
-	width: calc(100% - (2 * var(--page-app-content-padding)));
-}
-
-.dom.foundation-component > .dom.layout-component > .dom.app-component {
-	border: solid var(--container-border-width) var(--light-primary-color);
-	border-radius: var(--container-border-radius);
-	padding: var(--inner-element-padding);
-	width:  calc(100% - (2 * var(--inner-element-padding)));
-	display: grid;
-	grid-template: auto / 1fr 1fr;
-	gap: calc(var(--inner-section-margin) / 2);
-}
-
-.dom.foundation-component > .dom.layout-component > .dom.app-component > .dom.section-component {
-	border: solid var(--container-border-width) var(--light-secondary-color);
-	border-radius: var(--container-border-radius);
-	padding: var(--inner-element-padding);
-	display: inline-block;
-	height: 100px;
-}
-
-.dom.font-component, .dom.font-component table {
-	width: 100%;
-}
-
-.dom.font-component > table > tr:first-child > td {
-	border-bottom: solid 1px #EFEFEF;
-}
-
-.dom.font-component > table > tr > td {
-	text-align: center;
-	padding: 10px;
-}
-
-.dom.main-component > .video-component {
-	width: 100%;
 }

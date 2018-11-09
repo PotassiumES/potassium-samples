@@ -57,7 +57,9 @@ const OrganismsComponent = class extends Component {
 
 		new HeadingComponent(null, {
 			text: lt('Organisms')
-		}).appendTo(this)
+		})
+			.appendTo(this)
+			.addClass('component-title')
 
 		this._mediaGridComponent = new MediaGridComponent(this.dataObject, {
 			itemComponent: ComponentCardComponent,

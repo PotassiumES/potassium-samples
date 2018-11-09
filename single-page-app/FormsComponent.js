@@ -25,7 +25,9 @@ const FormsComponent = class extends Component {
 				text: lt('Forms')
 			},
 			this.inheritedOptions
-		).appendTo(this)
+		)
+			.appendTo(this)
+			.addClass('component-title')
 
 		this._accountFormComponent = new FormComponent(
 			new DataModel({
@@ -40,7 +42,7 @@ const FormsComponent = class extends Component {
 			.setName('AccountFormComponent')
 
 		new Component(null, {}, this.inheritedOptions)
-			.appendTo(this._accountFormComponent)
+			.appendTo(this._accountFormComponent.fieldsComponent)
 			.addClass('form-group')
 			.setName('UserFormGroup')
 			.appendComponent(
@@ -66,7 +68,7 @@ const FormsComponent = class extends Component {
 			)
 
 		new Component(null, {}, this.inheritedOptions)
-			.appendTo(this._accountFormComponent)
+			.appendTo(this._accountFormComponent.fieldsComponent)
 			.addClass('form-group')
 			.setName('BirthdayFormGroup')
 			.appendComponent(
@@ -81,7 +83,7 @@ const FormsComponent = class extends Component {
 			)
 
 		new Component(null, {}, this.inheritedOptions)
-			.appendTo(this._accountFormComponent)
+			.appendTo(this._accountFormComponent.fieldsComponent)
 			.addClass('form-group')
 			.setName('SabbaticalFormGroup')
 			.appendComponent(
@@ -96,7 +98,15 @@ const FormsComponent = class extends Component {
 				)
 			)
 
-		new LabelComponent(null, { text: 'needs spatial' }, this.inheritedOptions)
+		new LabelComponent(
+			null,
+			{
+				text: 'needs spatial',
+				usesImmersive: false,
+				usesPortalSpatial: false
+			},
+			this.inheritedOptions
+		)
 			.appendTo(this)
 			.addClass('tbdSpatial')
 			.setName('TBDSpatial')
