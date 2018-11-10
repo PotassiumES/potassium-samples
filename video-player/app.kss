@@ -3,6 +3,22 @@
 
 /* App specific styles */
 
+node[name=DirectionalLight] {
+	centroid: 0 10m 20m
+}
+
+.som-root {
+	centroid-z: -220cm;
+}
+
+.som.masthead-component {
+	centroid:  -65cm 50cm 0;
+}
+
+.som.video-player-component {
+	centroid: -90cm 15cm 0;
+}
+
 .dom.masthead-component {
 	margin-bottom: 30px;
 }
@@ -11,16 +27,5 @@
 	display: block;
 	margin: 0 20px;
 	max-height: 90vh;
-}
-
-node[name=DirectionalLight] {
-	centroid: 0 10m 20m
-}
-
-.som.masthead-component {
-	centroid:  -0.2m 0.5m -2.2m;
-}
-
-.som.video-player-component {
-	centroid: -0.05m 0.2m -2.2m;
+	max-width: 780px;
 }

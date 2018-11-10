@@ -15,12 +15,6 @@
 	gap: 0.1m;
 }
 
-.som.atoms-component .main-component > .text-component,
-.som.atoms-component .main-component > .button-component,
-.som.atoms-component .main-component > .text-input-component {
-	centroid-x: -50cm;
-}
-
 .som.atoms-component .som.main-component > .cube-component {
 	scale: 0.3 0.3 0.3;
 }

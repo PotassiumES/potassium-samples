@@ -87,6 +87,7 @@ const VideoPlayerApp = class extends App {
 			return
 		}
 		this._setVideo(route)
+		this._masthead.navigationMenu.close()
 		this._masthead.navigationMenu.selectedIndex = route
 	}
 

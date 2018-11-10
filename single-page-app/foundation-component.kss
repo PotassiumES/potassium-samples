@@ -33,8 +33,8 @@
 	gap: 0.2m;
 }
 
-.som.color-swatch-component > .cube-component {
-	centroid: 0.5m 0.25m 0m;
+.som.color-swatch-component > .som.cube-component {
+	centroid: 0 80cm 0;
 }
 
 .som.color-swatch-component > .cube-component > mesh {

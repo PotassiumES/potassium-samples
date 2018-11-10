@@ -11,7 +11,7 @@ App specific styles
 */
 
 .immersive-root > .masthead-component {
-	centroid: 0 70cm -200cm;
+	centroid: -65cm 70cm -200cm;
 }
 
 node[name=DirectionalLight] {

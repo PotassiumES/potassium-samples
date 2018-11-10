@@ -8,35 +8,32 @@
 	text-align: center;
 }
 
-.flat-root .heading-component {
+.flat-dom.heading-component {
 	display: block;
 	margin-top: 60px;
 	margin-bottom: 40px;
 }
 
-.flat-root .mode-switcher-component {
+.flat-dom.mode-switcher-component {
 	position: absolute;
 	bottom: 30px;
 	left: 50%;
 	transform: translate(-50%, 0);
 }
 
-.flat-root .label-component {
+.flat-dom.label-component {
 	display: block;
 	margin-bottom: 25px;
 }
 
-.flat-root .back-button {
+.flat-dom.back-button {
 	position: absolute;
 	top: 10px;
-	left: 10px;
-}
-
-.flat-root .back-button > img {
+	left: 10px;	
 	width: 50px;
 }
 
-.portal-root .mode-switcher-component {
+.portal-dom.mode-switcher-component {
 	position: absolute;
 	bottom: 30px;
 	left: 30px;

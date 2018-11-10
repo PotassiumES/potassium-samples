@@ -20,7 +20,7 @@ const HelloWorldApp = class extends App {
 			usesPortalSpatial: false,
 			image: '/hello-world/left-arrow.png'
 		}).appendTo(this)
-		this._backButton.addClass('back-button', 'flat-only')
+		this._backButton.addClass('back-button')
 
 		this._headingComponent = new HeadingComponent(null, {
 			text: lt('Hello world'),

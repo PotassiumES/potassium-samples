@@ -17,7 +17,7 @@
 }
 
 .som.molecules-component .main-component > .video-player-component {
-	centroid: 10cm 5cm 0;
+	centroid-y: 35cm;
 	scale: 0.5 0.5 0.5;
 }
 
@@ -25,6 +25,6 @@
 	centroid-y: 20cm;
 }
 
-.som.molecules-component .main-component > .wait-component {
-	centroid-x: -41cm;
+.som.molecules-component .main-component > .image-card-component {
+	centroid-y: 35cm;
 }
