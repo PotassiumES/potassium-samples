@@ -86,15 +86,8 @@ const SinglePageApp = class extends App {
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()
 
-		const portalLight = som.directionalLight([0xffffff, 0.7])
-		this.portalScene.add(portalLight)
-		this.portalScene.add(portalLight.target)
-		this.portalScene.add(som.ambientLight([0xffffff, 0.4]))
-
-		const immersiveLight = som.directionalLight([0xffffff, 0.7])
-		this.immersiveScene.add(immersiveLight)
-		this.immersiveScene.add(immersiveLight.target)
-		this.immersiveScene.add(som.ambientLight([0xffffff, 0.4]))
+		this._addLights(this.portalScene)
+		this._addLights(this.immersiveScene)
 
 		// Add a spherical environment for immersive mode
 		this._immersiveEnvironmentMesh = som
@@ -106,6 +99,34 @@ const SinglePageApp = class extends App {
 			)
 			.appendTo(this.immersiveScene)
 		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
+	}
+
+	_addLights(scene){
+		const keyLight = som.directionalLight([0xffffff, 0.5])
+		keyLight.addClass('key-light')
+		keyLight.name = 'KeyLight'
+		keyLight.position.set(0, 10, 20)
+		keyLight.target.position.set(0, 0, -1)
+		scene.add(keyLight)
+		scene.add(keyLight.target)
+
+		const fillLight = som.directionalLight([0xffffff, 0.2])
+		fillLight.addClass('fill-light')
+		fillLight.name = 'FillLight'
+		fillLight.position.set(-10, 10, 10)
+		fillLight.target.position.set(0, 0, 1)
+		scene.add(fillLight)
+		scene.add(fillLight.target)
+
+		const backLight = som.directionalLight([0xffffff, 0.2])
+		backLight.addClass('back-light')
+		backLight.name = 'BackLight'
+		backLight.position.set(-10, 10, -10).normalize()
+		backLight.target.position.set(0, 0, 1)
+		scene.add(backLight)
+		scene.add(backLight.target)
+
+		scene.add(som.ambientLight([0xffffff, 0.7]))
 	}
 
 	_handleRoutes(routeInfo, hash, ...regexMatches) {

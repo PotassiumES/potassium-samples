@@ -15,36 +15,6 @@ const ComponentCardComponent = class extends CardComponent {
 		this.addClass('component-card-component')
 		this.setName('ComponentCardComponent')
 
-		if (this.dataObject.get('tbdOverlay', false)) {
-			new LabelComponent(
-				null,
-				{
-					text: 'needs overlay',
-					usesPortalSpatial: false,
-					usesImmersive: false
-				},
-				this.inheritedOptions
-			)
-				.appendTo(this)
-				.addClass('tbdOverlay')
-				.setName('TBDOverlay')
-		}
-
-		if (this.dataObject.get('tbdSpatial', false)) {
-			new LabelComponent(
-				null,
-				{
-					text: 'needs spatial',
-					usesPortalSpatial: false,
-					usesImmersive: false
-				},
-				this.inheritedOptions
-			)
-				.appendTo(this)
-				.addClass('tbdSpatial')
-				.setName('TBDSpatial')
-		}
-
 		const targetClass = this.dataObject.get('componentClass', Component)
 		const targetData = this.dataObject.get('componentData', null)
 		const targetOptions = this.dataObject.get('componentOptions', {})

@@ -5,6 +5,7 @@ import DataCollection from 'potassium-es/src/DataCollection'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 
 import CubeComponent from 'potassium-components/src/atoms/CubeComponent.js'
+import TextComponent from 'potassium-components/src/atoms/TextComponent.js'
 import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 
@@ -215,8 +216,8 @@ const ColorSwatchComponent = class extends Component {
 
 		this._colorComponent.flatDOM.style['background-color'] = cssVar
 		this._colorComponent.portalDOM.style['background-color'] = cssVar
-		this._colorComponent.portalSOM.children[0].assignedStyles.set('material-emissive', cssVar)
-		this._colorComponent.immersiveSOM.children[0].assignedStyles.set('material-emissive', cssVar)
+		this._colorComponent.portalSOM.children[0].assignedStyles.set('material-color', cssVar)
+		this._colorComponent.immersiveSOM.children[0].assignedStyles.set('material-color', cssVar)
 	}
 }
 

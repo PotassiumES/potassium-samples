@@ -28,40 +28,37 @@ import ComponentCardComponent from './ComponentCardComponent.js'
 const AtomData = []
 AtomData.push({
 	componentClass: AudioComponent,
-	componentOptions: { src: '/static/single-page-app/test-audio.wav' },
-	tbdSpatial: true
+	componentOptions: { src: '/static/single-page-app/test-audio.wav' }
 })
 AtomData.push({
 	componentClass: ButtonComponent,
-	componentOptions: { text: 'Click Me' },
-	tbdSpatial: true
+	componentOptions: { text: 'Click Me' }
 })
 AtomData.push({
-	componentClass: CheckboxComponent,
-	tbdSpatial: true
+	componentClass: CheckboxComponent
 })
 AtomData.push({
-	componentClass: CubeComponent
+	componentClass: CubeComponent,
+	componentOptions: {
+		classes: 'example-cube-component'
+	}
 })
 AtomData.push({
-	componentClass: FileInputComponent,
-	tbdSpatial: true
+	componentClass: FileInputComponent
 })
 AtomData.push({
 	componentClass: HeadingComponent,
-	componentOptions: { text: 'Happy New Year!' },
-	tbdSpatial: true
+	componentOptions: { text: 'Happy New Year!' }
 })
 AtomData.push({
 	componentClass: ImageComponent,
 	componentOptions: {
-		image: '/single-page-app/images/two.png'
+		image: '/single-page-app/images/three.png'
 	}
 })
 AtomData.push({
 	componentClass: LabelComponent,
-	componentOptions: { text: 'Happy New Year!' },
-	tbdSpatial: true
+	componentOptions: { text: 'Happy New Year!' }
 })
 AtomData.push({
 	componentClass: ProgressComponent,
@@ -70,27 +67,23 @@ AtomData.push({
 	}),
 	componentOptions: {
 		dataField: 'value'
-	},
-	tbdSpatial: true
+	}
 })
 AtomData.push({
 	componentClass: SelectionComponent,
 	componentOptions: {
 		items: [[lt('One'), 1], [lt('Two'), 2], [lt('Three'), 3]]
-	},
-	tbdSpatial: true
+	}
 })
 AtomData.push({
-	componentClass: SliderComponent,
-	tbdSpatial: true
+	componentClass: SliderComponent
 })
 AtomData.push({
 	componentClass: SwitchComponent,
 	componentData: new DataModel({ state: false }),
 	componentOptions: {
 		dataField: 'state'
-	},
-	tbdSpatial: true
+	}
 })
 AtomData.push({
 	componentClass: TableComponent,
@@ -98,20 +91,17 @@ AtomData.push({
 		{ key: 'Foo', value: 'Oof' },
 		{ key: 'Boo', value: 'Oob' },
 		{ key: 'Goo', value: 'Oog' }
-	]),
-	tbdSpatial: true
+	])
 })
 AtomData.push({
 	componentClass: TextComponent,
-	componentOptions: { text: 'Happy New Year!' },
-	tbdSpatial: true
+	componentOptions: { text: 'Happy New Year!' }
 })
 AtomData.push({
 	componentClass: TextInputComponent,
 	componentOptions: {
 		placeholder: 'Enter text here'
-	},
-	tbdSpatial: true
+	}
 })
 AtomData.push({
 	componentClass: VideoComponent,
@@ -151,6 +141,11 @@ const AtomsComponent = class extends Component {
 		setInterval(() => {
 			progressComponent.dataObject.set('value', (progressComponent.dataObject.get('value', 0) + 0.0025) % 1)
 		}, 1000)
+
+		const cubeComponent = this._mediaGridComponent._immersiveSOM.querySelector('.main-component > .example-cube-component').component
+		cubeComponent.flatDOM.style['width'] = '6em'
+		cubeComponent.flatDOM.style['height'] = '6em'
+		cubeComponent.flatDOM.style['background-color'] = 'var(--primary-color)'
 	}
 }
 

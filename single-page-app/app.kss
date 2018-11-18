@@ -14,10 +14,6 @@ App specific styles
 	centroid: -65cm 70cm -200cm;
 }
 
-node[name=DirectionalLight] {
-	centroid: 0 10m 20m
-}
-
 .som.views-component {
 	centroid: 0 30cm -200cm;
 }
@@ -85,16 +81,6 @@ node[name=DirectionalLight] {
 .dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > .collection-component:first-child > .collection-item {
 	display: block;
 	margin-bottom: 10px;
-}
-
-.dom.tbdSpatial, 
-.dom.tbdOverlay {
-	display: inline-block;
-	padding: var(--inner-element-padding);
-	margin: 0 0 var(--inner-section-margin) var(--inner-element-padding);
-	color: var(--background-color);
-	background-color: var(--primary-color);
-	border-radius: var(--container-border-radius);
 }
 
 .dom.view-component > .media-grid-component img {
