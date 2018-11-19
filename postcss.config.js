@@ -3,6 +3,13 @@ module.exports = ctx => ({
 	parser: false,
 	plugins: {
 		'postcss-import': {},
-		'postcss-potassium': {}
+		'postcss-potassium': {},
+		'cssnano': {
+			preset: ['default', {
+				discardComments: {
+					removeAll: true
+				}
+			}]
+		}
 	}
 })

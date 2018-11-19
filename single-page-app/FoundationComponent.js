@@ -20,41 +20,41 @@ const FoundationComponent = class extends Component {
 		new HeadingComponent(
 			null,
 			{
-				text: lt('Foundation')
+				text: lt('Foundation'),
+				classes: 'component-title'
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
-			.addClass('component-title')
 
 		new HeadingComponent(
 			null,
 			{
-				text: lt('Color')
+				text: lt('Color'),
+				classes: 'h2 color-title'
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
-			.addClass('h2', 'color-title')
 
 		this._colorsComponent = new CollectionComponent(
 			ColorVariables,
 			{
-				itemComponent: ColorSwatchComponent
+				itemComponent: ColorSwatchComponent,
+				classes: 'colors-component'
 			},
 			this.inheritedOptions
 		).appendTo(this)
-		this._colorsComponent.addClass('colors-component')
 
 		new HeadingComponent(
 			null,
 			{
-				text: lt('Fonts')
+				text: lt('Fonts'),
+				classes: 'h2 font-title'
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
-			.addClass('h2', 'font-title')
 
 		this._fontComponent = new FontComponent(null, {}, this.inheritedOptions).appendTo(this)
 
@@ -63,12 +63,12 @@ const FoundationComponent = class extends Component {
 			{
 				text: lt('Layout'),
 				usesPortalSpatial: false,
-				usesImmersive: false
+				usesImmersive: false,
+				classes: 'h2 layout-title'
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
-			.addClass('h2', 'layout-title')
 
 		this._layoutComponent = new LayoutComponent(
 			null,
@@ -83,24 +83,27 @@ const FoundationComponent = class extends Component {
 
 // DOM font info
 const PageFontSizes = new DataCollection([
-	{ id: '--page-font-size-5' },
-	{ id: '--page-font-size-4' },
-	{ id: '--page-font-size-3' },
-	{ id: '--page-font-size-2' },
-	{ id: '--base-page-font-size' },
-	{ id: '--page-font-size-0' }
+	{ id: '--dom-font-size-5', clazz: 'dom-font-5' },
+	{ id: '--dom-font-size-4', clazz: 'dom-font-4' },
+	{ id: '--dom-font-size-3', clazz: 'dom-font-3' },
+	{ id: '--dom-font-size-2', clazz: 'dom-font-2' },
+	{ id: '--dom-font-base', clazz: 'dom-font-base' },
+	{ id: '--dom-font-size-0', clazz: 'dom-font-0' }
 ])
-const PageFontWeights = new DataCollection([{ id: '--base-page-font-weight' }, { id: '--font-weight-2' }])
 
 // SOM font info
 const SpatialFontSizes = new DataCollection([
-	{ id: '--spatial-font-size-5' },
-	{ id: '--spatial-font-size-4' },
-	{ id: '--spatial-font-size-3' },
-	{ id: '--spatial-font-size-2' },
-	{ id: '--base-spatial-font-size' },
-	{ id: '--spatial-font-size-0' }
+	{ id: '--som-font-size-5' },
+	{ id: '--som-font-size-4' },
+	{ id: '--som-font-size-3' },
+	{ id: '--som-font-size-2' },
+	{ id: '--som-font-base' },
+	{ id: '--som-font-size-0' }
 ])
+
+const cleanVarName = function(name){
+	return name.substring(6).replace(/\-/g, ' ', )
+}
 
 /* A helper class for displaying font examples in FontComponent */
 const SpatialFontLabel = class extends LabelComponent {
@@ -139,18 +142,12 @@ const FontComponent = class extends Component {
 
 	_createTableDOM() {
 		const table = dom.table()
-		const headings = dom.tr().appendTo(table)
-		for (const weight of PageFontWeights) {
-			const td = dom.td(weight.get('id')).appendTo(headings)
-		}
-
 		for (const size of PageFontSizes) {
 			const tr = dom.tr().appendTo(table)
-			for (const weight of PageFontWeights) {
-				const td = dom.td(size.get('id')).appendTo(tr)
-				td.style['font-size'] = `var(${size.get('id')})`
-				td.style['font-weight'] = `var(${weight.get('id')})`
-			}
+			const td = dom.td(
+				{ class: size.get('clazz') },
+				cleanVarName(size.get('id'))
+			).appendTo(tr)
 		}
 		return table
 	}
@@ -177,19 +174,19 @@ const LayoutComponent = class extends Component {
 }
 
 const ColorVariables = new DataCollection([
-	{ id: '--light-primary-color' },
-	{ id: '--primary-color' },
-	{ id: '--dark-primary-color' },
-	{ id: '--light-secondary-color' },
-	{ id: '--secondary-color' },
-	{ id: '--dark-secondary-color' },
-	{ id: '--light-tertiary-color' },
-	{ id: '--tertiary-color' },
-	{ id: '--dark-tertiary-color' },
-	{ id: '--light-base-color' },
-	{ id: '--base-color' },
-	{ id: '--dark-base-color' },
-	{ id: '--background-color' }
+	{ id: '--dom-light-primary-color' },
+	{ id: '--dom-primary-color' },
+	{ id: '--dom-dark-primary-color' },
+	{ id: '--dom-light-secondary-color' },
+	{ id: '--dom-secondary-color' },
+	{ id: '--dom-dark-secondary-color' },
+	{ id: '--dom-light-tertiary-color' },
+	{ id: '--dom-tertiary-color' },
+	{ id: '--dom-dark-tertiary-color' },
+	{ id: '--dom-light-base-color' },
+	{ id: '--dom-base-color' },
+	{ id: '--dom-dark-base-color' },
+	{ id: '--dom-background-color' }
 ])
 
 const ColorSwatchComponent = class extends Component {
@@ -209,7 +206,7 @@ const ColorSwatchComponent = class extends Component {
 		)
 
 		this._nameName = new LabelComponent(null, {
-			text: this.dataObject.get('id')
+			text: cleanVarName(this.dataObject.get('id'))
 		}).appendTo(this)
 
 		const cssVar = `var(${this.dataObject.get('id')})`

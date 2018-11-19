@@ -19,9 +19,9 @@ App specific styles
 }
 
 .som.view-component > .component-title {
-	font-size: var(--spatial-font-size-2);
+	font-size: var(--som-font-size-2);
 	font-size: 12cm;
-	color: var(--secondary-color);
+	color: var(--som-secondary-color);
 }
 
 .app > .flat-root > .dom.masthead-component,
@@ -30,17 +30,17 @@ App specific styles
 }
 
 .dom.views-component {
-	width: calc(100% - (2 * var(--page-app-content-padding)));
+	width: calc(100% - (2 * var(--dom-outer-container-padding)));
 	max-width: 100%;
-	margin-bottom: var(--page-app-content-padding);
+	margin-bottom: var(--dom-outer-container-padding);
 }
 
 .dom.views-component > .dom.view-component {
-	padding: 0 var(--page-app-content-padding);
+	padding: 0 var(--dom-outer-container-padding);
 }
 
 .dom.views-component > .dom.view-component > .dom.heading-component {
-	font-size: var(--page-font-size-3);
+	font-size: var(--dom-font-size-3);
 }
 
 .dom.views-component > .dom.view-component {
@@ -49,7 +49,7 @@ App specific styles
 }
 
 .dom.view-component > .heading-component:first-child {
-	margin-bottom: var(--inner-element-padding);
+	margin-bottom: var(--dom-inner-element-padding);
 }
 
 .dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component {
@@ -58,7 +58,7 @@ App specific styles
 }
 
 .dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .card-title-component {
-	font-size: var(--base-page-font-size);
+	font-size: var(--dom-font-size-base);
 }
 
 .dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component {
@@ -69,8 +69,8 @@ App specific styles
 
 .dom.view-component > .media-grid-component > .collection-component > .dom.component-card-component > .main-component > .menu-component {
 	position: absolute;
-	top: var(--inner-element-padding);
-	right: calc(var(--inner-element-padding) * 2);
+	top: var(--dom-inner-element-padding);
+	right: calc(var(--dom-inner-element-padding) * 2);
 }
 
 

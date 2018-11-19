@@ -97,19 +97,6 @@ const FormsComponent = class extends Component {
 					this.inheritedOptions
 				)
 			)
-
-		new LabelComponent(
-			null,
-			{
-				text: 'needs spatial',
-				usesImmersive: false,
-				usesPortalSpatial: false
-			},
-			this.inheritedOptions
-		)
-			.appendTo(this)
-			.addClass('tbdSpatial')
-			.setName('TBDSpatial')
 	}
 }
 

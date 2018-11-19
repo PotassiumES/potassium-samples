@@ -145,7 +145,7 @@ const AtomsComponent = class extends Component {
 		const cubeComponent = this._mediaGridComponent._immersiveSOM.querySelector('.main-component > .example-cube-component').component
 		cubeComponent.flatDOM.style['width'] = '6em'
 		cubeComponent.flatDOM.style['height'] = '6em'
-		cubeComponent.flatDOM.style['background-color'] = 'var(--primary-color)'
+		cubeComponent.flatDOM.style['background-color'] = 'var(--dom-primary-color)'
 	}
 }
 

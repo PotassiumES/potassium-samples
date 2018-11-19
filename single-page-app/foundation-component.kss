@@ -7,8 +7,8 @@
 
 .som.foundation-component > .heading-component.h2 {
 	centroid-y: -12cm;
-	color: var(--primary-color);
-	font-size: var(--base-spatial-font-size);
+	color: var(--som-primary-color);
+	font-size: var(--som-font-size-base);
 }
 
 .som.foundation-component > .color-title {
@@ -57,7 +57,7 @@
 	position: relative;
 	display: block;
 	border: solid 3px #EFEFEF;
-	border-radius: var(--container-border-radius);
+	border-radius: var(--dom-container-border-radius);
 	width: 100%;
 	height: 100px;
 	overflow: hidden;
@@ -71,32 +71,32 @@
 }
 
 .dom.multi-component > .dom.foundation-component > .heading-component.h2 {
-	font-size: var(--page-font-size-2);
+	font-size: var(--dom-font-size-2);
 	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
 .dom.foundation-component > .dom.layout-component {
-	border: solid var(--container-border-width) var(--light-secondary-color);
-	border-radius: var(--container-border-radius);
-	padding: var(--page-app-content-padding);
-	width: calc(100% - (2 * var(--page-app-content-padding)));
+	border: solid var(--dom-container-border-width) var(--dom-light-secondary-color);
+	border-radius: var(--dom-container-border-radius);
+	padding: var(--dom-outer-container-padding);
+	width: calc(100% - (2 * var(--dom-outer-container-padding)));
 }
 
 .dom.foundation-component > .dom.layout-component > .dom.app-component {
-	border: solid var(--container-border-width) var(--light-primary-color);
-	border-radius: var(--container-border-radius);
-	padding: var(--inner-element-padding);
-	width:  calc(100% - (2 * var(--inner-element-padding)));
+	border: solid var(--dom-container-border-width) var(--dom-light-primary-color);
+	border-radius: var(--dom-container-border-radius);
+	padding: var(--dom-inner-element-padding);
+	width:  calc(100% - (2 * var(--dom-inner-element-padding)));
 	display: grid;
 	grid-template: auto / 1fr 1fr;
-	gap: calc(var(--inner-section-margin) / 2);
+	gap: var(--dom-inner-element-gap);
 }
 
 .dom.foundation-component > .dom.layout-component > .dom.app-component > .dom.section-component {
-	border: solid var(--container-border-width) var(--light-secondary-color);
-	border-radius: var(--container-border-radius);
-	padding: var(--inner-element-padding);
+	border: solid var(--dom-container-border-width) var(--dom-light-secondary-color);
+	border-radius: var(--dom-container-border-radius);
+	padding: var(--dom-inner-element-padding);
 	display: inline-block;
 	height: 100px;
 }
