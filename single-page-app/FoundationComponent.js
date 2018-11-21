@@ -113,8 +113,8 @@ const SpatialFontLabel = class extends LabelComponent {
 		this.setName('SpatialFontLabel')
 
 		this.text = this.dataObject.get('id', '')
-		this.portalSOM.assignedStyles.set('font-size', `var(${this.dataObject.get('id', '')})`)
-		this.immersiveSOM.assignedStyles.set('font-size', `var(${this.dataObject.get('id', '')})`)
+		this.portalSOM.styles.assignedStyles.set('font-size', `var(${this.dataObject.get('id', '')})`)
+		this.immersiveSOM.styles.assignedStyles.set('font-size', `var(${this.dataObject.get('id', '')})`)
 	}
 }
 
@@ -213,8 +213,8 @@ const ColorSwatchComponent = class extends Component {
 
 		this._colorComponent.flatDOM.style['background-color'] = cssVar
 		this._colorComponent.portalDOM.style['background-color'] = cssVar
-		this._colorComponent.portalSOM.children[0].assignedStyles.set('material-color', cssVar)
-		this._colorComponent.immersiveSOM.children[0].assignedStyles.set('material-color', cssVar)
+		this._colorComponent.portalSOM.children[0].styles.assignedStyles.set('material-color', cssVar)
+		this._colorComponent.immersiveSOM.children[0].styles.assignedStyles.set('material-color', cssVar)
 	}
 }
 
