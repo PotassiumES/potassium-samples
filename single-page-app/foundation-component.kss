@@ -17,6 +17,10 @@
 
 .som.foundation-component > .colors-component {
 	centroid: -50cm -60cm 0;
+	display: grid;
+	grid-template: 0.5m / 1.2m 1.2m 1.2m;
+	grid-auto-rows: 0.5m;
+	gap: 0.2m;
 }
 
 .som.foundation-component > .font-title {
@@ -24,13 +28,6 @@
 }
 .som.foundation-component > .font-component {
 	centroid: -450cm -38cm 0;
-}
-
-.som.colors-component {
-	display: grid;
-	grid-template: 0.5m / 1.2m 1.2m 1.2m;
-	grid-auto-rows: 0.5m;
-	gap: 0.2m;
 }
 
 .som.color-swatch-component > .som.cube-component {
