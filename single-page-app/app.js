@@ -48,7 +48,6 @@ const SinglePageApp = class extends App {
 	constructor() {
 		super()
 		this._brand = 'PotassiumES'
-		this._titlePrefix = this._brand + ' • '
 
 		this._masthead = new MastheadComponent(null, {
 			brand: this._brand,
@@ -101,7 +100,7 @@ const SinglePageApp = class extends App {
 		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
 	}
 
-	_addLights(scene){
+	_addLights(scene) {
 		const keyLight = som.directionalLight([0xffffff, 0.5])
 		keyLight.addClass('key-light')
 		keyLight.name = 'KeyLight'

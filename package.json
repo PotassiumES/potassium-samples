@@ -16,6 +16,7 @@
     "build-single-page-app": "npm run style-single-page-app && rollup -c single-page-app/rollup.config.js",
     "build": "npm run collect-static && npm run style-site && npm run build-video-player && npm run build-hello-world && npm run build-single-page-app",
     "lint": "eslint hello-world single-page-app video-player",
+    "lint-fix": "eslint hello-world single-page-app video-player --fix",
     "prettier-video-player": "prettier --write video-player/**/*.js video-player/**/*.js",
     "prettier-hello-world": "prettier --write hello-world/**/*.js hello-world/**/*.js",
     "prettier-single-page-app": "prettier --write single-page-app/**/*.js single-page-app/**/*.js",

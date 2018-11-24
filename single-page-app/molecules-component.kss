@@ -1,12 +1,7 @@
 /* MoleculesComponent */
 
-
-.som.molecules-component > .component-title {
-	centroid-x: -30cm;
-}
-
 .som.molecules-component > .media-grid-component {
-	centroid-y: -100cm;
+	centroid-y: -70cm;
 }
 
 .som.molecules-component > .media-grid-component >  .collection-component {

@@ -10,22 +10,21 @@
 App specific styles
 */
 
-.immersive-root > .masthead-component {
-	centroid: -65cm 70cm -200cm;
+.som-root {
+	centroid-z: -2m;
 }
 
-.som.views-component {
-	centroid: 0 30cm -200cm;
+.immersive-root > .masthead-component {
 }
 
 .som.view-component > .component-title {
+	centroid-y: -30cm;
 	font-size: var(--som-font-size-2);
 	font-size: 12cm;
 	color: var(--som-secondary-color);
 }
 
-.app > .flat-root > .dom.masthead-component,
-.app > .portal-root > .dom.masthead-component {
+.app > .dom-root > .dom.masthead-component {
 	margin-bottom: 40px;
 }
 

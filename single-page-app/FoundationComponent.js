@@ -20,41 +20,42 @@ const FoundationComponent = class extends Component {
 		new HeadingComponent(
 			null,
 			{
-				text: lt('Foundation'),
-				classes: 'component-title'
+				text: lt('Foundation')
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
+			.addClass('component-title')
 
 		new HeadingComponent(
 			null,
 			{
-				text: lt('Color'),
-				classes: 'h2 color-title'
+				text: lt('Color')
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
+			.addClass('h2', 'color-title')
 
 		this._colorsComponent = new CollectionComponent(
 			ColorVariables,
 			{
-				itemComponent: ColorSwatchComponent,
-				classes: 'colors-component'
-			},
-			this.inheritedOptions
-		).appendTo(this)
-
-		new HeadingComponent(
-			null,
-			{
-				text: lt('Fonts'),
-				classes: 'h2 font-title'
+				itemComponent: ColorSwatchComponent
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
+			.addClass('colors-component')
+
+		new HeadingComponent(
+			null,
+			{
+				text: lt('Fonts')
+			},
+			this.inheritedOptions
+		)
+			.appendTo(this)
+			.addClass('h2', 'font-title')
 
 		this._fontComponent = new FontComponent(null, {}, this.inheritedOptions).appendTo(this)
 
@@ -63,12 +64,12 @@ const FoundationComponent = class extends Component {
 			{
 				text: lt('Layout'),
 				usesPortalSpatial: false,
-				usesImmersive: false,
-				classes: 'h2 layout-title'
+				usesImmersive: false
 			},
 			this.inheritedOptions
 		)
 			.appendTo(this)
+			.addClass('h2', 'layout-title')
 
 		this._layoutComponent = new LayoutComponent(
 			null,
@@ -101,8 +102,8 @@ const SpatialFontSizes = new DataCollection([
 	{ id: '--som-font-size-0' }
 ])
 
-const cleanVarName = function(name){
-	return name.substring(6).replace(/\-/g, ' ', )
+const cleanVarName = function(name) {
+	return name.substring(6).replace(/-/g, ' ')
 }
 
 /* A helper class for displaying font examples in FontComponent */
@@ -144,10 +145,7 @@ const FontComponent = class extends Component {
 		const table = dom.table()
 		for (const size of PageFontSizes) {
 			const tr = dom.tr().appendTo(table)
-			const td = dom.td(
-				{ class: size.get('clazz') },
-				cleanVarName(size.get('id'))
-			).appendTo(tr)
+			const td = dom.td({ class: size.get('clazz') }, cleanVarName(size.get('id'))).appendTo(tr)
 		}
 		return table
 	}

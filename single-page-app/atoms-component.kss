@@ -1,11 +1,7 @@
 /* AtomsComponent */
 
-.som.atoms-component > .component-title {
-	centroid-x: -18cm;
-}
-
 .som.atoms-component > .media-grid-component {
-	centroid-y: -80cm;
+	centroid-y: -70cm;
 }
 
 .som.atoms-component > .media-grid-component > .collection-component {
@@ -21,9 +17,5 @@
 
 .som.atoms-component .som.main-component > .cube-component > mesh {
 	material-color: var(--dom-primary-color);
-}
-
-.som.atoms-component .som.main-component > .video-component {
-	width: 100%;
 }
 

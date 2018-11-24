@@ -1,11 +1,7 @@
 /* OrganismsComponent */
 
-.som.organisms-component > .component-title {
-	centroid-x: -50cm;
-}
-
 .som.organisms-component > .media-grid-component {
-	centroid-y: -90cm;
+	centroid-y: -70cm;
 }
 
 .som.organisms-component > .media-grid-component > .collection-component {
@@ -16,7 +12,7 @@
 }
 
 .som.organisms-component .main-component > .collection-component {
-	centroid-y: 20cm;
+	centroid-y: 10cm;
 }
 
 .som.organisms-component .main-component > .masthead-component {
@@ -25,5 +21,4 @@
 
 .som.organisms-component .main-component > .media-grid-component {
 	scale: 0.5 0.5 0.5;
-	centroid: 100cm 0 0;
 }

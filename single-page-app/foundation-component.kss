@@ -1,41 +1,36 @@
 /* FoundationComponent */
 
-/* We don't yet have text centering */
-.som.foundation-component > .component-title {
-	centroid-x: -35cm;
-}
-
 .som.foundation-component > .heading-component.h2 {
-	centroid-y: -12cm;
+	display: box;
+	centroid-y: -50cm;
 	color: var(--som-primary-color);
 	font-size: var(--som-font-size-base);
 }
 
-.som.foundation-component > .color-title {
-	centroid-x: -190cm;
-}
-
 .som.foundation-component > .colors-component {
-	centroid: -50cm -60cm 0;
+	centroid-y: -70cm;
 	display: grid;
 	grid-template: 0.5m / 1.2m 1.2m 1.2m;
 	grid-auto-rows: 0.5m;
 	gap: 0.2m;
 }
 
+.som.color-swatch-component {
+	display: box;
+	layout-direction: vertical;
+}
+
+.som.color-swatch-component > .cube-component {
+	scale: 1 0.25 0.01;
+	margin: 0 0 5cm 0;
+}
+
 .som.foundation-component > .font-title {
-	centroid-x: -450cm;
+	centroid-x: 500cm;
 }
+
 .som.foundation-component > .font-component {
-	centroid: -450cm -38cm 0;
-}
-
-.som.color-swatch-component > .som.cube-component {
-	centroid: 0 80cm 0;
-}
-
-.som.color-swatch-component > .cube-component > mesh {
-	scale: 0.25 0.25 0.01;
+	centroid: 500cm -70cm 0;
 }
 
 .dom.colors-component {

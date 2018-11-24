@@ -38,10 +38,7 @@ AtomData.push({
 	componentClass: CheckboxComponent
 })
 AtomData.push({
-	componentClass: CubeComponent,
-	componentOptions: {
-		classes: 'example-cube-component'
-	}
+	componentClass: CubeComponent
 })
 AtomData.push({
 	componentClass: FileInputComponent
@@ -141,11 +138,6 @@ const AtomsComponent = class extends Component {
 		setInterval(() => {
 			progressComponent.dataObject.set('value', (progressComponent.dataObject.get('value', 0) + 0.0025) % 1)
 		}, 1000)
-
-		const cubeComponent = this._mediaGridComponent._immersiveSOM.querySelector('.main-component > .example-cube-component').component
-		cubeComponent.flatDOM.style['width'] = '6em'
-		cubeComponent.flatDOM.style['height'] = '6em'
-		cubeComponent.flatDOM.style['background-color'] = 'var(--dom-primary-color)'
 	}
 }
 
