@@ -25,7 +25,7 @@ const MoleculeData = []
 MoleculeData.push({
 	componentClass: AudioPlayerComponent,
 	componentOptions: {
-		audio: '/single-page-app/audio/beep.wav'
+		audio: '/single-page-app/audio/beep.mp3'
 	}
 })
 MoleculeData.push({

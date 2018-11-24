@@ -97,10 +97,6 @@
 	width: 100%;
 }
 
-.dom.font-component > table > tr:first-child > td {
-	border-bottom: solid 1px #EFEFEF;
-}
-
 .dom.font-component > table > tr > td {
 	text-align: center;
 	padding: 10px;
