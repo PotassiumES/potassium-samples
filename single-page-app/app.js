@@ -90,12 +90,12 @@ const SinglePageApp = class extends App {
 
 		// Add a spherical environment for immersive mode
 		this._immersiveEnvironmentMesh = som
-			.mesh(
+			.mesh([
 				som.sphereBufferGeometry(500, 60, 40),
 				som.meshBasicMaterial({
 					map: som.textureLoader().load('./environment.jpg')
 				})
-			)
+			])
 			.appendTo(this.immersiveScene)
 		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
 	}

@@ -8,6 +8,8 @@ import ImageComponent from 'potassium-components/src/atoms/ImageComponent.js'
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 import ModeSwitcherComponent from 'potassium-components/src/molecules/ModeSwitcherComponent.js'
 
+import BorderLine from 'potassium-es/src/three/BorderLine.js'
+
 const HelloWorldApp = class extends App {
 	constructor() {
 		super()
@@ -57,7 +59,7 @@ const HelloWorldApp = class extends App {
 		this.addListener((eventName, mode) => {
 			this._modeSwitcherComponent.handleSwitchFailed(mode)
 		}, App.DisplayModeFailedEvent)
-
+		
 		const portalLight = som.directionalLight([0xffffff, 0.7])
 		this.portalScene.add(portalLight)
 		this.portalScene.add(portalLight.target)
@@ -70,12 +72,12 @@ const HelloWorldApp = class extends App {
 
 		// Add a spherical environment for immersive mode
 		this._immersiveEnvironmentMesh = som
-			.mesh(
+			.mesh([
 				som.sphereBufferGeometry(500, 60, 40),
 				som.meshBasicMaterial({
 					map: som.textureLoader().load('./environment.jpg')
 				})
-			)
+			])
 			.appendTo(this.immersiveScene)
 		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
 	}
