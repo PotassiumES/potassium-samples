@@ -98,7 +98,7 @@ const SpatialFontSizes = new DataCollection([
 	{ id: '--som-font-size-4' },
 	{ id: '--som-font-size-3' },
 	{ id: '--som-font-size-2' },
-	{ id: '--som-font-base' },
+	{ id: '--som-font-size-base' },
 	{ id: '--som-font-size-0' }
 ])
 

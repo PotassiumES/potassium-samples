@@ -1,21 +1,16 @@
 /* AtomsComponent */
 
 .som.atoms-component > .media-grid-component {
-	centroid-y: -70cm;
+	centroid-y: -7cm;
 }
 
 .som.atoms-component > .media-grid-component > .collection-component {
 	display: grid;
-	grid-template: 1.2m / 2m 2m 2m 2m 2m 2m;
-	grid-auto-rows: 1.2m;
-	gap: 0.1m;
+	grid-template: 12cm / 20cm 20cm 20cm;
+	grid-auto-rows: 12cm;
+	gap: 1cm;
 }
 
-.som.atoms-component .som.main-component > .cube-component {
-	scale: 0.3 0.3 0.3;
+.som.atoms-component .video-component {
+	scale: 3;
 }
-
-.som.atoms-component .som.main-component > .cube-component > mesh {
-	material-color: var(--dom-primary-color);
-}
-

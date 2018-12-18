@@ -1,18 +1,18 @@
 /* OrganismsComponent */
 
 .som.organisms-component > .media-grid-component {
-	centroid-y: -70cm;
+	centroid-y: -7cm;
 }
 
 .som.organisms-component > .media-grid-component > .collection-component {
 	display: grid;
-	grid-template: 1.2m / 2m 2m 2m 2m;
-	grid-auto-rows: 1.2m;
-	gap: 0.1m;
+	grid-template: 12cm / 20cm 20cm;
+	grid-auto-rows: 12cm;
+	gap: 1cm;
 }
 
 .som.organisms-component .main-component > .collection-component {
-	centroid-y: 10cm;
+	centroid-y: 1cm;
 }
 
 .som.organisms-component .main-component > .masthead-component {

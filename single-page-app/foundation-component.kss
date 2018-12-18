@@ -2,17 +2,17 @@
 
 .som.foundation-component > .heading-component.h2 {
 	display: box;
-	centroid-y: -50cm;
+	centroid-y: -5cm;
 	color: var(--som-primary-color);
 	font-size: var(--som-font-size-base);
 }
 
 .som.foundation-component > .colors-component {
-	centroid-y: -70cm;
+	centroid-y: -7cm;
 	display: grid;
-	grid-template: 0.5m / 1.2m 1.2m 1.2m;
-	grid-auto-rows: 0.5m;
-	gap: 0.2m;
+	grid-template: 5cm / 12cm 12cm 12cm;
+	grid-auto-rows: 5cm;
+	gap: 1cm;
 }
 
 .som.color-swatch-component {
@@ -21,16 +21,16 @@
 }
 
 .som.color-swatch-component > .cube-component {
-	scale: 1 0.25 0.01;
-	margin: 0 0 5cm 0;
+	scale: 12 3 0.001;
+	margin: 0 0 0.2cm 0;
 }
 
 .som.foundation-component > .font-title {
-	centroid-x: 500cm;
+	centroid-x: 45cm;
 }
 
 .som.foundation-component > .font-component {
-	centroid: 500cm -70cm 0;
+	centroid: 45cm -7cm 0;
 }
 
 .dom.colors-component {

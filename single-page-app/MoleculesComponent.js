@@ -52,7 +52,7 @@ MoleculeData.push({
 MoleculeData.push({
 	componentClass: ToolTipComponent,
 	componentOptions: {
-		component: new LabelComponent(null, { text: 'A tip for you' })
+		component: new LabelComponent(null, { text: 'A bit of helpful text\nthat fits on two lines' })
 	}
 })
 MoleculeData.push({
