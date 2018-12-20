@@ -6,7 +6,6 @@ import DataCollection from 'potassium-es/src/DataCollection.js'
 
 import AudioComponent from 'potassium-components/src/atoms/AudioComponent.js'
 import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent.js'
-import CheckboxComponent from 'potassium-components/src/atoms/CheckboxComponent.js'
 import CubeComponent from 'potassium-components/src/atoms/CubeComponent.js'
 import FileInputComponent from 'potassium-components/src/atoms/FileInputComponent.js'
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
@@ -33,9 +32,6 @@ AtomData.push({
 AtomData.push({
 	componentClass: ButtonComponent,
 	componentOptions: { text: 'Click Me' }
-})
-AtomData.push({
-	componentClass: CheckboxComponent
 })
 AtomData.push({
 	componentClass: CubeComponent
