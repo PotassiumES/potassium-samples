@@ -33,6 +33,10 @@
 	centroid: 45cm -7cm 0;
 }
 
+.som.foundation-component > .font-component > .spatial-fonts {
+	gap: 2cm;
+}
+
 .dom.colors-component {
 	display: grid;
 	grid-template: auto / 1fr 1fr 1fr;

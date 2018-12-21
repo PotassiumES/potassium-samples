@@ -15,7 +15,6 @@ import ProgressComponent from 'potassium-components/src/atoms/ProgressComponent.
 import SelectionComponent from 'potassium-components/src/atoms/SelectionComponent.js'
 import SliderComponent from 'potassium-components/src/atoms/SliderComponent.js'
 import SwitchComponent from 'potassium-components/src/atoms/SwitchComponent.js'
-import TableComponent from 'potassium-components/src/atoms/TableComponent.js'
 import TextComponent from 'potassium-components/src/atoms/TextComponent.js'
 import TextInputComponent from 'potassium-components/src/atoms/TextInputComponent.js'
 import VideoComponent from 'potassium-components/src/atoms/VideoComponent.js'
@@ -77,14 +76,6 @@ AtomData.push({
 	componentOptions: {
 		dataField: 'state'
 	}
-})
-AtomData.push({
-	componentClass: TableComponent,
-	componentData: new DataCollection([
-		{ key: 'Foo', value: 'Oof' },
-		{ key: 'Boo', value: 'Oob' },
-		{ key: 'Goo', value: 'Oog' }
-	])
 })
 AtomData.push({
 	componentClass: TextComponent,
