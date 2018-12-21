@@ -7,7 +7,6 @@ import DataCollection from 'potassium-es/src/DataCollection.js'
 import AudioComponent from 'potassium-components/src/atoms/AudioComponent.js'
 import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent.js'
 import CubeComponent from 'potassium-components/src/atoms/CubeComponent.js'
-import FileInputComponent from 'potassium-components/src/atoms/FileInputComponent.js'
 import HeadingComponent from 'potassium-components/src/atoms/HeadingComponent.js'
 import ImageComponent from 'potassium-components/src/atoms/ImageComponent.js'
 import LabelComponent from 'potassium-components/src/atoms/LabelComponent.js'
@@ -34,9 +33,6 @@ AtomData.push({
 })
 AtomData.push({
 	componentClass: CubeComponent
-})
-AtomData.push({
-	componentClass: FileInputComponent
 })
 AtomData.push({
 	componentClass: HeadingComponent,
