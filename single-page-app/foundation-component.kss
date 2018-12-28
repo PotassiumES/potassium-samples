@@ -3,7 +3,7 @@
 .som.foundation-component > .heading-component.h2 {
 	display: box;
 	centroid-y: -5cm;
-	color: var(--som-primary-color);
+	emissive: var(--som-primary-color);
 	font-size: var(--som-font-size-base);
 }
 

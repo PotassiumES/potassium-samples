@@ -15,11 +15,15 @@ App specific styles
 	centroid-y: -20cm;
 }
 
+.som-input-group {
+	centroid: -45cm -20cm -60cm;
+}
+
 .som.view-component > .component-title {
 	centroid-y: -3cm;
 	font-size: var(--som-font-size-2);
 	font-size: 0.12cm;
-	color: var(--som-secondary-color);
+	emissive: var(--som-secondary-color);
 }
 
 .app > .dom-root > .dom.masthead-component {

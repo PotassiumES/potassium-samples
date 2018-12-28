@@ -31,7 +31,9 @@ const FormsComponent = class extends Component {
 
 		this._accountFormComponent = new FormComponent(
 			new DataModel({
+				'username': 'sparks12',
 				'sabbatical-month': 3,
+				'notifications': true,
 				birthday: '1970-01-31T00:00:00.000Z'
 			}),
 			{},
@@ -51,7 +53,7 @@ const FormsComponent = class extends Component {
 					{
 						dataField: 'username',
 						label: lt('Username'),
-						placeholder: lt('sparks12')
+						placeholder: lt('username')
 					},
 					this.inheritedOptions
 				)

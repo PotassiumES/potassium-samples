@@ -54,7 +54,7 @@ const VideoPlayerApp = class extends App {
 		this.router.addRoute(new RegExp('^$'), 0) // special case no hash
 		for (let i = 0; i < videos.length; i++) {
 			// Each video gets a number hash
-			this.router.addRoute(new RegExp(`^${i}$`), i)
+			this.router.addRoute(new RegExp(`^${i}`), i)
 		}
 		this.router.addListener(this._handleRoutes.bind(this))
 		this.router.start()

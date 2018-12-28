@@ -5,6 +5,7 @@ import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 import MultiComponent from 'potassium-components/src/atoms/MultiComponent.js'
 
 import MastheadComponent from 'potassium-components/src/organisms/MastheadComponent.js'
+import VirtualKeyboardComponent from 'potassium-components/src/organisms/VirtualKeyboardComponent.js'
 
 import FoundationComponent from './FoundationComponent.js'
 import AtomsComponent from './AtomsComponent.js'
@@ -46,11 +47,12 @@ ViewInfo.push({
 
 const SinglePageApp = class extends App {
 	constructor() {
-		super()
-		this._brand = 'PotassiumES'
+		super({
+			textInputComponent: new VirtualKeyboardComponent()
+		})
 
 		this._masthead = new MastheadComponent(null, {
-			brand: this._brand,
+			brand: 'PotassiumES',
 			brandAnchor: '/',
 			menuItems: ViewInfo.map(info => {
 				return {

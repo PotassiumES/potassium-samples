@@ -7,16 +7,23 @@ node[name=DirectionalLight] {
 	centroid: 0 10m 20m
 }
 
-.som-root {
-	centroid-z: -220cm;
+.som.masthead-component {
+	margin: 0 0 2cm 0;
 }
 
-.som.masthead-component {
-	centroid:  -65cm 50cm 0;
+.som-root {
+	centroid-z: -60cm;
+	centroid-y: 20cm;
+	display: box;
 }
+
+.som-input-group {
+	centroid: -45cm -20cm -60cm;
+}
+
 
 .som.video-player-component {
-	centroid: -90cm 15cm 0;
+	scale: 2;
 }
 
 .dom.masthead-component {
