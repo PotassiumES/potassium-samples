@@ -16,7 +16,7 @@ App specific styles
 }
 
 .som-input-group {
-	centroid: -45cm -20cm -60cm;
+	centroid: -45cm -21.5cm -60cm;
 }
 
 .som.view-component > .component-title {

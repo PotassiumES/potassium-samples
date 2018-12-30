@@ -1,5 +1,5 @@
 /* FormsComponent */
 
 .som.forms-component > .account-form-component {
-	centroid-y: -7cm;
+	centroid-y: -5cm;
 }
