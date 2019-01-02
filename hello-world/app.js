@@ -68,7 +68,8 @@ const HelloWorldApp = class extends App {
 		const immersiveLight = som.directionalLight([0xffffff, 0.7])
 		this.immersiveScene.add(immersiveLight)
 		this.immersiveScene.add(immersiveLight.target)
-		this.immersiveScene.add(som.ambientLight([0xffffff, 0.4]))
+
+		this.immersiveScene.add(som.ambientLight([0xffffff, 0.3]))
 
 		// Add a spherical environment for immersive mode
 		this._immersiveEnvironmentMesh = som

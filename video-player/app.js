@@ -70,7 +70,8 @@ const VideoPlayerApp = class extends App {
 			.appendTo(this.immersiveScene)
 		this._immersiveEnvironmentMesh.geometry.scale(-1, 1, 1) // point inward
 
-		this._setupLights()
+		this._setupLights(this.portalScene)
+		this._setupLights(this.immersiveScene)
 	}
 
 	_setVideo(index) {
@@ -91,16 +92,13 @@ const VideoPlayerApp = class extends App {
 		this._masthead.navigationMenu.selectedIndex = route
 	}
 
-	_setupLights() {
-		const portalLight = som.directionalLight([0xffffff, 0.7])
-		this.portalScene.add(portalLight)
-		this.portalScene.add(portalLight.target)
-		this.portalScene.add(som.ambientLight([0xffffff, 0.4]))
-
-		const immersiveLight = som.directionalLight([0xffffff, 0.7])
-		this.immersiveScene.add(immersiveLight)
-		this.immersiveScene.add(immersiveLight.target)
-		this.immersiveScene.add(som.ambientLight([0xffffff, 0.4]))
+	_setupLights(scene) {
+		const directionalLight = som.directionalLight([0xffffff, 0.5])
+		directionalLight.position.set(0, 10, 20)
+		directionalLight.target.position.set(0, 0, -1)
+		scene.add(directionalLight)
+		scene.add(directionalLight.target)
+		scene.add(som.ambientLight([0xffffff, 1]))
 	}
 }
 

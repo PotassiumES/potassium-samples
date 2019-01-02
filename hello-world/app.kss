@@ -8,8 +8,7 @@
 }
 
 .som-root {
-	centroid-z: -60cm;
-	centroid-y: 20cm;
+	centroid: -15cm 0 -60cm;
 	display: box;
 }
 

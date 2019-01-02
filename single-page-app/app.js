@@ -111,23 +111,7 @@ const SinglePageApp = class extends App {
 		scene.add(keyLight)
 		scene.add(keyLight.target)
 
-		const fillLight = som.directionalLight([0xffffff, 0.2])
-		fillLight.addClass('fill-light')
-		fillLight.name = 'FillLight'
-		fillLight.position.set(-10, 10, 10)
-		fillLight.target.position.set(0, 0, 1)
-		scene.add(fillLight)
-		scene.add(fillLight.target)
-
-		const backLight = som.directionalLight([0xffffff, 0.2])
-		backLight.addClass('back-light')
-		backLight.name = 'BackLight'
-		backLight.position.set(-10, 10, -10).normalize()
-		backLight.target.position.set(0, 0, 1)
-		scene.add(backLight)
-		scene.add(backLight.target)
-
-		scene.add(som.ambientLight([0xffffff, 0.7]))
+		scene.add(som.ambientLight([0xffffff, 0.3]))
 	}
 
 	_handleRoutes(routeInfo, hash, ...regexMatches) {

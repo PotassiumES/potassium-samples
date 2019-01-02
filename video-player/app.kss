@@ -12,8 +12,7 @@ node[name=DirectionalLight] {
 }
 
 .som-root {
-	centroid-z: -60cm;
-	centroid-y: 20cm;
+	centroid: -15cm 0 -60cm;
 	display: box;
 }
 
@@ -22,8 +21,8 @@ node[name=DirectionalLight] {
 }
 
 
-.som.video-player-component {
-	scale: 2;
+.som.video-player-component > .backdrop-component > .video-component {
+	scale: 4;
 }
 
 .dom.masthead-component {
