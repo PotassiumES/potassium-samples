@@ -3,7 +3,6 @@ import App from 'potassium-es/src/App'
 import som from 'potassium-es/src/SOM'
 import Component from 'potassium-es/src/Component'
 import Stylist from 'potassium-es/src/style/Stylist'
-import { FlatDisplay } from 'potassium-es/src/Engine'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer'
 
 import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent'
