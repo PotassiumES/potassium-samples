@@ -1,6 +1,6 @@
 {
   "name": "potassium-samples",
-  "version": "0.1.0-alpha1",
+  "version": "1.0.0",
   "description": "Sample uses of PotassiumES",
   "main": "index.js",
   "scripts": {
@@ -79,9 +79,9 @@
     "postcss": "^7.0.4",
     "postcss-cli": "^6.0.1",
     "postcss-import": "^12.0.0",
-    "postcss-potassium": "git@github.com:PotassiumES/postcss-potassium.git#development",
-    "potassium-components": "git@github.com:PotassiumES/potassium-components.git#development",
-    "potassium-es": "git@github.com:PotassiumES/potassium-es.git#development",
+    "postcss-potassium": "1.0.0",
+    "potassium-components": "1.0.0",
+    "potassium-es": "1.0.0",
     "precss": "^3.1.2",
     "prettier": "^1.13.7",
     "rollup": "^0.62.0",
