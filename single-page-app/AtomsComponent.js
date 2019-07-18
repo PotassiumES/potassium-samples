@@ -3,6 +3,7 @@ import Component from 'potassium-es/src/Component.js'
 import DataModel from 'potassium-es/src/DataModel.js'
 import { lt, ld, ldt } from 'potassium-es/src/Localizer.js'
 import DataCollection from 'potassium-es/src/DataCollection.js'
+import * as paths from 'potassium-es/src/Paths.js'
 
 import AudioComponent from 'potassium-components/src/atoms/AudioComponent.js'
 import ButtonComponent from 'potassium-components/src/atoms/ButtonComponent.js'
@@ -25,7 +26,7 @@ import ComponentCardComponent from './ComponentCardComponent.js'
 const AtomData = []
 AtomData.push({
 	componentClass: AudioComponent,
-	componentOptions: { src: '/static/single-page-app/test-audio.wav' }
+	componentOptions: { src: paths.Static + '/single-page-app/test-audio.wav' }
 })
 AtomData.push({
 	componentClass: ButtonComponent,
