@@ -15,6 +15,10 @@
     "build-hello-world": "npm run style-hello-world && rollup -c hello-world/rollup.config.js",
     "build-single-page-app": "npm run style-single-page-app && rollup -c single-page-app/rollup.config.js",
     "build": "npm run collect-static && npm run style-site && npm run build-video-player && npm run build-hello-world && npm run build-single-page-app",
+    "compress-video-player": "node_modules/terser/bin/uglifyjs --compress --module video-player/build.js > video-player/build.min.js",
+    "compress-hello-world": "node_modules/terser/bin/uglifyjs --compress --module hello-world/build.js > hello-world/build.min.js",
+    "compress-single-page-app": "node_modules/terser/bin/uglifyjs --compress --module single-page-app/build.js > single-page-app/build.min.js",
+    "compress": "npm run compress-video-player && npm run compress-hello-world && npm run compress-single-page-app",
     "lint": "eslint hello-world single-page-app video-player",
     "lint-fix": "eslint hello-world single-page-app video-player --fix",
     "prettier-video-player": "prettier --write video-player/**/*.js video-player/**/*.js",
@@ -72,6 +76,7 @@
     "video-player/build.js"
   ],
   "devDependencies": {
+    "cssnano": "^4.1.7",
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
@@ -87,9 +92,8 @@
     "rollup": "^0.62.0",
     "rollup-plugin-cleanup": "^3.0.0",
     "rollup-plugin-commonjs": "^9.1.3",
-    "rollup-plugin-node-resolve": "^3.3.0"
-  },
-  "dependencies": {
-    "cssnano": "^4.1.7"
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "terser": "^4.1.2",
+    "three": "^0.106.2"
   }
 }

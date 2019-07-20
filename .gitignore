@@ -2,3 +2,4 @@ node_modules/
 dist/
 static/
 */build.js
+*/build.min.js
