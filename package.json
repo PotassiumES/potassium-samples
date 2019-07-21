@@ -88,6 +88,6 @@
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
     "terser": "^4.1.2",
-    "potassium-components": "github:potassiumes/potassium-components#tfs-dependency-fixup"
+    "potassium-components": "1.0.0"
   }
 }
