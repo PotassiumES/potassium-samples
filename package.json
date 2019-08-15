@@ -76,6 +76,9 @@
     "single-page-app/build.js",
     "video-player/build.js"
   ],
+  "dependencies": {
+    "potassium-components": "PotassiumES/potassium-components#development"
+  },
   "devDependencies": {
     "cssnano": "^4.1.7",
     "eslint": "^5.0.1",
@@ -87,7 +90,6 @@
     "rollup-plugin-cleanup": "^3.0.0",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "terser": "^4.1.2",
-    "potassium-components": "1.0.0"
+    "terser": "^4.1.2"
   }
 }
