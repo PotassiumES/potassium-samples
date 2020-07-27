@@ -1,6 +1,6 @@
 import cleanup from 'rollup-plugin-cleanup'
-import commonjs from 'rollup-plugin-commonjs'
-import resolve from 'rollup-plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 
 export default {
 	input: './single-page-app/app.js',
